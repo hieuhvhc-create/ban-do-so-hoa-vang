@@ -11,7 +11,7 @@ const diTich = [
     lichSu: "Đình được khởi dựng vào khoảng cuối thế kỷ 15 bằng tranh tre nứa lá bởi các vị tiền hiền của 5 dòng họ lớn (Đặng, Lâm, Nguyễn, Trần, Lê) có công khai khẩn lập ấp. Trải qua hơn 5 thế kỷ, đình từng bị cháy rụi và được xây dựng lại vào năm 1888 (Mậu Tý), rồi tiếp tục dựng lại sau trận bão năm 1900. Trong kháng chiến, nơi đây là địa bàn cách mạng quan trọng: điểm tập trung giành chính quyền tháng 8/1945, trạm cứu thương của Tieu đoàn 17 năm 1947, và từng bị địch chiếm làm trung tâm huấn chính gắt gao giai đoạn 1955-1957. Đình hiện còn lưu giữ 20 sắc phong thần của các vua triều Nguyễn.",
     hinhAnh: "images/tuyloan.jpg",
     googleMaps: "https://www.google.com/maps?q=15.99782615342037,108.13694307218168",
-    video: "https://www.youtube.com/embed/p9I2p_b7G_Y",
+    video: "https://www.youtube.com/embed/p9I2p_b7G_Y?origin=https://hieuvhc-create.github.io",
     taiLieu: ""
   },
   {
