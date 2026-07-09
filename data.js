@@ -24,7 +24,7 @@ const diTich = [
     xepHang: "Di tích Kiến trúc Nghệ thuật cấp Quốc gia (Được công nhận năm 1999)",
     moTa: "Đình làng Bồ Bản là một trong những ngôi đình cổ hiếm hoi còn giữ được vẻ đẹp nguyên vẹn tại Đà Nẵng. Đình được xây dựng theo lối kiến trúc 3 gian 2 chái, lợp mái ngói âm dương truyền thống. Không gian nội thất bên trong được chạm khắc hết sức tinh xảo bởi bàn tay tài hoa của các nghệ nhân mộc Kim Bồng (Hội An), thể hiện qua các hoa văn tứ quý, mây uốn, đầu rồng đuôi lá độc đáo. Mặt trước đình có sân rộng và bức bình phong cuốn thư ghép mảnh sành sứ hình mãnh hổ uy nghi.",
     lichSu: "Làng Bồ Bản được khai khẩn từ cuối thế kỷ 15 (khoảng năm 1476). Ngôi đình bàn đầu dựng bằng tranh tre vào năm 1800, sau đó được dịch chuyển và xây kiên cố vào năm 1852. Trải qua nhiều biến động, đình được đại trùng tu vào các năm 1906 và 1990 nhưng vẫn giữ đúng các yếu tố gốc ban đầu. Nơi đây ghi dấu nhiều sự kiện cách mạng quan trọng: điểm tập hợp cướp chính quyền tháng 8/1945, địa điểm lập phòng phiếu bầu cử Quốc hội đầu tiên và là nơi xét xử tề ngụy, tiếp nhận ngụy quân đầu thú sau giải phóng.",
-    hinhAnh: "images/boban.jpg",
+    hinhAnh: "images/boban.gif",
     googleMaps: "https://www.google.com/maps?q=15.987953179337236,108.1518397085302",
     video: "youtube.com/watch?v=-TKEsrumxuc&feature=youtu.be"
   },
