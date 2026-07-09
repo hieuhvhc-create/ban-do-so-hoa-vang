@@ -1,0 +1,254 @@
+/* ==========================================
+   CẤU HÌNH CHUNG TOÀN TRANG
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   THANH ĐẦU TRANG (HEADER) & HÌNH NỀN
+   ========================================== */
+header {
+    /* ĐÃ TĂNG: Tăng từ 280px lên 420px (hoặc 450px) để hình nền có không gian hiển thị to và hoành tráng hơn */
+    height: 480px; 
+    
+    /* Cấu hình hình nền */
+    background-image: url('images/bg-header.png');
+    background-position: center center; /* Giữ tâm bức ảnh luôn ở giữa */
+    background-size: cover;             /* Ép hình nền luôn trải đều phủ kín toàn bộ khung header */
+    background-repeat: no-repeat;       
+    
+    /* Căn chỉnh nội dung bên trong */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    
+    /* ĐHÊM THÊM: Tạo khoảng cách đệm trên dưới để các nội dung không bị kích */
+    padding: 20px 0; 
+}
+
+/* Lớp phủ kính mờ giúp làm nổi bật chữ trên nền ảnh */
+/* Lớp phủ kính mờ giúp làm nổi bật chữ trên nền ảnh */
+.overlay {
+    /* ĐÃ NÂNG CẤP: Tăng độ mờ đen lên 0.7 để che hẳn các chi tiết rối mắt bên dưới ảnh nền */
+    background: rgba(0, 0, 0, 0.2); 
+    
+    /* ĐÃ THÊM: Tạo hiệu ứng làm mờ nhòe lớp ảnh nền phía sau khung chữ, giúp Text chữ trắng HTML nổi lên rõ mười mươi */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* Hỗ trợ trình duyệt Safari/iOS */
+    
+    /* ĐÃ THÊM: Bóng đổ nhẹ giúp toàn bộ khối overlay nhìn nổi bật và có chiều sâu */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); 
+    
+    padding: 30px 45px;
+    border-radius: 12px;
+    width: 92%;
+    max-width: 850px;
+    margin: auto; /* Giữ khối luôn cân bằng ở chính giữa */
+}
+
+/* Khối chứa logo nằm bên trong vùng overlay */
+.header-logos {
+    display: flex;
+    justify-content: center; /* Căn giữa logo theo chiều ngang */
+    align-items: center;     
+    gap: 20px;               
+    margin-bottom: 10px;     /* Khoảng cách dưới logo */
+}
+
+/* Định dạng kích thước của logo Đoàn */
+.logo-item {
+    height: 65px;            /* Chiều cao vừa vặn cho logo */
+    width: auto;             
+    object-fit: contain;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3)); /* Tạo bóng đổ nhẹ cho logo */
+}
+
+/* Dòng chữ Đơn vị thực hiện */
+.ten-don-vi {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fffb00;           /* Màu vàng nổi bật của Đoàn */
+    text-transform: uppercase;
+    
+    /* GIÃN CÁCH: Tạo khoảng cách rộng rãi giữa dòng Đoàn xã và dòng BẢN ĐỒ SỐ ở dưới */
+    margin-bottom: 35px;      
+}
+
+/* Các thẻ tiêu đề chính */
+header h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+header h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+header p {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+/* ==========================================
+   THANH TÌM KIẾM (SEARCH BAR)
+   ========================================== */
+.search {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: white;
+    gap: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.search input {
+    width: 420px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.search input:focus {
+    border-color: #c62828; /* Đổi màu viền sang đỏ khi click vào ô nhập */
+}
+
+.search button {
+    padding: 12px 25px;
+    background: #c62828;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search button:hover {
+    background: #b71c1c;
+}
+
+/* ==========================================
+   BỐ CỤC CHÍNH (SIDEBAR & BẢN ĐỒ)
+   ========================================== */
+.container {
+    display: flex;
+    flex: 1; /* Tự động lấp đầy phần màn hình còn lại phía dưới */
+    height: 100%;
+}
+
+.sidebar {
+    width: 350px; /* Chiều rộng thanh danh sách bên trái */
+    background: white;
+    overflow-y: auto; /* Chỉ cuộn theo chiều dọc */
+    padding: 20px 0; /* Xóa padding trái phải để hover tràn viền */
+    border-right: 1px solid #eee;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    padding: 0 20px;
+    color: #333;
+    font-size: 18px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+/* Định dạng thẻ liên kết trong danh sách */
+.sidebar li a {
+    display: block; /* Biến toàn bộ vùng LI thành link bấm được */
+    padding: 14px 20px;
+    color: #444;
+    text-decoration: none; /* Bỏ gạch chân mặc định */
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.sidebar li:hover {
+    background: #fdf2f2; /* Đổi màu nền hover sang tone đỏ nhạt */
+}
+
+.sidebar li:hover a {
+    color: #c62828; /* Chữ đổi sang màu đỏ chủ đạo khi hover */
+    font-weight: bold;
+}
+
+/* Vùng hiển thị bản đồ số Leaflet */
+#map {
+    flex: 1;
+    z-index: 1;
+}
+
+/* ==========================================
+   CẤU HÌNH CHO KHUNG VIDEO TRANG CHI TIẾT
+   ========================================== */
+#video iframe {
+    width: 100%;
+    height: 450px; /* Chiều cao chuẩn hiển thị video cực nét */
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   TỐI ƯU GIAO DIỆN TRÊN ĐIỆN THOẠI (RESPONSIVE)
+   ========================================== */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 30px 10px;
+    }
+    .overlay {
+        padding: 15px;
+    }
+    .logo-item {
+        height: 50px; /* Thu nhỏ logo trên điện thoại */
+    }
+    .ten-don-vi {
+        font-size: 13px;
+        margin-bottom: 20px; /* Thu nhỏ khoảng cách giãn dòng trên mobile */
+    }
+    header h1 {
+        font-size: 24px;
+    }
+    header h2 {
+        font-size: 18px;
+    }
+    .search input {
+        width: 100%; /* Ô tìm kiếm giãn hết màn hình trên điện thoại */
+    }
+    .container {
+        flex-direction: column; /* Đổi thành một hàng dọc (Sidebar trên, Map dưới) nếu xem trên mobile */
+    }
+    .sidebar {
+        width: 100%;
+        height: 250px;
+    }
+}
