@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản đồ số Di tích lịch sử xã Hòa Vang</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+
+    <header>
+    <div class="overlay">
+        <div class="header-logos">
+            <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item">
+        </div>
+
+        <h3 class="ten-don-vi">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
+
+        <h1>BẢN ĐỒ SỐ DI TÍCH LỊCH SỬ - VĂN HÓA</h1>
+        <h2>XÃ HÒA VANG</h2>
+        <p>Khám phá các di tích lịch sử, văn hóa trên địa bàn xã</p>
+    </div>
+</header>
+    <section class="search">
+        <input type="text" id="searchInput" placeholder="Nhập tên di tích...">
+        <button id="searchBtn">Tìm kiếm</button>
+    </section>
+
+    <section class="container">
+        <div class="sidebar">
+            <h3>Danh sách di tích Lịch sử - Văn hóa</h3>
+            <ul id="list"></ul>
+        </div>
+        
+        <div id="map"></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
