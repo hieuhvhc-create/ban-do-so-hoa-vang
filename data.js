@@ -96,7 +96,7 @@ const diTich = [
     lichSu: "Mộ phần được bảo tồn chu đáo qua nhiều thế hệ như một biểu tượng thiêng liêng thể hiện đạo lý 'Uống nước nhớ nguồn' của người dân xứ Quảng.",
     hinhAnh: "images/levanhoan.jpg",
     googleMaps: "https://www.google.com/maps?q=15.979213835550407,108.12798664297617",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco"
+    video: "https://www.youtube.com/watch?v=3FOVhWDCcf8"
   },
   {
     id: 8,
