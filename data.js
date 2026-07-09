@@ -18,7 +18,7 @@ const diTich = [
     id: 2,
     ten: "Đình làng Bồ Bản",
     loai: "Di tích lịch sử - văn hóa",
-    diaChi: "Thôn Bồ Bản, Xã Hòa Phong, Huyện Hòa Vang, TP. Đà Nẵng",
+    diaChi: "Thôn Bồ Bản, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.987953179337236,
     lng: 108.1518397085302,
     xepHang: "Di tích Kiến trúc Nghệ thuật cấp Quốc gia (Được công nhận năm 1999)",
