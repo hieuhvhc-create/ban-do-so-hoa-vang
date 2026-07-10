@@ -96,11 +96,11 @@ if (document.getElementById("map")) {
 
 
 // ==========================================
-// TRANG CHI TIẾT (DETAIL.HTML)
+// TRANG CHI TIẾT (DETAIL.HTML) - ĐÃ TỐI ƯU
 // ==========================================
 
 if (document.getElementById("ten")) {
-    // 1. Lấy ID từ thanh địa chỉ URL (Ví dụ: detail.html?id=3 -> lấy ra số 3)
+    // 1. Lấy ID từ thanh địa chỉ URL
     const urlParams = new URLSearchParams(window.location.search);
     const id = parseInt(urlParams.get("id"));
 
@@ -108,61 +108,55 @@ if (document.getElementById("ten")) {
     const item = diTich.find(x => x.id === id);
 
     if (item) {
-        // 3. Đổ dữ liệu vào các thẻ HTML tương ứng (Có kiểm tra dữ liệu trống để tránh lỗi)
+        // 3. Đổ dữ liệu văn bản vào giao diện
         document.getElementById("ten").innerText = item.ten || "";
         document.getElementById("diaChi").innerText = item.diaChi || "";
         document.getElementById("moTa").innerText = item.moTa || "";
 
-        // Gán loại di tích vào mục xếp hạng (hoặc loại)
+        // SỬA CHUẨN: Lấy đúng trường xếp hạng chính thức dài của di tích
         const xepHangElem = document.getElementById("xepHang");
-        if (xepHangElem) xepHangElem.innerText = item.loai || "Đang cập nhật";
+        if (xepHangElem) xepHangElem.innerText = item.xepHang || "Đang cập nhật xếp hạng...";
 
-        // Gán lịch sử (nếu có trường này, nếu không để trống)
+        // Gán dữ liệu lịch sử
         const lichSuElem = document.getElementById("lichSu");
-        if (lichSuElem) lichSuElem.innerText = item.lichSu || "Dữ liệu đang được cập nhật...";
+        if (lichSuElem) lichSuElem.innerText = item.lichSu || "Dữ liệu lịch sử đang được ban ngành cập nhật...";
 
-        // Xử lý hiển thị Hình ảnh
+        // Xử lý hiển thị Hình ảnh di tích
         const hinhAnhElem = document.getElementById("hinhAnh");
         if (hinhAnhElem) {
             if (item.hinhAnh && item.hinhAnh !== "") {
                 hinhAnhElem.src = item.hinhAnh;
                 hinhAnhElem.style.display = "block";
             } else {
-                hinhAnhElem.style.display = "none"; // Ẩn thẻ img nếu không có ảnh
+                hinhAnhElem.style.display = "none";
             }
         }
 
-        // Xử lý hiển thị Video iFrame
+        // Xử lý hiển thị Video iFrame phát trực tuyến
         const videoElem = document.getElementById("video");
         if (videoElem) {
             if (item.video && item.video !== "") {
-                videoElem.innerHTML = `<iframe src="${item.video}" frameborder="0" allowfullscreen></iframe>`;
+                videoElem.innerHTML = `<iframe src="${item.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
                 videoElem.style.display = "block";
             } else {
                 videoElem.style.display = "none";
             }
         }
 
-        // Xử lý nút Tài liệu / Google Maps liên kết bản đồ gốc
+        // SỬA CHUẨN: Xử lý nút Tài liệu văn bản thông minh theo đúng HTML mẫu
         const taiLieuElem = document.getElementById("taiLieu");
         if (taiLieuElem) {
-            if (item.taiLieu && item.taiLieu !== "") {
+            if (item.taiLieu && item.taiLieu.trim() !== "") {
                 taiLieuElem.href = item.taiLieu;
-                taiLieuElem.style.display = "inline-block";
-            } else if (item.googleMaps && item.googleMaps !== "") {
-                // Nếu không có file tài liệu riêng, tận dụng nút này làm nút dẫn đường Google Maps luôn
-                taiLieuElem.href = item.googleMaps;
-                taiLieuElem.innerText = "Xem vị trí trên Google Maps 🗺️";
-                taiLieuElem.target = "_blank";
-                taiLieuElem.style.display = "inline-block";
+                taiLieuElem.style.display = "inline-block"; // Chỉ hiện nút khi di tích thực sự đính kèm file tài liệu
             } else {
-                taiLieuElem.style.display = "none";
+                taiLieuElem.style.display = "none"; // Tự ẩn hoàn toàn đi nếu không có file đính kèm
             }
         }
     } else {
         // Nếu gõ bậy ID trên URL không tồn tại
         document.getElementById("ten").innerText = "Không tìm thấy dữ liệu di tích này!";
         const moTaElem = document.getElementById("moTa");
-        if (moTaElem) moTaElem.innerText = "Vui lòng quay lại trang chủ bản đồ.";
+        if (moTaElem) moTaElem.innerText = "Hệ thống không tìm thấy ID tương ứng. Vui lòng quay lại trang chủ bản đồ.";
     }
 }
