@@ -96,7 +96,7 @@ if (document.getElementById("map")) {
 
 
 // ==========================================
-// TRANG CHI TIẾT (DETAIL.HTML) - ĐÃ TỐI ƯU
+// TRANG CHI TIẾT (DETAIL.HTML) - ĐÃ SỬA LỖI ĐƯỜNG LINK
 // ==========================================
 
 if (document.getElementById("ten")) {
@@ -113,7 +113,7 @@ if (document.getElementById("ten")) {
         document.getElementById("diaChi").innerText = item.diaChi || "";
         document.getElementById("moTa").innerText = item.moTa || "";
 
-        // SỬA CHUẨN: Lấy đúng trường xếp hạng chính thức dài của di tích
+        // Lấy đúng trường xếp hạng chính thức dài của di tích
         const xepHangElem = document.getElementById("xepHang");
         if (xepHangElem) xepHangElem.innerText = item.xepHang || "Đang cập nhật xếp hạng...";
 
@@ -143,14 +143,26 @@ if (document.getElementById("ten")) {
             }
         }
 
-        // SỬA CHUẨN: Xử lý nút Tài liệu văn bản thông minh theo đúng HTML mẫu
+        // Xử lý nút Tài liệu văn bản thông minh
         const taiLieuElem = document.getElementById("taiLieu");
         if (taiLieuElem) {
             if (item.taiLieu && item.taiLieu.trim() !== "") {
                 taiLieuElem.href = item.taiLieu;
-                taiLieuElem.style.display = "inline-block"; // Chỉ hiện nút khi di tích thực sự đính kèm file tài liệu
+                taiLieuElem.style.display = "inline-block";
             } else {
-                taiLieuElem.style.display = "none"; // Tự ẩn hoàn toàn đi nếu không có file đính kèm
+                taiLieuElem.style.display = "none"; // Tự ẩn nếu di tích không có file tài liệu văn bản riêng
+            }
+        }
+
+        // SỬA LỖI CHÍ MẠNG: Bổ sung logic kích hoạt và nạp link dẫn đường cho nút Google Maps
+        const googleMapsElem = document.getElementById("googleMaps");
+        if (googleMapsElem) {
+            if (item.googleMaps && item.googleMaps.trim() !== "") {
+                googleMapsElem.href = item.googleMaps;
+                googleMapsElem.setAttribute("target", "_blank"); // Mở link dẫn đường ở tab mới độc lập
+                googleMapsElem.style.display = "inline-block";
+            } else {
+                googleMapsElem.style.display = "none";
             }
         }
     } else {
