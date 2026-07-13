@@ -66,6 +66,7 @@ const diTich = [
     hinhAnh: "images/duonglam.gif",
     googleMaps: "https://maps.app.goo.gl/3sDyqV9wZWegA9yQ6",
     video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    taiLieu: "https://drive.google.com/file/d/1WaTwVUKmGIVSk0PRz6Iyo8JHNo9LGPG-/view?usp=drive_link"
   },
   {
     id: 6,
@@ -79,6 +80,7 @@ const diTich = [
     hinhAnh: "images/camtoai.jpg",
     googleMaps: "https://maps.app.goo.gl/KBxzpEfp3CcPkJ5eA",
     video: "https://www.youtube.com/embed/X3Kbeeb9tDo"
+    taiLieu: "https://drive.google.com/file/d/1HkhpQs-0Ciug8U402FttzywkJJtPksZ1/view?usp=drive_link"
   },
   {
     id: 7,
