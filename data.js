@@ -37,7 +37,7 @@ const diTich = [
     moTa: "Lăng mộ, Miếu thờ và Nhà bia tưởng niệm Ông Ích Đường là di tích lịch sử gắn với chí sĩ yêu nước Ông Ích Đường (1884–1908), một khiến lãnh đạo tiêu biểu của phong trào chống thuế năm 1908 tại Hòa Vang. Ông tích cực tham gia phong trào Duy Tân, lãnh đạo nhân dân đấu tranh chống sưu cao, thuế nặng và hy sinh anh dũng vì sự nghiệp yêu nước. Di tích gồm lăng mộ tại phường Hòa Thọ Tây và miếu thờ, nhà bia tưởng niệm tại xã Hòa Phong, là nơi lưu giữ, tôn vinh tinh thần yêu nước, ý chí bất khuất và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang, đồng thời là địa chỉ giáo dục truyền thống cho các thế hệ hôm nay và mai sau.",
     hinhAnh: "images/ongichduong.gif",
     googleMaps: "https://maps.app.goo.gl/9Godpmy1VmFRQCpH7",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/ikjhThBomMk"
   },
   {
     id: 4,
