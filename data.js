@@ -116,7 +116,7 @@ const diTich = [
     moTa: "Trường Tiểu học An Phước là một trong những ngôi trường được thành lập sớm nhất tại Đà Nẵng, tiền thân là Trường dân lập Cẩm Toại do cụ Tú Lâm Hữu Mẫn sáng lập năm 1888. Đầu thế kỷ XX, trường trở thành trường Duy Tân tiêu biểu dưới sự dẫn dắt của ông Lâm Quang Tự, góp phần thực hiện chủ trương 'khai dân trí, chấn dân khí, hậu dân sinh', đào tạo nhiều thế hệ học sinh ưu tú, cán bộ cách mạng và nhân tài cho quê hương, đất nước. Di tích là biểu tượng của truyền thống hiếu học, yêu nước và tinh thần cách mạng của nhân dân Hòa Vang.",
     hinhAnh: "images/anphuoc.jpg",
     googleMaps: "https://maps.app.goo.gl/R5paKp5AWwHVNY248",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/Q_9OkgqZ3UM"
   },
   {
     id: 10,
