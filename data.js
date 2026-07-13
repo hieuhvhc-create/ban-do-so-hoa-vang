@@ -25,6 +25,7 @@ const diTich = [
     hinhAnh: "images/boban.jpg",
     googleMaps: "https://maps.app.goo.gl/1YHsBmXJoyPtXW4t5",
     video: "https://www.youtube.com/embed/-TKEsrumxuc?origin=https://hieuvhc-create.github.io"
+    taiLieu: "https://drive.google.com/drive/u/0/folders/1fxW3FLH_3Al_0XHW3CrPlJvySs9g6YgH"
   },
   {
     id: 3,
