@@ -61,7 +61,7 @@ const diTich = [
     lng: 108.12671333158963,
     xepHang: "Di tích Kiến trúc Nghệ thuật",
     /* ĐÃ SỬA: Thay thế phần nội dung mô tả bị trùng lặp của Đình Cẩm Toại trước đó */
-    moTa: "Đình Dương Lâm tọa lạc tại thôn Dương Lâm, xã Hòa Phong, huyện Hòa Vang. Đây là công trình kiến trúc gỗ cổ truyền bề thế mang đậm dấu ấn nghệ thuật rường cột chạm khắc tinh xảo của xứ Quảng. Đình không chỉ là thiết chế văn hóa, tín ngưỡng tâm linh lâu đời phụng thờ các bậc tiền hiền khai khẩn, mà còn là nhân chứng lịch sử quan trọng gắn liền với các phong trào đấu tranh cách mạng, giải phóng quê hương Hòa Vang qua các thời kỳ.",
+    moTa: "Đình Dương Lâm tọa lạc tại thôn Dương Lâm, xã Hòa Vang. Đây là công trình kiến trúc gỗ cổ truyền bề thế mang đậm dấu ấn nghệ thuật rường cột chạm khắc tinh xảo của xứ Quảng. Đình không chỉ là thiết chế văn hóa, tín ngưỡng tâm linh lâu đời phụng thờ các bậc tiền hiền khai khẩn, mà còn là nhân chứng lịch sử quan trọng gắn liền với các phong trào đấu tranh cách mạng, giải phóng quê hương Hòa Vang qua các thời kỳ.",
     hinhAnh: "images/duonglam.gif",
     googleMaps: "https://maps.app.goo.gl/3sDyqV9wZWegA9yQ6",
     video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
@@ -74,7 +74,7 @@ const diTich = [
     lat: 15.982799405738001,
     lng: 108.13882985113406,
     xepHang: "Di tích Lịch sử – Văn hóa",
-    moTa: "Đình Cẩm Toại tọa lạc tại thôn Cẩm Toại, xã Hòa Phong, thành phố Đà Nẵng, là ngôi đình cổ gắn liền với lịch sử hình thành và phát triển của làng Cẩm Toại. Không chỉ là trung tâm sinh hoạt tín ngưỡng, văn hóa của cộng đồng, đình còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng trước và trong Cách mạng Tháng Tám năm 1945, từng là nơi hoạt động của các tổ chức yêu nước và trụ sở chính quyền cách mạng địa phương. Di tích có giá trị tiêu biểu về lịch sử, văn hóa và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang.",
+    moTa: "Đình Cẩm Toại tọa lạc tại thôn Cẩm Toại Trung, xã Hòa Vang, thành phố Đà Nẵng, là ngôi đình cổ gắn liền với lịch sử hình thành và phát triển của làng Cẩm Toại. Không chỉ là trung tâm sinh hoạt tín ngưỡng, văn hóa của cộng đồng, đình còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng trước và trong Cách mạng Tháng Tám năm 1945, từng là nơi hoạt động của các tổ chức yêu nước và trụ sở chính quyền cách mạng địa phương. Di tích có giá trị tiêu biểu về lịch sử, văn hóa và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang.",
     hinhAnh: "images/camtoai.jpg",
     googleMaps: "https://maps.app.goo.gl/KBxzpEfp3CcPkJ5eA",
     video: "https://www.youtube.com/embed/X3Kbeeb9tDo"
@@ -87,7 +87,7 @@ const diTich = [
     lat: 15.979213835550407,
     lng: 108.12798664297617,
     xepHang: "Di tích Lịch sử",
-    moTa: "Mộ Thống chế Lê Văn Hoan tọa lạc tại thôn Cẩm Toại Tây, xã Hòa Phong, thành phố Đà Nẵng, là nơi an táng Thống chế Lê Văn Hoan (1764–1828) – danh tướng quê Hòa Vang, người chỉ huy tượng binh dưới triều Tây Sơn, góp công trong chiến thắng Ngọc Hồi – Đống Đa mùa xuân Kỷ Dậu 1789. Sau khi đất nước thống nhất, ông tiếp tục được triều Nguyễn trọng dụng, giữ chức Thống chế Tượng quân dưới thời Gia Long và Minh Mạng, có nhiều đóng góp trong xây dựng lực lượng tượng binh và bảo vệ biên cương. Mộ được xây dựng năm 1828, mang kiến trúc mộ hợp chất thời Nguyễn với quy mô bề thế, còn lưu giữ nhiều yếu tố kiến trúc, nghệ thuật đặc sắc như cặp voi chầu, bình phong, nhà bia và hệ thống câu đối chữ Hán. Di tích là minh chứng tiêu biểu về truyền thống thượng võ, tinh thần yêu nước và là niềm tự hào của quê hương Hòa Vang.",
+    moTa: "Mộ Thống chế Lê Văn Hoan tọa lạc tại thôn Cẩm Toại Tây, xã Hòa Vang, thành phố Đà Nẵng, là nơi an táng Thống chế Lê Văn Hoan (1764–1828) – danh tướng quê Hòa Vang, người chỉ huy tượng binh dưới triều Tây Sơn, góp công trong chiến thắng Ngọc Hồi – Đống Đa mùa xuân Kỷ Dậu 1789. Sau khi đất nước thống nhất, ông tiếp tục được triều Nguyễn trọng dụng, giữ chức Thống chế Tượng quân dưới thời Gia Long và Minh Mạng, có nhiều đóng góp trong xây dựng lực lượng tượng binh và bảo vệ biên cương. Mộ được xây dựng năm 1828, mang kiến trúc mộ hợp chất thời Nguyễn với quy mô bề thế, còn lưu giữ nhiều yếu tố kiến trúc, nghệ thuật đặc sắc như cặp voi chầu, bình phong, nhà bia và hệ thống câu đối chữ Hán. Di tích là minh chứng tiêu biểu về truyền thống thượng võ, tinh thần yêu nước và là niềm tự hào của quê hương Hòa Vang.",
     hinhAnh: "images/levanhoan.jpg",
     googleMaps: "https://maps.app.goo.gl/x3zPTNkT19Pcicjv9",
     video: "https://www.youtube.com/embed/3FOVhWDCcf8?origin=https://hieuvhc-create.github.io"
@@ -100,7 +100,7 @@ const diTich = [
     lat: 15.997279613480659,
     lng: 108.07764466873532,
     xepHang: "Di tích Lịch sử",
-    moTa: "Mộ cổ Bình Hương xử sĩ Mạc Trường Thành tọa lạc tại thôn Hội Phước, xã Hòa Phú, thành phố Đà Nẵng, là nơi an táng ông Mạc Trường Thành – người có công giúp đỡ Nguyễn Phúc Ánh trong thời kỳ bôn tẩu và được vua Gia Long ban tặng danh hiệu 'Bình Hương xử sĩ'. Ngôi mộ mang kiến trúc mộ hợp chất tiêu biểu thời Nguyễn, có giá trị về lịch sử, kiến trúc nghệ thuật và là minh chứng cho truyền thống nghĩa tình, trung nghĩa của người dân vùng Hòa Vang.",
+    moTa: "Mộ cổ Bình Hương xử sĩ Mạc Trường Thành tọa lạc tại thôn Hòa Phú, xã Hòa Vang, thành phố Đà Nẵng, là nơi an táng ông Mạc Trường Thành – người có công giúp đỡ Nguyễn Phúc Ánh trong thời kỳ bôn tẩu và được vua Gia Long ban tặng danh hiệu 'Bình Hương xử sĩ'. Ngôi mộ mang kiến trúc mộ hợp chất tiêu biểu thời Nguyễn, có giá trị về lịch sử, kiến trúc nghệ thuật và là minh chứng cho truyền thống nghĩa tình, trung nghĩa của người dân vùng Hòa Vang.",
     hinhAnh: "images/mactruongthanh.webp",
     googleMaps: "https://maps.app.goo.gl/GDrqEYFcNbFxCK4U8",
     video: "https://www.youtube.com/embed/O-g_EOcEFlU"
@@ -126,7 +126,7 @@ const diTich = [
     lat: 15.982557606437979,
     lng: 108.13203497057431,
     xepHang: "Di tích Lịch sử Chiến thắng",
-    moTa: "Bia Chiến tích Đoàn Pháo binh 575 Anh hùng tại xã Hòa Phong, thành phố Đà Nẵng ghi dấu những chiến công vẻ vang của Đoàn Pháo binh 575 (Mặt trận 44 Quảng Đà) trong kháng chiến chống Mỹ cứu nước. Từ năm 1967 đến 1975, đơn vị đã lập nhiều chiến công xuất sắc, đặc biệt là các trận pháo kích vào sân bay Đà Nẵng và các căn cứ quân sự của địch, góp phần quan trọng vào sự nghiệp giải phóng miền Nam. Được phong tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân năm 1973, di tích hôm nay là nơi tưởng niệm các anh hùng liệt sĩ, giáo dục truyền thống yêu nước, tinh thần chiến đấu kiên cường và lòng tự hào dân tộc cho các thế hệ.",
+    moTa: "Bia Chiến tích Đoàn Pháo binh 575 Anh hùng tại xã Hòa Vang, thành phố Đà Nẵng ghi dấu những chiến công vẻ vang của Đoàn Pháo binh 575 (Mặt trận 44 Quảng Đà) trong kháng chiến chống Mỹ cứu nước. Từ năm 1967 đến 1975, đơn vị đã lập nhiều chiến công xuất sắc, đặc biệt là các trận pháo kích vào sân bay Đà Nẵng và các căn cứ quân sự của địch, góp phần quan trọng vào sự nghiệp giải phóng miền Nam. Được phong tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân năm 1973, di tích hôm nay là nơi tưởng niệm các anh hùng liệt sĩ, giáo dục truyền thống yêu nước, tinh thần chiến đấu kiên cường và lòng tự hào dân tộc cho các thế hệ.",
     hinhAnh: "images/575.jpg",
     googleMaps: "https://maps.app.goo.gl/gsbEDNeLo8H1hfi96",
     video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
@@ -152,7 +152,7 @@ const diTich = [
     lat: 15.992451, 
     lng: 108.139524, 
     xepHang: "Địa chỉ đỏ Giáo dục truyền thống cách mạng Huyện Hòa Vang",
-    moTa: "Bia Chiến tích Trung đội nữ Lê Thị Hồng Gấm tại thôn An Tân, xã Hòa Vang, thành phố Đà Nẵng, ghi dấu trận chiến đấu anh dũng ngày 28/01/1973 của Trung đội nữ Lê Thị Hồng Gấm, Đại đội 2 Khu II Hòa Vang. Trong trận chiến bảo vệ vùng giải phóng sau Hiệp định Pari, các chiến sĩ đã kiên cường bám trụ, chiến đấu đến hơi thở cuối cùng, tiêu biểu là Tổ chiến đấu Nguyễn Thị Xuân Mai. Di tích là biểu tượng của tinh thần yêu nước, ý chí bất khuất và sự hy sinh cao cả của phụ nữ Hòa Vang trong kháng chiến chống Mỹ cứu nước.",
+    moTa: "Bia Chiến tích Trung đội nữ Lê Thị Hồng Gấm tại thôn Dương Lâm, xã Hòa Vang, thành phố Đà Nẵng, ghi dấu trận chiến đấu anh dũng ngày 28/01/1973 của Trung đội nữ Lê Thị Hồng Gấm, Đại đội 2 Khu II Hòa Vang. Trong trận chiến bảo vệ vùng giải phóng sau Hiệp định Pari, các chiến sĩ đã kiên cường bám trụ, chiến đấu đến hơi thở cuối cùng, tiêu biểu là Tổ chiến đấu Nguyễn Thị Xuân Mai. Di tích là biểu tượng của tinh thần yêu nước, ý chí bất khuất và sự hy sinh cao cả của phụ nữ Hòa Vang trong kháng chiến chống Mỹ cứu nước.",
     hinhAnh: "images/lethihonggam.jpg",
     googleMaps: "https://maps.app.goo.gl/abMZqvXKiYuXHz7r8",
     video: "https://www.youtube.com/embed/p9I2p_b7G_Y?origin=https://hieuvhc-create.github.io"
