@@ -23,7 +23,7 @@ header {
     height: 480px; 
     
     /* Cấu hình hình nền */
-    background-image: url('images/bg-header.png');
+    background-image: url('images/bg-header.jpg');
     background-position: center center; /* Giữ tâm bức ảnh luôn ở giữa */
     background-size: cover;             /* Ép hình nền luôn trải đều phủ kín toàn bộ khung header */
     background-repeat: no-repeat;       
