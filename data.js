@@ -107,6 +107,7 @@ const diTich = [
     hinhAnh: "images/mactruongthanh.webp",
     googleMaps: "https://maps.app.goo.gl/GDrqEYFcNbFxCK4U8",
     video: "https://www.youtube.com/embed/O-g_EOcEFlU"
+    taiLieu: "https://drive.google.com/file/d/1gvrjJPLcKuuflNS1NS5NlFL2QFw4dEle/view?usp=drive_link"
   },
   {
     id: 9,
