@@ -9,7 +9,7 @@ const diTich = [
     xepHang: "Di tích Kiến trúc Nghệ thuật cấp Quốc gia (Được công nhận năm 1999)",
     moTa: "Đình làng Túy Loan là một công trình kiến trúc cổ kính, tinh xảo nằm bên bờ một nhánh sông Túy Loan thơ mộng. Đình có khuôn viên rộng lớn lên đến 8008 m2, được xây dựng theo bố cục 3 gian 2 chái truyền thống với mái lợp ngói âm dương và tường gạch dày 30cm. Mặt tiền đình nổi bật với bức bình phong cuốn thư cao 3m đắp nổi hình long mã và các linh vật bằng sành sứ công phu do bàn tay tài hoa của thợ mộc Kim Bồng (Hội An) thực hiện.",
     hinhAnh: "images/tuyloan.jpg",
-    googleMaps: "https://maps.app.goo.gl/EicL6NHcSZGVY7Ub7",
+    googleMaps: "https://www.google.com/maps/search/?api=1&query=Đình+làng+Túy+Loan",
     video: "https://www.youtube.com/embed/Rdb41rMrz3Y?origin=https://hieuvhc-create.github.io",
     taiLieu: "https://docs.google.com/document/d/1C9yYOynAnvadCMPN654QNJzbxwkLbpHb/edit?usp=drive_link&ouid=101913275488572630142&rtpof=true&sd=true"
   },
