@@ -21,7 +21,7 @@ const diTich = [
     lat: 15.987953179337236,
     lng: 108.1518397085302,
     xepHang: "Di tích Kiến trúc Nghệ thuật cấp Quốc gia (Được công nhận năm 1999)",
-    moTa: "Đình Bồ Bản tọa lạc tại thôn Bồ Bản, xã Hòa Phong, thành phố Đà Nẵng, là ngôi đình cổ được xây dựng từ đầu thế kỷ XIX, gắn liền với quá trình hình thành và phát triển của làng Bồ Bản. Đình có giá trị tiêu biểu về kiến trúc, nghệ thuật điêu khắc truyền thống và là nơi sinh hoạt tín ngưỡng của cộng đồng. Đồng thời, đây còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng như tập hợp lực lượng giành chính quyền trong Cách mạng Tháng Tám năm 1945, tổ chức bầu cử Quốc hội khóa I và các hoạt động cách mạng trong hai cuộc kháng chiến. Di tích là biểu tượng của truyền thống văn hóa và tinh thần yêu nước của nhân dân Hòa Vang.",
+    moTa: "Đình Bồ Bản tọa lạc tại thôn Bồ Bản, xã Hòa Vang, thành phố Đà Nẵng, là ngôi đình cổ được xây dựng từ đầu thế kỷ XIX, gắn liền với quá trình hình thành và phát triển của làng Bồ Bản. Đình có giá trị tiêu biểu về kiến trúc, nghệ thuật điêu khắc truyền thống và là nơi sinh hoạt tín ngưỡng của cộng đồng. Đồng thời, đây còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng như tập hợp lực lượng giành chính quyền trong Cách mạng Tháng Tám năm 1945, tổ chức bầu cử Quốc hội khóa I và các hoạt động cách mạng trong hai cuộc kháng chiến. Di tích là biểu tượng của truyền thống văn hóa và tinh thần yêu nước của nhân dân Hòa Vang.",
     hinhAnh: "images/boban.jpg",
     googleMaps: "https://maps.app.goo.gl/1YHsBmXJoyPtXW4t5",
     video: "https://www.youtube.com/embed/-TKEsrumxuc?origin=https://hieuvhc-create.github.io"
@@ -34,7 +34,7 @@ const diTich = [
     lat: 15.992397705238226,
     lng: 108.1423274817334,
     xepHang: "Di tích Lịch sử – Văn hóa",
-    moTa: "Lăng mộ, Miếu thờ và Nhà bia tưởng niệm Ông Ích Đường là di tích lịch sử gắn với chí sĩ yêu nước Ông Ích Đường (1884–1908), một khiến lãnh đạo tiêu biểu của phong trào chống thuế năm 1908 tại Hòa Vang. Ông tích cực tham gia phong trào Duy Tân, lãnh đạo nhân dân đấu tranh chống sưu cao, thuế nặng và hy sinh anh dũng vì sự nghiệp yêu nước. Di tích gồm lăng mộ tại phường Hòa Thọ Tây và miếu thờ, nhà bia tưởng niệm tại xã Hòa Phong, là nơi lưu giữ, tôn vinh tinh thần yêu nước, ý chí bất khuất và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang, đồng thời là địa chỉ giáo dục truyền thống cho các thế hệ hôm nay và mai sau.",
+    moTa: "Lăng mộ, Miếu thờ và Nhà bia tưởng niệm Ông Ích Đường là di tích lịch sử gắn với chí sĩ yêu nước Ông Ích Đường (1884–1908), một khiến lãnh đạo tiêu biểu của phong trào chống thuế năm 1908 tại Hòa Vang. Ông tích cực tham gia phong trào Duy Tân, lãnh đạo nhân dân đấu tranh chống sưu cao, thuế nặng và hy sinh anh dũng vì sự nghiệp yêu nước. Di tích gồm lăng mộ tại phường Hòa Thọ Tây và miếu thờ, nhà bia tưởng niệm tại xã Hòa Vang, là nơi lưu giữ, tôn vinh tinh thần yêu nước, ý chí bất khuất và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang, đồng thời là địa chỉ giáo dục truyền thống cho các thế hệ hôm nay và mai sau.",
     hinhAnh: "images/ongichduong.gif",
     googleMaps: "https://maps.app.goo.gl/9Godpmy1VmFRQCpH7",
     video: "https://www.youtube.com/embed/ikjhThBomMk"
