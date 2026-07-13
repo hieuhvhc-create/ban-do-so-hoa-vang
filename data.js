@@ -50,7 +50,7 @@ const diTich = [
     moTa: "Khu căn cứ cách mạng Huyện ủy Hòa Vang nằm tại khu vực Phú Túc – Ô Rây – Tống Cói, thuộc xã Hòa Phú và Hòa Khương, thành phố Đà Nẵng. Được thành lập năm 1960, đây là căn cứ địa quan trọng của Huyện ủy Hòa Vang và có thời điểm là nơi đứng chân của Thành ủy Đà Nẵng trong kháng chiến chống Mỹ. Từ căn cứ này, nhiều chủ trương, nghị quyết quan trọng được ban hành, góp phần lãnh đạo phong trào cách mạng, xây dựng lực lượng và đấu tranh giải phóng quê hương. Di tích là biểu tượng của tinh thần kiên cường, bất khuất và truyền thống cách mạng của quân và dân Hòa Vang.",
     hinhAnh: "images/cancu.jpg",
     googleMaps: "https://www.google.com/maps?q=15.964949682778094,108.05078200152602",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/zzdjX5SoZEg"
   },
   {
     id: 5,
@@ -103,7 +103,7 @@ const diTich = [
     moTa: "Mộ cổ Bình Hương xử sĩ Mạc Trường Thành tọa lạc tại thôn Hội Phước, xã Hòa Phú, thành phố Đà Nẵng, là nơi an táng ông Mạc Trường Thành – người có công giúp đỡ Nguyễn Phúc Ánh trong thời kỳ bôn tẩu và được vua Gia Long ban tặng danh hiệu 'Bình Hương xử sĩ'. Ngôi mộ mang kiến trúc mộ hợp chất tiêu biểu thời Nguyễn, có giá trị về lịch sử, kiến trúc nghệ thuật và là minh chứng cho truyền thống nghĩa tình, trung nghĩa của người dân vùng Hòa Vang.",
     hinhAnh: "images/mactruongthanh.webp",
     googleMaps: "https://maps.app.goo.gl/GDrqEYFcNbFxCK4U8",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/O-g_EOcEFlU"
   },
   {
     id: 9,
