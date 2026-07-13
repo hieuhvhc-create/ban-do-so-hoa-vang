@@ -77,7 +77,7 @@ const diTich = [
     moTa: "Đình Cẩm Toại tọa lạc tại thôn Cẩm Toại, xã Hòa Phong, thành phố Đà Nẵng, là ngôi đình cổ gắn liền với lịch sử hình thành và phát triển của làng Cẩm Toại. Không chỉ là trung tâm sinh hoạt tín ngưỡng, văn hóa của cộng đồng, đình còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng trước và trong Cách mạng Tháng Tám năm 1945, từng là nơi hoạt động của các tổ chức yêu nước và trụ sở chính quyền cách mạng địa phương. Di tích có giá trị tiêu biểu về lịch sử, văn hóa và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang.",
     hinhAnh: "images/camtoai.jpg",
     googleMaps: "https://maps.app.goo.gl/KBxzpEfp3CcPkJ5eA",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/X3Kbeeb9tDo"
   },
   {
     id: 7,
