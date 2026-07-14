@@ -24,7 +24,8 @@ const diTich = [
     moTa: "Đình Bồ Bản tọa lạc tại thôn Bồ Bản, xã Hòa Vang, thành phố Đà Nẵng, là ngôi đình cổ được xây dựng từ đầu thế kỷ XIX, gắn liền với quá trình hình thành và phát triển của làng Bồ Bản. Đình có giá trị tiêu biểu về kiến trúc, nghệ thuật điêu khắc truyền thống và là nơi sinh hoạt tín ngưỡng của cộng đồng. Đồng thời, đây còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng như tập hợp lực lượng giành chính quyền trong Cách mạng Tháng Tám năm 1945, tổ chức bầu cử Quốc hội khóa I và các hoạt động cách mạng trong hai cuộc kháng chiến. Di tích là biểu tượng của truyền thống văn hóa và tinh thần yêu nước của nhân dân Hòa Vang.",
     hinhAnh: "images/boban.jpg",
     googleMaps: "https://maps.app.goo.gl/1YHsBmXJoyPtXW4t5",
-    video: "https://www.youtube.com/embed/-TKEsrumxuc?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/-TKEsrumxuc?origin=https://hieuvhc-create.github.io",
+    taiLieu: "https://drive.google.com/drive/u/0/folders/1fxW3FLH_3Al_0XHW3CrPlJvySs9g6YgH"
   },
   {
     id: 3,
@@ -37,7 +38,8 @@ const diTich = [
     moTa: "Lăng mộ, Miếu thờ và Nhà bia tưởng niệm Ông Ích Đường là di tích lịch sử gắn với chí sĩ yêu nước Ông Ích Đường (1884–1908), một khiến lãnh đạo tiêu biểu của phong trào chống thuế năm 1908 tại Hòa Vang. Ông tích cực tham gia phong trào Duy Tân, lãnh đạo nhân dân đấu tranh chống sưu cao, thuế nặng và hy sinh anh dũng vì sự nghiệp yêu nước. Di tích gồm lăng mộ tại phường Hòa Thọ Tây và miếu thờ, nhà bia tưởng niệm tại xã Hòa Vang, là nơi lưu giữ, tôn vinh tinh thần yêu nước, ý chí bất khuất và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang, đồng thời là địa chỉ giáo dục truyền thống cho các thế hệ hôm nay và mai sau.",
     hinhAnh: "images/ongichduong.gif",
     googleMaps: "https://maps.app.goo.gl/9Godpmy1VmFRQCpH7",
-    video: "https://www.youtube.com/embed/ikjhThBomMk"
+    video: "https://www.youtube.com/embed/ikjhThBomMk",
+    taiLieu: ""
   },
   {
     id: 4,
@@ -50,7 +52,8 @@ const diTich = [
     moTa: "Khu căn cứ cách mạng Huyện ủy Hòa Vang nằm tại khu vực Phú Túc – Ô Rây – Tống Cói, thuộc xã Hòa Vang và Hòa Tiến, thành phố Đà Nẵng. Được thành lập năm 1960, đây là căn cứ địa quan trọng của Huyện ủy Hòa Vang và có thời điểm là nơi đứng chân của Thành ủy Đà Nẵng trong kháng chiến chống Mỹ. Từ căn cứ này, nhiều chủ trương, nghị quyết quan trọng được ban hành, góp phần lãnh đạo phong trào cách mạng, xây dựng lực lượng và đấu tranh giải phóng quê hương. Di tích là biểu tượng của tinh thần kiên cường, bất khuất và truyền thống cách mạng của quân và dân Hòa Vang.",
     hinhAnh: "images/cancu.jpg",
     googleMaps: "https://www.google.com/maps?q=15.964949682778094,108.05078200152602",
-    video: "https://www.youtube.com/embed/zzdjX5SoZEg"
+    video: "https://www.youtube.com/embed/zzdjX5SoZEg",
+    taiLieu: ""
   },
   {
     id: 5,
@@ -60,11 +63,11 @@ const diTich = [
     lat: 15.992212986728015,
     lng: 108.12671333158963,
     xepHang: "Di tích Kiến trúc Nghệ thuật",
-    /* ĐÃ SỬA: Thay thế phần nội dung mô tả bị trùng lặp của Đình Cẩm Toại trước đó */
     moTa: "Đình Dương Lâm tọa lạc tại thôn Dương Lâm, xã Hòa Vang. Đây là công trình kiến trúc gỗ cổ truyền bề thế mang đậm dấu ấn nghệ thuật rường cột chạm khắc tinh xảo của xứ Quảng. Đình không chỉ là thiết chế văn hóa, tín ngưỡng tâm linh lâu đời phụng thờ các bậc tiền hiền khai khẩn, mà còn là nhân chứng lịch sử quan trọng gắn liền với các phong trào đấu tranh cách mạng, giải phóng quê hương Hòa Vang qua các thời kỳ.",
     hinhAnh: "images/duonglam.gif",
     googleMaps: "https://maps.app.goo.gl/3sDyqV9wZWegA9yQ6",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io",
+    taiLieu: "https://drive.google.com/drive/u/0/folders/1fxW3FLH_3Al_0XHW3CrPlJvySs9g6YgH"
   },
   {
     id: 6,
@@ -77,7 +80,8 @@ const diTich = [
     moTa: "Đình Cẩm Toại tọa lạc tại thôn Cẩm Toại Trung, xã Hòa Vang, thành phố Đà Nẵng, là ngôi đình cổ gắn liền với lịch sử hình thành và phát triển của làng Cẩm Toại. Không chỉ là trung tâm sinh hoạt tín ngưỡng, văn hóa của cộng đồng, đình còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng trước và trong Cách mạng Tháng Tám năm 1945, từng là nơi hoạt động của các tổ chức yêu nước và trụ sở chính quyền cách mạng địa phương. Di tích có giá trị tiêu biểu về lịch sử, văn hóa và truyền thống đấu tranh cách mạng của nhân dân Hòa Vang.",
     hinhAnh: "images/camtoai.jpg",
     googleMaps: "https://maps.app.goo.gl/KBxzpEfp3CcPkJ5eA",
-    video: "https://www.youtube.com/embed/X3Kbeeb9tDo"
+    video: "https://www.youtube.com/embed/X3Kbeeb9tDo",
+    taiLieu: "https://drive.google.com/drive/u/0/folders/1fxW3FLH_3Al_0XHW3CrPlJvySs9g6YgH"
   },
   {
     id: 7,
@@ -90,7 +94,8 @@ const diTich = [
     moTa: "Mộ Thống chế Lê Văn Hoan tọa lạc tại thôn Cẩm Toại Tây, xã Hòa Vang, thành phố Đà Nẵng, là nơi an táng Thống chế Lê Văn Hoan (1764–1828) – danh tướng quê Hòa Vang, người chỉ huy tượng binh dưới triều Tây Sơn, góp công trong chiến thắng Ngọc Hồi – Đống Đa mùa xuân Kỷ Dậu 1789. Sau khi đất nước thống nhất, ông tiếp tục được triều Nguyễn trọng dụng, giữ chức Thống chế Tượng quân dưới thời Gia Long và Minh Mạng, có nhiều đóng góp trong xây dựng lực lượng tượng binh và bảo vệ biên cương. Mộ được xây dựng năm 1828, mang kiến trúc mộ hợp chất thời Nguyễn với quy mô bề thế, còn lưu giữ nhiều yếu tố kiến trúc, nghệ thuật đặc sắc như cặp voi chầu, bình phong, nhà bia và hệ thống câu đối chữ Hán. Di tích là minh chứng tiêu biểu về truyền thống thượng võ, tinh thần yêu nước và là niềm tự hào của quê hương Hòa Vang.",
     hinhAnh: "images/levanhoan.jpg",
     googleMaps: "https://maps.app.goo.gl/x3zPTNkT19Pcicjv9",
-    video: "https://www.youtube.com/embed/3FOVhWDCcf8?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/3FOVhWDCcf8?origin=https://hieuvhc-create.github.io",
+    taiLieu: ""
   },
   {
     id: 8,
@@ -103,7 +108,8 @@ const diTich = [
     moTa: "Mộ cổ Bình Hương xử sĩ Mạc Trường Thành tọa lạc tại thôn Hòa Phú, xã Hòa Vang, thành phố Đà Nẵng, là nơi an táng ông Mạc Trường Thành – người có công giúp đỡ Nguyễn Phúc Ánh trong thời kỳ bôn tẩu và được vua Gia Long ban tặng danh hiệu 'Bình Hương xử sĩ'. Ngôi mộ mang kiến trúc mộ hợp chất tiêu biểu thời Nguyễn, có giá trị về lịch sử, kiến trúc nghệ thuật và là minh chứng cho truyền thống nghĩa tình, trung nghĩa của người dân vùng Hòa Vang.",
     hinhAnh: "images/mactruongthanh.webp",
     googleMaps: "https://maps.app.goo.gl/GDrqEYFcNbFxCK4U8",
-    video: "https://www.youtube.com/embed/O-g_EOcEFlU"
+    video: "https://www.youtube.com/embed/O-g_EOcEFlU",
+    taiLieu: "https://drive.google.com/drive/u/0/folders/1fxW3FLH_3Al_0XHW3CrPlJvySs9g6YgH"
   },
   {
     id: 9,
@@ -116,7 +122,8 @@ const diTich = [
     moTa: "Trường Tiểu học An Phước là một trong những ngôi trường được thành lập sớm nhất tại Đà Nẵng, tiền thân là Trường dân lập Cẩm Toại do cụ Tú Lâm Hữu Mẫn sáng lập năm 1888. Đầu thế kỷ XX, trường trở thành trường Duy Tân tiêu biểu dưới sự dẫn dắt của ông Lâm Quang Tự, góp phần thực hiện chủ trương 'khai dân trí, chấn dân khí, hậu dân sinh', đào tạo nhiều thế hệ học sinh ưu tú, cán bộ cách mạng và nhân tài cho quê hương, đất nước. Di tích là biểu tượng của truyền thống hiếu học, yêu nước và tinh thần cách mạng của nhân dân Hòa Vang.",
     hinhAnh: "images/anphuoc.jpg",
     googleMaps: "https://maps.app.goo.gl/R5paKp5AWwHVNY248",
-    video: "https://www.youtube.com/embed/Q_9OkgqZ3UM"
+    video: "https://www.youtube.com/embed/Q_9OkgqZ3UM",
+    taiLieu: ""
   },
   {
     id: 10,
@@ -129,7 +136,8 @@ const diTich = [
     moTa: "Bia Chiến tích Đoàn Pháo binh 575 Anh hùng tại xã Hòa Vang, thành phố Đà Nẵng ghi dấu những chiến công vẻ vang của Đoàn Pháo binh 575 (Mặt trận 44 Quảng Đà) trong kháng chiến chống Mỹ cứu nước. Từ năm 1967 đến 1975, đơn vị đã lập nhiều chiến công xuất sắc, đặc biệt là các trận pháo kích vào sân bay Đà Nẵng và các căn cứ quân sự của địch, góp phần quan trọng vào sự nghiệp giải phóng miền Nam. Được phong tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân năm 1973, di tích hôm nay là nơi tưởng niệm các anh hùng liệt sĩ, giáo dục truyền thống yêu nước, tinh thần chiến đấu kiên cường và lòng tự hào dân tộc cho các thế hệ.",
     hinhAnh: "images/575.jpg",
     googleMaps: "https://maps.app.goo.gl/gsbEDNeLo8H1hfi96",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io",
+    taiLieu: ""
   },
   {
     id: 11,
@@ -142,7 +150,8 @@ const diTich = [
     moTa: "Ngôi đình làng cổ kính nằm nép mình bên xóm thôn bình dị, lưu giữ vẹn nguyên nét kiến trúc rường gỗ mộc mạc xa xưa.",
     hinhAnh: "images/hoivuc.jpg",
     googleMaps: "https://maps.app.goo.gl/HA5cw8TsZ4RsadSk6",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io",
+    taiLieu: ""
   },
   {
     id: 12,
@@ -155,8 +164,9 @@ const diTich = [
     moTa: "Bia Chiến tích Trung đội nữ Lê Thị Hồng Gấm tại thôn Dương Lâm, xã Hòa Vang, thành phố Đà Nẵng, ghi dấu trận chiến đấu anh dũng ngày 28/01/1973 của Trung đội nữ Lê Thị Hồng Gấm, Đại đội 2 Khu II Hòa Vang. Trong trận chiến bảo vệ vùng giải phóng sau Hiệp định Pari, các chiến sĩ đã kiên cường bám trụ, chiến đấu đến hơi thở cuối cùng, tiêu biểu là Tổ chiến đấu Nguyễn Thị Xuân Mai. Di tích là biểu tượng của tinh thần yêu nước, ý chí bất khuất và sự hy sinh cao cả của phụ nữ Hòa Vang trong kháng chiến chống Mỹ cứu nước.",
     hinhAnh: "images/lethihonggam.jpg",
     googleMaps: "https://maps.app.goo.gl/abMZqvXKiYuXHz7r8",
-    video: "https://www.youtube.com/embed/p9I2p_b7G_Y?origin=https://hieuvhc-create.github.io"
-  }, /* ĐÃ SỬA: Thêm dấu phẩy ngăn cách bắt buộc ở đây */
+    video: "https://www.youtube.com/embed/p9I2p_b7G_Y?origin=https://hieuvhc-create.github.io",
+    taiLieu: ""
+  },
   {
     id: 13,
     ten: "Bến Suối Túy Loan",
@@ -168,6 +178,7 @@ const diTich = [
     moTa: "Bến suối thanh bình xưa kia từng là tuyến đường giao thông thủy huyết mạch đón đưa các cán bộ và vận chuyển lương thực vũ khí bí mật.",
     hinhAnh: "images/bensuoi.webp",
     googleMaps: "https://maps.app.goo.gl/fKNqxS6RQryKczKRA",
-    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io"
+    video: "https://www.youtube.com/embed/SOfv6wA-Yco?origin=https://hieuvhc-create.github.io",
+    taiLieu: ""
   }
 ];
