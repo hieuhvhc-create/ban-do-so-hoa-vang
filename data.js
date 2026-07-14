@@ -39,7 +39,7 @@ const diTich = [
     hinhAnh: "images/ongichduong.gif",
     googleMaps: "https://maps.app.goo.gl/9Godpmy1VmFRQCpH7",
     video: "https://www.youtube.com/embed/ikjhThBomMk",
-    taiLieu: ""
+    taiLieu: "https://docs.google.com/document/d/1xCygWvrqFuiPZu995H1o-6vnDTaX1qDHv8NOLhbwCMM/edit?tab=t.0"
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const diTich = [
     hinhAnh: "images/cancu.jpg",
     googleMaps: "https://www.google.com/maps?q=15.964949682778094,108.05078200152602",
     video: "https://www.youtube.com/embed/zzdjX5SoZEg",
-    taiLieu: ""
+    taiLieu: "https://docs.google.com/document/d/1eeG6ntCphpzPP5tnkiihrQmZd2PU55bb/edit"
   },
   {
     id: 5,
@@ -95,7 +95,7 @@ const diTich = [
     hinhAnh: "images/levanhoan.jpg",
     googleMaps: "https://maps.app.goo.gl/x3zPTNkT19Pcicjv9",
     video: "https://www.youtube.com/embed/3FOVhWDCcf8?origin=https://hieuvhc-create.github.io",
-    taiLieu: ""
+    taiLieu: "https://docs.google.com/document/d/14sDQpPapE2azuA9FQP6uuOUA_QEXC4BkV1hE1an36f8/edit?tab=t.0"
   },
   {
     id: 8,
@@ -123,7 +123,7 @@ const diTich = [
     hinhAnh: "images/anphuoc.jpg",
     googleMaps: "https://maps.app.goo.gl/R5paKp5AWwHVNY248",
     video: "https://www.youtube.com/embed/mkqG84Mgh-g",
-    taiLieu: ""
+    taiLieu: "https://docs.google.com/document/d/19-hz4B5_WYGQMYgGVnlYyFkAuiRP9l3c/edit"
   },
   {
     id: 10,
