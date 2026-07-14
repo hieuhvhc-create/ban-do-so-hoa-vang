@@ -16,7 +16,7 @@ const diTich = [
   {
     id: 2,
     ten: "Đình làng Bồ Bản",
-    loai: "Di tích lịch sử - văn hóa",
+    loai: "Di tích lịch sử - văn hóa cấp Thành phố",
     diaChi: "Thôn Bồ Bản, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.987953179337236,
     lng: 108.1518397085302,
@@ -30,7 +30,7 @@ const diTich = [
   {
     id: 3,
     ten: "Miếu Ông Ích Đường",
-    loai: "Di tích lịch sử - văn hóa",
+    loai: "Di tích lịch sử cấp Quốc gia",
     diaChi: "Thôn Hòa Phong, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.992397705238226,
     lng: 108.1423274817334,
@@ -44,7 +44,7 @@ const diTich = [
   {
     id: 4,
     ten: "Khu Căn cứ Huyện ủy Hòa Vang",
-    loai: "Di tích lịch sử",
+    loai: "Di tích lịch sử cấp Quốc gia",
     diaChi: "Thôn Phú Túc, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.964949682778094,
     lng: 108.05078200152602,
@@ -58,7 +58,7 @@ const diTich = [
   {
     id: 5,
     ten: "Đình Dương Lâm",
-    loai: "Di tích lịch sử - văn hóa",
+    loai: "Di tích lịch sử - văn hóa cấp Thành phố",
     diaChi: "Thôn Dương Lâm, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.992212986728015,
     lng: 108.12671333158963,
@@ -72,7 +72,7 @@ const diTich = [
   {
     id: 6,
     ten: "Đình Cẩm Toại",
-    loai: "Di tích lịch sử - văn hóa",
+    loai: "Di tích lịch sử - văn hóa cấp Thành phố",
     diaChi: "Thôn Cẩm Toại Trung, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.982799405738001,
     lng: 108.13882985113406,
@@ -86,7 +86,7 @@ const diTich = [
   {
     id: 7,
     ten: "Mộ Thống chế Lê Văn Hoan",
-    loai: "Di tích lịch sử",
+    loai: "Di tích lịch sử cấp Thành phố",
     diaChi: "Thôn Cẩm Toại Tây, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.979213835550407,
     lng: 108.12798664297617,
@@ -100,7 +100,7 @@ const diTich = [
   {
     id: 8,
     ten: "Mộ Bình hương xử sĩ Mạc Trường Thành",
-    loai: "Di tích lịch sử",
+    loai: "Di tích lịch sử cấp Thành phố",
     diaChi: "Thôn Hòa Phú, xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.997279613480659,
     lng: 108.07764466873532,
@@ -114,7 +114,7 @@ const diTich = [
   {
     id: 9,
     ten: "Trường Tiểu học An Phước",
-    loai: "Di tích lịch sử",
+    loai: "Di tích lịch sử cấp Thành phố",
     diaChi: "Thôn Cẩm Toại Trung, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.983429561203332,
     lng: 108.13889179914489,
