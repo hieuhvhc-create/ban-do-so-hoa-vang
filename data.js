@@ -122,7 +122,7 @@ const diTich = [
     moTa: "Trường Tiểu học An Phước là một trong những ngôi trường được thành lập sớm nhất tại Đà Nẵng, tiền thân là Trường dân lập Cẩm Toại do cụ Tú Lâm Hữu Mẫn sáng lập năm 1888. Đầu thế kỷ XX, trường trở thành trường Duy Tân tiêu biểu dưới sự dẫn dắt của ông Lâm Quang Tự, góp phần thực hiện chủ trương 'khai dân trí, chấn dân khí, hậu dân sinh', đào tạo nhiều thế hệ học sinh ưu tú, cán bộ cách mạng và nhân tài cho quê hương, đất nước. Di tích là biểu tượng của truyền thống hiếu học, yêu nước và tinh thần cách mạng của nhân dân Hòa Vang.",
     hinhAnh: "images/anphuoc.jpg",
     googleMaps: "https://maps.app.goo.gl/R5paKp5AWwHVNY248",
-    video: "https://www.youtube.com/embed/bmOf3kSxAAI",
+    video: "https://www.youtube.com/embed/mkqG84Mgh-g",
     taiLieu: ""
   },
   {
@@ -164,7 +164,7 @@ const diTich = [
     moTa: "Bia Chiến tích Trung đội nữ Lê Thị Hồng Gấm tại thôn Dương Lâm, xã Hòa Vang, thành phố Đà Nẵng, ghi dấu trận chiến đấu anh dũng ngày 28/01/1973 của Trung đội nữ Lê Thị Hồng Gấm, Đại đội 2 Khu II Hòa Vang. Trong trận chiến bảo vệ vùng giải phóng sau Hiệp định Pari, các chiến sĩ đã kiên cường bám trụ, chiến đấu đến hơi thở cuối cùng, tiêu biểu là Tổ chiến đấu Nguyễn Thị Xuân Mai. Di tích là biểu tượng của tinh thần yêu nước, ý chí bất khuất và sự hy sinh cao cả của phụ nữ Hòa Vang trong kháng chiến chống Mỹ cứu nước.",
     hinhAnh: "images/lethihonggam.jpg",
     googleMaps: "https://maps.app.goo.gl/abMZqvXKiYuXHz7r8",
-    video: "https://www.youtube.com/embed/p9I2p_b7G_Y?origin=https://hieuvhc-create.github.io",
+    video: "https://www.youtube.com/embed/bmOf3kSxAAI",
     taiLieu: ""
   },
   {
