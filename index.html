@@ -4,24 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bản đồ số Di tích lịch sử xã Hòa Vang</title>
+    
+    <!-- Các thẻ cấu hình hiển thị đẹp mắt khi chia sẻ lên Facebook -->
+    <meta property="og:title" content="Bản đồ số Di tích Lịch sử - Văn hóa Xã Hòa Vang" />
+    <meta property="og:description" content="Khám phá Hòa Vang – Chạm vào những dấu son lịch sử. Công trình số hóa của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang." />
+    <meta property="og:image" content="https://hieuhvhc-create.github.io/ban-do-so-hoa-vang/images/thumb-facebook.png" />
+    <meta property="og:url" content="https://hieuhvhc-create.github.io/ban-do-so-hoa-vang/" />
+    <meta property="og:type" content="website" />
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 <body>
 
     <header>
-    <div class="overlay">
-        <div class="header-logos">
-            <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item">
+        <div class="overlay">
+            <div class="header-logos">
+                <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item">
+            </div>
+
+            <h3 class="ten-don-vi">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
+
+            <h1>BẢN ĐỒ SỐ DI TÍCH LỊCH SỬ - VĂN HÓA</h1>
+            <h2>XÃ HÒA VANG</h2>
+            <p>Khám phá Hòa Vang – Chạm vào những dấu son lịch sử</p>
         </div>
+    </header>
 
-        <h3 class="ten-don-vi">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
-
-        <h1>BẢN ĐỒ SỐ DI TÍCH LỊCH SỬ - VĂN HÓA</h1>
-        <h2>XÃ HÒA VANG</h2>
-        <p>Khám phá Hòa Vang – Chạm vào những dấu son lịch sử</p>
-    </div>
-</header>
     <section class="search">
         <input type="text" id="searchInput" placeholder="Nhập tên di tích...">
         <button id="searchBtn">Tìm kiếm</button>
@@ -37,7 +46,6 @@
     </section>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
