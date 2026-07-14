@@ -16,7 +16,7 @@ const diTich = [
   {
     id: 2,
     ten: "Đình làng Bồ Bản",
-    loai: "Di tích lịch sử - văn hóa cấp Thành phố",
+    loai: "Di tích kiến trúc nghệ thuật cấp Quốc gia",
     diaChi: "Thôn Bồ Bản, Xã Hòa Vang, TP. Đà Nẵng",
     lat: 15.987953179337236,
     lng: 108.1518397085302,
