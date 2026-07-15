@@ -36,11 +36,10 @@ header {
     text-align: center;
     position: relative;
     
-    /* ĐHÊM THÊM: Tạo khoảng cách đệm trên dưới để các nội dung không bị kích */
+    /* ĐÃ THÊM: Tạo khoảng cách đệm trên dưới để các nội dung không bị kích */
     padding: 20px 0; 
 }
 
-/* Lớp phủ kính mờ giúp làm nổi bật chữ trên nền ảnh */
 /* Lớp phủ kính mờ giúp làm nổi bật chữ trên nền ảnh */
 .overlay {
     /* ĐÃ NÂNG CẤP: Tăng độ mờ đen lên 0.7 để che hẳn các chi tiết rối mắt bên dưới ảnh nền */
@@ -218,6 +217,28 @@ header p {
 }
 
 /* ==========================================
+   CẤU HÌNH CHÂN TRANG (FOOTER) CHỨA BỘ ĐẾM
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    color: #333333;
+    margin: 4px 0;
+}
+
+.visitor-badge {
+    margin-top: 12px;
+    display: inline-block;
+}
+
+/* ==========================================
    TỐI ƯU GIAO DIỆN TRÊN ĐIỆN THOẠI (RESPONSIVE)
    ========================================== */
 @media (max-width: 768px) {
@@ -244,11 +265,21 @@ header p {
     .search input {
         width: 100%; /* Ô tìm kiếm giãn hết màn hình trên điện thoại */
     }
+    
+    /* SỬA LỖI MẤT BẢN ĐỒ TRÊN ĐIỆN THOẠI */
     .container {
-        flex-direction: column; /* Đổi thành một hàng dọc (Sidebar trên, Map dưới) nếu xem trên mobile */
+        flex-direction: column; /* Đổi thành một hàng dọc (Sidebar trên, Map dưới) */
+        height: auto;
     }
     .sidebar {
         width: 100%;
-        height: 250px;
+        height: 250px; /* Cố định chiều cao vùng danh sách di tích */
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    #map {
+        width: 100%;
+        height: 400px; /* BẮT BUỘC đặt chiều cao cố định để bản đồ không bị ẩn về 0px */
+        min-height: 350px;
     }
 }
