@@ -22,6 +22,27 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    
+    <style>
+        /* CSS bổ sung để căn chỉnh chân trang đẹp mắt */
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            margin-top: 30px;
+            font-family: Arial, sans-serif;
+        }
+        .visitor-badge {
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .footer-text {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -52,6 +73,14 @@
         
         <div id="map"></div>
     </section>
+
+    <footer>
+        <p class="footer-text"><strong>Bản đồ số Di tích Lịch sử - Văn hóa Xã Hòa Vang</strong></p>
+        <p class="footer-text">Một sản phẩm chuyển đổi số của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
+        <div class="visitor-badge">
+            <img src="https://profile-counter.glitch.me/hieuhvhc-create-ban-do-so-hoa-vang/count.svg" alt="Số lượt truy cập">
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="data.js"></script>
