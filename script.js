@@ -92,6 +92,24 @@ if (document.getElementById("map")) {
             }
         });
     }
+
+    // ======================================================================
+    // SỬA LỖI HIỂN THỊ: TỰ ĐỘNG CĂN CHỈNH KÍCH THƯỚC BẢN ĐỒ (CHO PC & DI ĐỘNG)
+    // ======================================================================
+    
+    // 1. Chạy lại kích thước ngay sau khi nạp trang web xong 300ms
+    window.addEventListener('load', function() {
+        setTimeout(function () {
+            map.invalidateSize();
+        }, 300);
+    });
+
+    // 2. Chạy lại kích thước khi người dùng thay đổi kích thước trình duyệt hoặc xoay ngang/dọc điện thoại
+    window.addEventListener('resize', function() {
+        setTimeout(function () {
+            map.invalidateSize();
+        }, 200);
+    });
 }
 
 
