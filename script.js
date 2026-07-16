@@ -99,14 +99,14 @@ if (document.getElementById("map")) {
     // ======================================================================
     
     // 1. Chạy lại kích thước ngay sau khi nạp trang web xong 300ms
-    window.addEventListener('load', function() {
+    window.addEventListener("load", function() {
         setTimeout(function () {
             map.invalidateSize();
         }, 300);
     });
 
     // 2. Chạy lại kích thước khi người dùng thay đổi kích thước trình duyệt hoặc xoay ngang/dọc điện thoại
-    window.addEventListener('resize', function() {
+    window.addEventListener("resize", function() {
         setTimeout(function () {
             map.invalidateSize();
         }, 200);
@@ -128,4 +128,66 @@ if (document.getElementById("ten")) {
 
     if (item) {
         // 3. Đổ dữ liệu văn bản vào giao diện
-        document.getElementById("ten
+        document.getElementById("ten").innerText = item.ten || "";
+        document.getElementById("diaChi").innerText = item.diaChi || "";
+        document.getElementById("moTa").innerText = item.moTa || "";
+
+        // Lấy đúng trường xếp hạng chính thức dài của di tích
+        const xepHangElem = document.getElementById("xepHang");
+        if (xepHangElem) xepHangElem.innerText = item.xepHang || "Đang cập nhật xếp hạng...";
+
+        // Gán dữ liệu lịch sử
+        const lichSuElem = document.getElementById("lichSu");
+        if (lichSuElem) lichSuElem.innerText = item.lichSu || "Dữ liệu lịch sử đang được ban ngành cập nhật...";
+
+        // Xử lý hiển thị Hình ảnh di tích
+        const hinhAnhElem = document.getElementById("hinhAnh");
+        if (hinhAnhElem) {
+            if (item.hinhAnh && item.hinhAnh !== "") {
+                hinhAnhElem.src = item.hinhAnh;
+                hinhAnhElem.style.display = "block";
+            } else {
+                hinhAnhElem.style.display = "none";
+            }
+        }
+
+        // Xử lý hiển thị Video iFrame phát trực tuyến
+        const videoElem = document.getElementById("video");
+        if (videoElem) {
+            if (item.video && item.video !== "") {
+                videoElem.innerHTML = `<iframe src="${item.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                videoElem.style.display = "block";
+            } else {
+                videoElem.style.display = "none";
+            }
+        }
+
+        // Xử lý nút Tài liệu văn bản thông minh
+        const taiLieuElem = document.getElementById("taiLieu");
+        if (taiLieuElem) {
+            if (item.taiLieu && item.taiLieu.trim() !== "") {
+                taiLieuElem.href = item.taiLieu;
+                taiLieuElem.style.display = "inline-block";
+            } else {
+                taiLieuElem.style.display = "none"; // Tự ẩn nếu di tích không có file tài liệu văn bản riêng
+            }
+        }
+
+        // SỬA LỖI CHÍ MẠNG: Bổ sung logic kích hoạt và nạp link dẫn đường cho nút Google Maps
+        const googleMapsElem = document.getElementById("googleMaps");
+        if (googleMapsElem) {
+            if (item.googleMaps && item.googleMaps.trim() !== "") {
+                googleMapsElem.href = item.googleMaps;
+                googleMapsElem.setAttribute("target", "_blank"); // Mở link dẫn đường ở tab mới độc lập
+                googleMapsElem.style.display = "inline-block";
+            } else {
+                googleMapsElem.style.display = "none";
+            }
+        }
+    } else {
+        // Nếu gõ bậy ID trên URL không tồn tại
+        document.getElementById("ten").innerText = "Không tìm thấy dữ liệu di tích này!";
+        const moTaElem = document.getElementById("moTa");
+        if (moTaElem) moTaElem.innerText = "Hệ thống không tìm thấy ID tương ứng. Vui lòng quay lại trang chủ bản đồ.";
+    }
+}
