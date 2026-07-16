@@ -6,10 +6,12 @@ if (document.getElementById("map")) {
     // 1. Khởi tạo bản đồ Leaflet (Vị trí trung tâm Hòa Vang, Đà Nẵng)
     var map = L.map("map").setView([15.985, 108.120], 12);
 
-    // 2. Thêm lớp bản đồ nền từ OpenStreetMap
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // 2. ĐÃ CẬP NHẬT: Thay thế OpenStreetMap bằng bản đồ nền Google Maps 
+    // (Hiển thị đầy đủ Hoàng Sa, Trường Sa bằng tiếng Việt mà không cần API Key trả phí)
+    L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        attribution: '&copy; Google Maps'
     }).addTo(map);
 
     const list = document.getElementById("list");
@@ -83,110 +85,4 @@ if (document.getElementById("map")) {
         }
 
         // Kích hoạt khi bấm nút "Tìm kiếm"
-        searchBtn.addEventListener("click", thucHienTimKiem);
-
-        // Kích hoạt khi đang gõ ở ô input và bấm phím "Enter"
-        searchInput.addEventListener("keypress", function (e) {
-            if (e.key === "Enter") {
-                thucHienTimKiem();
-            }
-        });
-    }
-
-    // ======================================================================
-    // SỬA LỖI HIỂN THỊ: TỰ ĐỘNG CĂN CHỈNH KÍCH THƯỚC BẢN ĐỒ (CHO PC & DI ĐỘNG)
-    // ======================================================================
-    
-    // 1. Chạy lại kích thước ngay sau khi nạp trang web xong 300ms
-    window.addEventListener('load', function() {
-        setTimeout(function () {
-            map.invalidateSize();
-        }, 300);
-    });
-
-    // 2. Chạy lại kích thước khi người dùng thay đổi kích thước trình duyệt hoặc xoay ngang/dọc điện thoại
-    window.addEventListener('resize', function() {
-        setTimeout(function () {
-            map.invalidateSize();
-        }, 200);
-    });
-}
-
-
-// ==========================================
-// TRANG CHI TIẾT (DETAIL.HTML) - ĐÃ SỬA LỖI ĐƯỜNG LINK
-// ==========================================
-
-if (document.getElementById("ten")) {
-    // 1. Lấy ID từ thanh địa chỉ URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = parseInt(urlParams.get("id"));
-
-    // 2. Tìm di tích trong mảng data dựa vào ID
-    const item = diTich.find(x => x.id === id);
-
-    if (item) {
-        // 3. Đổ dữ liệu văn bản vào giao diện
-        document.getElementById("ten").innerText = item.ten || "";
-        document.getElementById("diaChi").innerText = item.diaChi || "";
-        document.getElementById("moTa").innerText = item.moTa || "";
-
-        // Lấy đúng trường xếp hạng chính thức dài của di tích
-        const xepHangElem = document.getElementById("xepHang");
-        if (xepHangElem) xepHangElem.innerText = item.xepHang || "Đang cập nhật xếp hạng...";
-
-        // Gán dữ liệu lịch sử
-        const lichSuElem = document.getElementById("lichSu");
-        if (lichSuElem) lichSuElem.innerText = item.lichSu || "Dữ liệu lịch sử đang được ban ngành cập nhật...";
-
-        // Xử lý hiển thị Hình ảnh di tích
-        const hinhAnhElem = document.getElementById("hinhAnh");
-        if (hinhAnhElem) {
-            if (item.hinhAnh && item.hinhAnh !== "") {
-                hinhAnhElem.src = item.hinhAnh;
-                hinhAnhElem.style.display = "block";
-            } else {
-                hinhAnhElem.style.display = "none";
-            }
-        }
-
-        // Xử lý hiển thị Video iFrame phát trực tuyến
-        const videoElem = document.getElementById("video");
-        if (videoElem) {
-            if (item.video && item.video !== "") {
-                videoElem.innerHTML = `<iframe src="${item.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-                videoElem.style.display = "block";
-            } else {
-                videoElem.style.display = "none";
-            }
-        }
-
-        // Xử lý nút Tài liệu văn bản thông minh
-        const taiLieuElem = document.getElementById("taiLieu");
-        if (taiLieuElem) {
-            if (item.taiLieu && item.taiLieu.trim() !== "") {
-                taiLieuElem.href = item.taiLieu;
-                taiLieuElem.style.display = "inline-block";
-            } else {
-                taiLieuElem.style.display = "none"; // Tự ẩn nếu di tích không có file tài liệu văn bản riêng
-            }
-        }
-
-        // SỬA LỖI CHÍ MẠNG: Bổ sung logic kích hoạt và nạp link dẫn đường cho nút Google Maps
-        const googleMapsElem = document.getElementById("googleMaps");
-        if (googleMapsElem) {
-            if (item.googleMaps && item.googleMaps.trim() !== "") {
-                googleMapsElem.href = item.googleMaps;
-                googleMapsElem.setAttribute("target", "_blank"); // Mở link dẫn đường ở tab mới độc lập
-                googleMapsElem.style.display = "inline-block";
-            } else {
-                googleMapsElem.style.display = "none";
-            }
-        }
-    } else {
-        // Nếu gõ bậy ID trên URL không tồn tại
-        document.getElementById("ten").innerText = "Không tìm thấy dữ liệu di tích này!";
-        const moTaElem = document.getElementById("moTa");
-        if (moTaElem) moTaElem.innerText = "Hệ thống không tìm thấy ID tương ứng. Vui lòng quay lại trang chủ bản đồ.";
-    }
-}
+        searchBtn.
