@@ -24,7 +24,7 @@ const diTich = [
     moTa: "Đình Bồ Bản tọa lạc tại thôn Bồ Bản, xã Hòa Vang, thành phố Đà Nẵng, là ngôi đình cổ được xây dựng từ đầu thế kỷ XIX, gắn liền với quá trình hình thành và phát triển của làng Bồ Bản. Đình có giá trị tiêu biểu về kiến trúc, nghệ thuật điêu khắc truyền thống và là nơi sinh hoạt tín ngưỡng của cộng đồng. Đồng thời, đây còn là địa điểm diễn ra nhiều sự kiện cách mạng quan trọng như tập hợp lực lượng giành chính quyền trong Cách mạng Tháng Tám năm 1945, tổ chức bầu cử Quốc hội khóa I và các hoạt động cách mạng trong hai cuộc kháng chiến. Di tích là biểu tượng của truyền thống văn hóa và tinh thần yêu nước của nhân dân Hòa Vang.",
     hinhAnh: "images/boban.jpg",
     googleMaps: "https://maps.app.goo.gl/1YHsBmXJoyPtXW4t5",
-    video: "https://www.youtube.com/embed/-TKEsrumxuc?origin=https://hieuvhc-create.github.io",
+    video: "https://www.youtube.com/embed/_2ywtjL2ZGw",
     taiLieu: "https://docs.google.com/document/d/1KqglA4fXjxCkjsGZ2FlBDOC_IDlO1SS01_jLo8mB2wc/edit?tab=t.0"
   },
   {
