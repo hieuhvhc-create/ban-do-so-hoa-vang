@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     
     <style>
-        /* CSS đồng bộ giao diện và bổ sung nhận diện du lịch sinh thái */
+        /* CSS căn chỉnh giao diện */
         footer {
             text-align: center;
             padding: 20px 10px;
@@ -44,7 +44,7 @@
         }
         .nav-back-bar {
             text-align: center;
-            padding: 8px 15px;
+            padding: 10px 15px;
             background-color: #e8f5e9;
             border-bottom: 1px solid #c8e6c9;
         }
@@ -63,16 +63,21 @@
             margin-bottom: 12px;
             overflow-x: auto;
             padding-bottom: 4px;
+            scrollbar-width: none; /* Ẩn scrollbar Firefox */
+        }
+        .filter-tags::-webkit-scrollbar {
+            display: none; /* Ẩn scrollbar Chrome/Safari */
         }
         .filter-btn {
             background: #f1f8e9;
             border: 1px solid #81c784;
             color: #2e7d32;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 15px;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             cursor: pointer;
             white-space: nowrap;
+            transition: all 0.2s;
         }
         .filter-btn.active {
             background: #2e7d32;
@@ -81,12 +86,80 @@
         }
         .location-item {
             cursor: pointer;
-            padding: 10px 8px;
+            padding: 12px 8px;
             border-bottom: 1px solid #eee;
             transition: background 0.2s ease;
         }
         .location-item:hover {
             background: #f1f8e9;
+        }
+        .btn-view-detail {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 4px 10px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-view-detail:hover {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        /* Tối ưu hiển thị responsive đa màn hình */
+        @media (min-width: 769px) {
+            .container {
+                display: flex;
+                flex-direction: row;
+                height: calc(100vh - 240px);
+                min-height: 520px;
+            }
+            .sidebar {
+                width: 360px;
+                flex-shrink: 0;
+                overflow-y: auto;
+                padding-right: 10px;
+                border-right: 1px solid #ddd;
+            }
+            #map {
+                flex: 1;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 10px;
+            }
+            header h1 {
+                font-size: 1.2rem;
+                margin: 5px 0;
+            }
+            header h2 {
+                font-size: 1rem;
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            #map {
+                height: 48vh;
+                width: 100%;
+                order: 1;
+            }
+            .sidebar {
+                height: 42vh;
+                width: 100%;
+                overflow-y: auto;
+                order: 2;
+                padding: 12px;
+                box-sizing: border-box;
+            }
         }
     </style>
 </head>
@@ -124,7 +197,7 @@
                 <button class="filter-btn" data-subcat="am-thuc">Ẩm thực & Dịch vụ</button>
             </div>
 
-            <h3>Điểm đến nổi bật tại Phú Túc</h3>
+            <h3 style="margin: 10px 0; font-size: 1.1rem; color: #2e7d32;">Điểm đến nổi bật tại Phú Túc</h3>
             <ul id="list" style="list-style: none; padding: 0; margin: 0;"></ul>
         </div>
         
@@ -141,52 +214,52 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Dữ liệu các điểm du lịch Phú Túc
+        // Danh mục các điểm du lịch Phú Túc gắn mã ID kết nối chi-tiet-phu-tuc.html
         const phuTucLocations = [
             {
+                id: "nha-guol",
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
                 subcat: "van-hoa",
                 lat: 15.9868,
                 lng: 108.0125,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
-                description: "Không gian sinh hoạt cộng đồng đặc trưng của người Cơ Tu, lưu giữ kiến trúc cột gỗ nguyên khối và các bức bích họa tái hiện đời sống vùng cao.",
-                image: "images/nha-guol-phu-tuc.jpg"
+                description: "Không gian sinh hoạt cộng đồng đặc trưng của người Cơ Tu, lưu giữ kiến trúc cột gỗ nguyên khối và các bức bích họa rực rỡ sắc màu."
             },
             {
+                id: "toom-sara",
                 name: "Làng Du lịch Sinh thái Cộng đồng Toom Sara",
                 subcat: "sinh-thai",
                 lat: 15.9815,
                 lng: 108.0202,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
-                description: "Khu du lịch sinh thái nép mình bên dòng suối mát, bảo tồn nghề dệt thổ cẩm, ẩm thực cơm lam thịt nướng và văn hóa cồng chiêng.",
-                image: "images/toom-sara.jpg"
+                description: "Khu sinh thái nép mình bên dòng suối mát, gìn giữ nghề dệt thổ cẩm, ẩm thực cơm lam thịt nướng và văn hóa cồng chiêng."
             },
             {
+                id: "suoi-hoa",
                 name: "Khu du lịch Sinh thái Suối Hoa",
                 subcat: "sinh-thai",
                 lat: 15.9682,
                 lng: 107.9950,
                 address: "Km 20, QL14G, Xã Hòa Phú, Huyện Hòa Vang",
-                description: "Danh thắng nổi tiếng với thác ghềnh tự nhiên, cầu treo tre, thảm hoa ngút ngàn và các hồ tắm suối trong xanh mát lạnh.",
-                image: "images/suoi-hoa.jpg"
+                description: "Danh thắng nổi tiếng với ghềnh thác tự nhiên, hồ tắm suối mát rượi giữa thung lũng hoa rừng ngút ngàn."
             },
             {
+                id: "lai-thieu",
                 name: "Khu du lịch Lái Thiêu",
                 subcat: "sinh-thai",
                 lat: 15.9754,
                 lng: 108.0062,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
-                description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm chèo thuyền, cắm trại dã ngoại và vườn cây ăn trái phong phú.",
-                image: "images/lai-thieu.jpg"
+                description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm cắm trại dã ngoại, chèo thuyền và vườn cây ăn trái phong phú."
             },
             {
+                id: "am-thuc-phu-tuc",
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
                 subcat: "am-thuc",
                 lat: 15.9842,
                 lng: 108.0140,
                 address: "Tuyến đường chính Thôn Phú Túc",
-                description: "Điểm thưởng thức rượu cần, rượu Tr'đin, gà đồi nướng than hồng, ốc đá suối và các món rau rừng bản địa đặc sắc.",
-                image: "images/am-thuc-phu-tuc.jpg"
+                description: "Thưởng thức men nồng rượu cần, rượu Tr'đin, gà đồi nướng than hoa, cá niên và các món rau rừng đặc trưng vùng cao."
             }
         ];
 
@@ -197,7 +270,12 @@
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Marker xanh lá chủ đạo cho du lịch sinh thái
+        // Đảm bảo Leaflet render trơn tru trên mọi kích thước màn hình
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 400);
+
+        // Marker xanh lá cây chuyên dụng cho du lịch sinh thái
         const greenMarkerIcon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -215,40 +293,54 @@
             listContainer.innerHTML = '';
 
             if (items.length === 0) {
-                listContainer.innerHTML = '<li style="padding: 10px; color: #888;">Không tìm thấy địa điểm phù hợp.</li>';
+                listContainer.innerHTML = '<li style="padding: 12px; color: #888;">Không tìm thấy địa điểm phù hợp.</li>';
                 return;
             }
 
             items.forEach(item => {
-                // Thêm Marker
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
+                const detailUrl = `chi-tiet-phu-tuc.html?id=${item.id}`;
+
+                // Popup trên bản đồ có nút xem chi tiết và video
                 const popupBody = `
-                    <div style="font-family: Arial, sans-serif; max-width: 220px;">
-                        <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 1rem;">${item.name}</h4>
+                    <div style="font-family: Arial, sans-serif; max-width: 220px; line-height: 1.4;">
+                        <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 0.95rem;">${item.name}</h4>
                         <p style="margin: 0 0 5px 0; font-size: 0.75rem; color: #666;">📍 ${item.address}</p>
-                        <p style="font-size: 0.85rem; margin: 0; line-height: 1.4;">${item.description}</p>
+                        <p style="font-size: 0.82rem; margin: 0 0 8px 0; color: #333;">${item.description}</p>
+                        <a href="${detailUrl}" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: bold;">
+                            ▶️ Xem giới thiệu & Video
+                        </a>
                     </div>
                 `;
                 marker.bindPopup(popupBody);
                 markerLayerGroup.addLayer(marker);
 
-                // Thêm thẻ danh sách bên Sidebar
+                // Phần tử danh sách Sidebar
                 const li = document.createElement('li');
                 li.className = 'location-item';
                 li.innerHTML = `
-                    <strong style="color: #2e7d32; display: block;">${item.name}</strong>
-                    <span style="font-size: 0.8rem; color: #555;">${item.address}</span>
+                    <strong style="color: #2e7d32; display: block; font-size: 0.95rem;">${item.name}</strong>
+                    <span style="font-size: 0.8rem; color: #666;">📍 ${item.address}</span>
+                    <div>
+                        <a href="${detailUrl}" target="_blank" class="btn-view-detail">
+                            Chi tiết & Video ↗
+                        </a>
+                    </div>
                 `;
 
-                li.addEventListener('click', () => {
-                    map.flyTo([item.lat, item.lng], 15, { duration: 1.2 });
-                    marker.openPopup();
+                // Click vào dòng (ngoài nút link) thì di chuyển bản đồ đến điểm đó
+                li.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'A') {
+                        map.flyTo([item.lat, item.lng], 15, { duration: 1.2 });
+                        marker.openPopup();
+                    }
                 });
 
                 listContainer.appendChild(li);
             });
         }
 
+        // Hàm lọc và tìm kiếm kết hợp
         function filterLocations() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             const filtered = phuTucLocations.filter(loc => {
@@ -259,7 +351,7 @@
             renderList(filtered);
         }
 
-        // Sự kiện lọc danh mục
+        // Sự kiện click chọn bộ lọc (Tabs)
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', (e) => {
                 document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -269,11 +361,11 @@
             });
         });
 
-        // Sự kiện tìm kiếm
+        // Sự kiện nhập ô tìm kiếm
         document.getElementById('searchInput').addEventListener('input', filterLocations);
         document.getElementById('searchBtn').addEventListener('click', filterLocations);
 
-        // Hiển thị ban đầu
+        // Khởi chạy hiển thị dữ liệu ban đầu
         renderList(phuTucLocations);
     </script>
 </body>
