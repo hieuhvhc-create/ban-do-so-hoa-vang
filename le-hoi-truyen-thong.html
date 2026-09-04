@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZHXVRX7XZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VZHXVRX7XZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lễ hội Truyền thống Cơ Tu Phú Túc - Hòa Vang</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .festival-hero {
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://lh3.googleusercontent.com/d/1MwZz-sEyvcKhhVLf35fByQmgZKwSJhRO') center/cover no-repeat;
+            background-color: #b71c1c;
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        .festival-hero h1 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .festival-hero p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .nav-back-bar {
+            background: #ffebee;
+            padding: 10px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ffcdd2;
+        }
+
+        .nav-back-bar a {
+            color: #b71c1c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .festival-grid {
+            max-width: 1100px;
+            margin: 25px auto 40px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .festival-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eaeaea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .festival-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .festival-thumb {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .festival-info {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .festival-info h3 {
+            margin: 0 0 8px 0;
+            color: #b71c1c;
+            font-size: 1.2rem;
+        }
+
+        .festival-info p {
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.45;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .btn-festival {
+            display: block;
+            text-align: center;
+            background: #c62828;
+            color: #ffffff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.88rem;
+            transition: background 0.2s;
+        }
+
+        .btn-festival:hover {
+            background: #8e0000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 15px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.82rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .festival-hero { padding: 25px 12px; }
+            .festival-hero h1 { font-size: 1.25rem; }
+            .festival-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 12px; }
+            .festival-thumb { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="festival-hero">
+        <h1>LỄ HỘI TRUYỀN THỐNG CƠ TU</h1>
+        <p>Thanh âm cồng chiêng vang vọng núi rừng – Hòa nhịp vũ điệu Tân tung Da dá linh thiêng tại thôn Phú Túc</p>
+    </header>
+
+    <div class="nav-back-bar">
+        <a href="du-lich-phu-tuc.html">← Quay lại Bản đồ số Du lịch Phú Túc</a>
+    </div>
+
+    <main class="festival-grid" id="festivalGrid"></main>
+
+    <footer>
+        <p><strong>Bản đồ số Di tích & Du lịch sinh thái cộng đồng Xã Hòa Vang</strong></p>
+        <p>Công trình Chuyển đổi số thanh niên</p>
+    </footer>
+
+    <script>
+        const festivals = [
+            {
+                id: "mung-lua-moi",
+                name: "Lễ hội Mừng lúa mới (Cha-ha-rooc)",
+                desc: "Nghi lễ tạ ơn Thần Lúa và các đấng thần linh đã phù hộ cho buôn làng vụ mùa trĩu hạt, cầu mong nương rẫy xanh tươi, đời đời ấm no.",
+                thumb: "https://lh3.googleusercontent.com/d/16b4d3nFYXfDL2iBkrZsB4QhBzc_9w6Jc"
+            },
+            {
+                id: "tan-tung-da-da",
+                name: "Hội Cồng chiêng & Vũ điệu Tân tung Da dá",
+                desc: "Vũ điệu dâng trời linh thiêng: đàn ông mạnh mẽ vung khiên giáo (Tân tung), phụ nữ dịu dàng nâng đôi tay hướng về mặt trời (Da dá) trong tiếng chiêng rộn rã.",
+                thumb: "https://lh3.googleusercontent.com/d/1FlV4j9a1wuu3ctGfLlOmUS08yy5RDVYF"
+            },
+            {
+                id: "dung-cay-neu",
+                name: "Lễ Dựng cây Nêu & Mở cửa Nhà Gươl",
+                desc: "Nghi lễ tâm linh thiêng liêng bậc nhất gắn liền với việc khánh thành nhà Gươl; cây Nêu được chạm trổ hoa văn tinh xảo nối đất với trời.",
+                thumb: "https://lh3.googleusercontent.com/d/1Qc2hVPSmAzc9te4kj3rdL8rhN6X41zVg"
+            },
+            {
+                id: "an-the-ket-nghia",
+                name: "Lễ hội Ăn thề kết nghĩa buôn làng",
+                desc: "Nghi thức thắt chặt tình huynh đệ, đoàn kết tương trợ giữa làng Phú Túc và các làng bản anh em quanh dãy Trường Sơn.",
+                thumb: "https://lh3.googleusercontent.com/d/1MwZz-sEyvcKhhVLf35fByQmgZKwSJhRO"
+            }
+        ];
+
+        const container = document.getElementById("festivalGrid");
+        container.innerHTML = festivals.map(item => `
+            <div class="festival-card">
+                <img src="${item.thumb}" alt="${item.name}" class="festival-thumb" loading="lazy">
+                <div class="festival-info">
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <a href="chi-tiet-le-hoi.html?id=${item.id}" class="btn-festival">
+                        🔥 Khám phá nghi lễ & Video ▶
+                    </a>
+                </div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>
