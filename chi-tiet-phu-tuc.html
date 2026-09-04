@@ -33,7 +33,7 @@
             line-height: 1.6;
         }
 
-        /* Top Header */
+        /* Top Navigation */
         .top-nav {
             background: #ffffff;
             border-bottom: 1px solid #e0e0e0;
@@ -84,7 +84,7 @@
             opacity: 0.9;
         }
 
-        /* Thân trang (Container) */
+        /* Khung nội dung */
         .main-wrapper {
             max-width: 850px;
             margin: -20px auto 30px auto;
@@ -98,7 +98,7 @@
             margin-bottom: 20px;
         }
 
-        /* Thông tin tóm tắt (Badge & Meta) */
+        /* Meta thông tin */
         .meta-group {
             display: flex;
             flex-wrap: wrap;
@@ -126,7 +126,6 @@
             margin-top: 5px;
         }
 
-        /* Đoạn văn bản nội dung */
         .section-title {
             font-size: 1.15rem;
             color: #1b5e20;
@@ -145,7 +144,7 @@
             line-height: 1.8;
         }
 
-        /* Khung Video 16:9 Responsive */
+        /* Khung Video 16:9 */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
@@ -182,7 +181,7 @@
             font-size: 0.95rem;
         }
 
-        /* Cụm nút hành động (Chỉ đường & Chia sẻ) */
+        /* Nút hành động */
         .action-bar {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -219,7 +218,6 @@
             background: #dcedc8;
         }
 
-        /* Chân trang */
         footer {
             text-align: center;
             padding: 25px 15px;
@@ -229,7 +227,6 @@
             color: #78909c;
         }
 
-        /* Tinh chỉnh riêng cho Màn hình điện thoại nhỏ */
         @media (max-width: 600px) {
             .hero-banner h1 {
                 font-size: 1.3rem;
@@ -253,13 +250,11 @@
 </head>
 <body>
 
-    <!-- Thanh điều hướng cố định phía trên -->
     <nav class="top-nav">
         <a href="du-lich-phu-tuc.html" class="back-btn">← Bản đồ Phú Túc</a>
         <span class="unit-tag">Đoàn xã Hòa Vang</span>
     </nav>
 
-    <!-- Banner tiêu đề điểm đến -->
     <header class="hero-banner">
         <h1 id="place-title">Đang tải thông tin...</h1>
         <p>Bản đồ số Di tích & Du lịch sinh thái cộng đồng</p>
@@ -267,7 +262,6 @@
 
     <div class="main-wrapper">
         <main class="content-card">
-            <!-- Thông tin phân loại và địa chỉ -->
             <div class="meta-group">
                 <span class="badge" id="place-category">Phân loại</span>
                 <div class="meta-item">
@@ -276,23 +270,17 @@
                 </div>
             </div>
 
-            <!-- Bài viết giới thiệu chi tiết -->
             <h2 class="section-title">Giới thiệu & Bản sắc đặc trưng</h2>
             <div class="desc-text" id="place-desc"></div>
 
-            <!-- Trải nghiệm nổi bật -->
             <div class="highlights-box" id="highlights-container" style="display: none;">
                 <strong style="color: #2e7d32;">✨ Trải nghiệm không nên bỏ lỡ:</strong>
                 <ul id="highlights-list"></ul>
             </div>
 
-            <!-- Video Clip trải nghiệm thực tế -->
             <h2 class="section-title" id="video-heading">Video Giới thiệu & Toàn cảnh</h2>
-            <div class="video-wrapper" id="video-box">
-                <!-- Iframe Youtube nhúng tự động bằng JS -->
-            </div>
+            <div class="video-wrapper" id="video-box"></div>
 
-            <!-- Nút chức năng: Chỉ đường Google Maps & Chia sẻ -->
             <div class="action-bar">
                 <a id="btn-directions" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-maps">
                     🧭 Chỉ đường đi (Google Maps)
@@ -306,90 +294,116 @@
 
     <footer>
         <p><strong>Bản đồ số Di tích Lịch sử - Văn hóa & Du lịch Xã Hòa Vang</strong></p>
-        <p>Công trình Chuyển đổi số thanh niên năm 2026</p>
+        <p>Công trình Chuyển đổi số thanh niên</p>
     </footer>
 
     <script>
-        // CƠ SỞ DỮ LIỆU CÁC ĐIỂM DU LỊCH PHÚ TÚC
+        // Cơ sở dữ liệu chi tiết của từng điểm đến
         const detailsData = {
             "nha-guol": {
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
                 category: "Không gian Bản sắc Văn hóa Cơ Tu",
-                address: "Thôn Phú Túc, Xã Hòa Vang, TP. Đà Nẵng",
-                lat: 15.9695472,
-                lng: 108.0464838,
-                youtubeId: "3NrLA4jUi0k", // Thay bằng ID YouTube thực tế của bạn
+                address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
+                lat: 15.986835,
+                lng: 108.012541,
+                youtubeId: "3NrLA4jUi0k",
+                mapsUrl: "https://maps.app.goo.gl/qyVNbdtJaUEi1f4p6",
                 highlights: [
-                    "Kiến trúc cột gỗ lim chạm khắc tinh xảo hình chim tring, thú rừng và hoa văn truyền thống.",
-                    "Không gian tổ chức các ngày hội văn hóa, cồng chiêng và lễ hội Mừng lúa mới.",
+                    "Kiến trúc cột gỗ lim chạm khắc tinh xảo hình chim tring, muông thú và hoa văn truyền thống.",
+                    "Không gian sinh hoạt văn hóa, cồng chiêng và lễ hội Mừng lúa mới.",
                     "Check-in con đường bích họa rực rỡ sắc màu tái hiện đời sống đồng bào Cơ Tu."
                 ],
-                desc: "Nhà Gươl thôn Phú Túc được xem là 'linh hồn' của cộng đồng người Cơ Tu nơi đây. Trong tâm thức của bà con, Nhà Gươl không chỉ là nơi hội họp bàn việc làng, hòa giải mâu thuẫn hay đón tiếp khách quý, mà còn là bảo tàng sống lưu giữ hồn cốt tổ tiên.\n\nNgôi nhà được xây dựng vững chãi với hệ thống cột cái lớn bằng gỗ chạm trổ họa tiết dân gian sinh động. Cùng với tuyến đường bích họa dẫn vào thôn, du khách đến đây sẽ cảm nhận rõ nét không khí thanh bình, mộc mạc và sự hiếu khách nồng hậu của bà con vùng cao Hòa Vang."
+                desc: "Nhà Gươl thôn Phú Túc được xem là 'linh hồn' của cộng đồng người Cơ Tu nơi đây. Trong tâm thức của bà con, Nhà Gươl không chỉ là nơi hội họp bàn việc làng hay đón tiếp khách quý, mà còn là bảo tàng sống lưu giữ hồn cốt tổ tiên.\n\nCùng với tuyến đường bích họa dẫn vào thôn, du khách đến đây sẽ cảm nhận rõ nét không khí thanh bình, mộc mạc và sự hiếu khách nồng hậu của bà con vùng cao Hòa Vang."
+            },
+            "ruou-can-phu-tuc": {
+                name: "Nghề ủ Rượu cần Truyền thống Phú Túc",
+                category: "Ẩm thực Vùng cao & Sản vật Truyền thống Cơ Tu",
+                address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
+                lat: 15.985500,
+                lng: 108.013200,
+                youtubeId: "", // Điền ID YouTube khi có video riêng về rượu cần
+                mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=15.9855,108.0132",
+                highlights: [
+                    "Bí quyết men lá rừng cổ truyền: Kết hợp từ hơn 10 loại thảo mộc, vỏ cây tự nhiên trên đỉnh Trường Sơn.",
+                    "Nguyên liệu thuần khiết từ nếp nương, sắn rẫy và nguồn nước đầu nguồn mát lành.",
+                    "Nghi thức uống rượu cần bằng cần tre vít cong bên bếp lửa hồng gắn kết tình làng nghĩa xóm."
+                ],
+                desc: "Rượu cần Phú Túc là thức uống truyền thống gắn liền với đời sống tâm linh và sinh hoạt cộng đồng của đồng bào Cơ Tu. Rượu luôn hiện diện trang trọng trong các dịp lễ hội Mừng lúa mới, lễ cưới hỏi hay tiếp đãi khách quý.\n\nĐiểm làm nên hương vị say đắm, êm dịu mà không cay gắt của rượu cần Phú Túc là men lá rừng bí truyền. Rượu sau khi ủ trong ché sành qua nhiều tháng có vị ngọt thanh, nồng ấm, cùng vít cần tre chia sẻ chén men say tạo nên nét đẹp văn hóa ấm áp tình người."
             },
             "toom-sara": {
                 name: "Làng Du lịch Sinh thái Cộng đồng Toom Sara",
                 category: "Du lịch Sinh thái & Trải nghiệm Văn hóa",
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
-                lat: 15.9815,
-                lng: 108.0202,
-                youtubeId: "dQw4w9WgXcQ",
+                lat: 15.981500,
+                lng: 108.020200,
+                youtubeId: "",
+                mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=15.9815,108.0202",
                 highlights: [
                     "Trải nghiệm tắm suối tự nhiên trong vắt giữa thung lũng rợp bóng cây xanh.",
                     "Tìm hiểu nghề dệt thổ cẩm cổ truyền và thưởng thức điệu múa Tung tung Da dá.",
                     "Thưởng thức ẩm thực nướng than hồng, cơm lam ống tre và rượu cần men lá."
                 ],
-                desc: "Toom Sara theo tiếng Cơ Tu có nghĩa là 'suối hoa ớt'. Khu du lịch được quy hoạch bảo tồn dựa trên cảnh quan nguyên sơ của núi rừng, mang lại cho du khách cảm giác tách biệt hoàn toàn khỏi phố thị xô bồ.\n\nTại đây, bạn có thể nghỉ dưỡng trong các căn nhà sàn truyền thống, nhâm nhi tách trà ấm bên suối, ngắm nhìn các nghệ nhân Cơ Tu thoăn thoắt dệt từng tấm thổ cẩm rực rỡ và thưởng thức những món ăn dân dã đậm vị quê hương."
+                desc: "Toom Sara theo tiếng Cơ Tu có nghĩa là 'suối hoa ớt'. Khu du lịch được quy hoạch bảo tồn dựa trên cảnh quan nguyên sơ của núi rừng, mang lại cảm giác tách biệt hoàn toàn khỏi phố thị xô bồ.\n\nTại đây, du khách có thể nghỉ dưỡng trong các căn nhà sàn truyền thống, hòa mình vào các điệu múa dân gian và thưởng thức ẩm thực mộc mạc vùng cao."
             },
             "suoi-hoa": {
                 name: "Khu Du lịch Sinh thái Suối Hoa",
                 category: "Khu Du lịch Sinh thái & Thắng cảnh",
                 address: "Km 20, QL14G, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
-                lat: 15.9682,
-                lng: 107.9950,
-                youtubeId: "dQw4w9WgXcQ",
+                lat: 15.968200,
+                lng: 107.995000,
+                youtubeId: "",
+                mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=15.9682,107.9950",
                 highlights: [
-                    "Chiêm ngưỡng thác nước Rù Rì, thác Hạ tung bọt trắng xóa quanh năm.",
+                    "Chiêm ngưỡng thác ghềnh tự nhiên tung bọt trắng xóa quanh năm.",
                     "Cầu treo lãng mạn bắc ngang dòng suối lớn ngút ngàn thảm hoa dại.",
-                    "Không gian dã ngoại cuối tuần lý tưởng cho gia đình, cơ quan và nhóm bạn trẻ."
+                    "Không gian dã ngoại cuối tuần lý tưởng cho gia đình và nhóm bạn trẻ."
                 ],
-                desc: "Nằm ven tuyến Quốc lộ 14G, KDL Suối Hoa là một trong những điểm đến dã ngoại quen thuộc của người dân Đà Nẵng và du khách thập phương. Dòng nước suối từ đỉnh Trường Sơn chảy qua các bậc ghềnh đá tự nhiên tạo thành nhiều hồ tắm lộ thiên nông, sạch và rất mát mẻ.\n\nBao bọc đôi bờ là thảm thực vật phong phú, nhiều loài hoa rừng bản địa khoe sắc cùng những tán cây cổ thụ tỏa bóng mát rượi."
+                desc: "Nằm ven tuyến Quốc lộ 14G, KDL Suối Hoa là điểm đến dã ngoại quen thuộc. Dòng nước suối từ đỉnh Trường Sơn chảy qua các bậc ghềnh đá tạo thành nhiều hồ tắm lộ thiên nông, sạch và mát mẻ quanh năm."
             },
             "lai-thieu": {
                 name: "Khu Du lịch Sinh thái Lái Thiêu",
                 category: "Du lịch Sinh thái Miệt vườn & Dã ngoại",
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
-                lat: 15.9754,
-                lng: 108.0062,
-                youtubeId: "dQw4w9WgXcQ",
+                lat: 15.975400,
+                lng: 108.006200,
+                youtubeId: "",
+                mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=15.9754,108.0062",
                 highlights: [
                     "Vườn cây ăn trái nhiệt đới sum sê trĩu quả.",
-                    "Hồ bơi nhân tạo, dịch vụ chèo thuyền kayak và khu cắm trại bãi cỏ xanh mướt.",
-                    "Nhà rông, nhà sàn truyền thống phục vụ tiệc họp mặt và nghỉ ngơi qua đêm."
+                    "Hồ bơi nhân tạo, chèo thuyền kayak và bãi cỏ cắm trại rộng rãi.",
+                    "Nhà rông, nhà sàn phục vụ tiệc họp mặt và nghỉ ngơi qua đêm."
                 ],
-                desc: "KDL Lái Thiêu kết hợp khéo léo giữa nét mộc mạc miệt vườn Nam Bộ và không gian núi rừng miền Trung. Nơi đây sở hữu nhiều chủng loại cây ăn trái râm mát, suối nhân tạo và các bãi cỏ rộng rãi phù hợp tổ chức sự kiện cắm trại, team building, giáo dục kỹ năng sống ngoài trời."
+                desc: "KDL Lái Thiêu kết hợp không gian vườn cây trái râm mát với cảnh quan sinh thái, thích hợp cho các hoạt động cắm trại, dã ngoại và rèn luyện kỹ năng ngoài trời."
             },
             "am-thuc-phu-tuc": {
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
                 category: "Ẩm thực Vùng cao & Đặc sản Địa phương",
                 address: "Tuyến đường Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
-                lat: 15.9842,
-                lng: 108.0140,
-                youtubeId: "dQw4w9WgXcQ",
+                lat: 15.984200,
+                lng: 108.014000,
+                youtubeId: "",
+                mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=15.9842,108.0140",
                 highlights: [
                     "Thịt heo bản nướng than hồng ướp lá rừng thơm nức.",
-                    "Rau dớn luộc chấm mắm, cá niên nấu canh chua hoặc nướng trui.",
+                    "Rau dớn luộc chấm mắm, cá niên nướng trui, ốc đá suối.",
                     "Men cay ấm áp từ ché rượu cần truyền thống và rượu Tr'đin tự nhiên."
                 ],
-                desc: "Ẩm thực của đồng bào Cơ Tu tại Phú Túc mang đậm hương vị tự nhiên của núi rừng. Mỗi món ăn đều được chế biến mộc mạc, không dùng gia vị hóa chất mà tận dụng các loại lá, rễ cây thơm ngát từ đại ngàn.\n\nThưởng thức bữa cơm lam nóng hổi bên bếp than hồng và nghe già làng kể chuyện xưa là trải nghiệm văn hóa sâu lắng dành cho bất kỳ ai đặt chân đến Phú Túc."
+                desc: "Ẩm thực đồng bào Cơ Tu tại Phú Túc mang đậm hương vị tự nhiên của núi rừng, chế biến mộc mạc và lưu giữ nguyên vẹn bản sắc văn hóa bản địa."
             }
         };
 
-        // 1. ĐỌC THAM SỐ ?id= TỪ THANH ĐỊA CHỈ TRÌNH DUYỆT
+        // Hàm tự động trích xuất ID YouTube
+        function extractYouTubeId(urlOrId) {
+            if (!urlOrId) return "";
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = urlOrId.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : urlOrId;
+        }
+
         const params = new URLSearchParams(window.location.search);
         const placeId = params.get('id');
         const item = detailsData[placeId];
 
-        // 2. RENDER DỮ LIỆU LÊN GIAO DIỆN
         if (item) {
             document.title = item.name + " | Bản đồ số Hòa Vang";
             document.getElementById('place-title').innerText = item.name;
@@ -397,7 +411,6 @@
             document.getElementById('place-address').innerText = item.address;
             document.getElementById('place-desc').innerText = item.desc;
 
-            // Render danh sách trải nghiệm nổi bật (nếu có)
             if (item.highlights && item.highlights.length > 0) {
                 const hlBox = document.getElementById('highlights-container');
                 const hlList = document.getElementById('highlights-list');
@@ -405,10 +418,10 @@
                 hlList.innerHTML = item.highlights.map(h => `<li>${h}</li>`).join('');
             }
 
-            // Nhúng Video Youtube
-            if (item.youtubeId && item.youtubeId.trim() !== "") {
+            const ytId = extractYouTubeId(item.youtubeId);
+            if (ytId && ytId.trim() !== "") {
                 document.getElementById('video-box').innerHTML = `
-                    <iframe src="https://www.youtube.com/embed/${item.youtubeId}?rel=0" 
+                    <iframe src="https://www.youtube.com/embed/${ytId}?rel=0" 
                             title="${item.name}" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen></iframe>
@@ -418,17 +431,19 @@
                 document.getElementById('video-box').style.display = 'none';
             }
 
-            // Gắn link chỉ đường Google Maps
-            document.getElementById('btn-directions').href = `https://www.google.com/maps/dir/?api=1&destination=${item.lat},${item.lng}`;
+            if (item.mapsUrl) {
+                document.getElementById('btn-directions').href = item.mapsUrl;
+            } else {
+                document.getElementById('btn-directions').href = `https://www.google.com/maps/dir/?api=1&destination=${item.lat},${item.lng}`;
+            }
         } else {
-            // Trường hợp người dùng gõ link sai hoặc không có tham số ID
             document.getElementById('place-title').innerText = "Không tìm thấy địa điểm";
             document.getElementById('place-address').innerText = "Vui lòng kiểm tra lại đường dẫn truy cập.";
             document.getElementById('place-category').style.display = 'none';
             document.getElementById('place-desc').innerHTML = `
                 <div style="text-align: center; padding: 30px 10px;">
-                    <p style="font-size: 1.1rem; color: #888;">Địa điểm bạn đang tìm kiếm không tồn tại hoặc đã được chuyển dời.</p>
-                    <a href="du-lich-phu-tuc.html" style="display: inline-block; margin-top: 15px; color: #2e7d32; font-weight: bold;">← Quay về Trang chủ Bản đồ Phú Túc</a>
+                    <p style="font-size: 1.1rem; color: #888;">Địa điểm không tồn tại hoặc đã được cập nhật lại.</p>
+                    <a href="du-lich-phu-tuc.html" style="display: inline-block; margin-top: 15px; color: #2e7d32; font-weight: bold;">← Quay về Bản đồ Phú Túc</a>
                 </div>
             `;
             document.getElementById('video-heading').style.display = 'none';
@@ -436,7 +451,6 @@
             document.getElementById('btn-directions').style.display = 'none';
         }
 
-        // 3. HÀM CHIA SẺ TRANG (Tối ưu cho cả điện thoại & máy tính)
         function sharePage() {
             if (navigator.share) {
                 navigator.share({
@@ -446,7 +460,7 @@
                 }).catch(() => {});
             } else {
                 navigator.clipboard.writeText(window.location.href);
-                alert("Đã sao chép liên kết vào bộ nhớ tạm! Bạn có thể dán để gửi qua Zalo, Messenger.");
+                alert("Đã sao chép liên kết vào bộ nhớ tạm! Bạn có thể dán để chia sẻ qua Zalo hoặc Facebook.");
             }
         }
     </script>
