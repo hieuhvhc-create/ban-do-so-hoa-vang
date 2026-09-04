@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZHXVRX7XZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VZHXVRX7XZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title id="page-title">Chi tiết lễ hội truyền thống Cơ Tu</title>
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+        body { background: #f4f6f8; color: #333; line-height: 1.6; }
+        .top-nav {
+            background: white;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .top-nav a {
+            color: #b71c1c;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .fest-header {
+            background: linear-gradient(135deg, #8e0000, #c62828);
+            color: white;
+            padding: 25px 15px 35px 15px;
+            text-align: center;
+        }
+        .fest-header h1 { font-size: 1.6rem; margin-bottom: 5px; }
+        .content-box {
+            max-width: 800px;
+            margin: -20px auto 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .fest-img-large {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            color: #b71c1c;
+            font-size: 1.15rem;
+            margin: 20px 0 10px 0;
+            border-left: 4px solid #c62828;
+            padding-left: 8px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            margin: 15px 0;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+        ul, ol { padding-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 7px; font-size: 0.95rem; }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.85rem;
+            border-top: 1px solid #ddd;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <a href="le-hoi-truyen-thong.html">← Danh sách Lễ hội truyền thống</a>
+    </div>
+
+    <div class="fest-header">
+        <h1 id="fest-name">Tên lễ hội</h1>
+        <p>Bản sắc văn hóa dân gian đồng bào Cơ Tu Phú Túc</p>
+    </div>
+
+    <main class="content-box">
+        <img id="fest-image" src="" alt="" class="fest-img-large">
+
+        <h2 class="section-title">Thời gian & Địa điểm tổ chức</h2>
+        <p id="time-place" style="font-size: 0.95rem; color: #444; margin-bottom: 15px; font-weight: 500;"></p>
+
+        <h2 class="section-title">Nghi thức phần Lễ</h2>
+        <ul id="rituals"></ul>
+
+        <h2 class="section-title">Không khí rộn ràng phần Hội</h2>
+        <p id="festivities" style="font-size: 0.95rem; color: #444; line-height: 1.6; margin-bottom: 15px;"></p>
+
+        <h2 class="section-title">Ý nghĩa văn hóa tâm linh</h2>
+        <p id="meaning" style="font-size: 0.95rem; color: #444; line-height: 1.6;"></p>
+
+        <h2 class="section-title" id="video-heading">Video tư liệu lễ hội</h2>
+        <div class="video-wrapper" id="video-box"></div>
+    </main>
+
+    <footer>
+        <p>Bản đồ số Di tích Lịch sử & Du lịch Xã Hòa Vang</p>
+    </footer>
+
+    <script>
+        const festData = {
+            "mung-lua-moi": {
+                name: "Lễ hội Mừng lúa mới (Cha-ha-rooc)",
+                thumb: "https://lh3.googleusercontent.com/d/16b4d3nFYXfDL2iBkrZsB4QhBzc_9w6Jc",
+                timePlace: "🗓 Thường diễn ra sau mùa thu hoạch rẫy (khoảng tháng 10 - 11 âm lịch) tại sân Nhà Gươl thôn Phú Túc.",
+                rituals: [
+                    "Già làng cùng các chủ hộ trang nghiêm dâng lễ vật (gà trống, heo, bánh sừng trâu, cơm lam, rượu cần) lên tạ ơn Thần Lúa và Giàng (Trời).",
+                    "Nghi thức rước hồn Lúa từ nương rẫy về kho thóc của buôn làng.",
+                    "Già làng đọc lời khấn cầu xin Giàng bảo vệ mùa màng năm sau mưa thuận gió hòa, sâu bọ không phá hại thóc nếp."
+                ],
+                festivities: "Sau phần tế lễ, tiếng trống tiếng cồng chiêng ngân vang giòn giã. Dân làng và du khách cùng vít cần thưởng thức rượu cần nồng nàn, ăn bánh kuốc (bánh sừng trâu), nhảy múa quanh đống lửa bập bùng thâu đêm.",
+                meaning: "Lễ mừng lúa mới thể hiện đạo lý uống nước nhớ nguồn, lòng biết ơn sâu sắc đối với thiên nhiên đã nuôi sống con người và thắt chặt tình làng nghĩa xóm.",
+                youtubeId: ""
+            },
+            "tan-tung-da-da": {
+                name: "Hội Cồng chiêng & Vũ điệu Tân tung Da dá",
+                thumb: "https://lh3.googleusercontent.com/d/1FlV4j9a1wuu3ctGfLlOmUS08yy5RDVYF",
+                timePlace: "🗓 Tổ chức trong tất cả các dịp hội làng lớn, đón khách quý hoặc ngày hội Đại đoàn kết tại sân Nhà Gươl Phú Túc.",
+                rituals: [
+                    "Đội chiêng dẫn đầu đánh nhịp mở màn, thanh âm trầm bổng ngân vang báo hiệu ngày hội lớn.",
+                    "Dàn thanh niên trai tráng bước vào vòng tròn với tư thế 'Tân tung' (dâng trời): khom lưng, bước chân dứt khoát, tay vung kiếm giáo hoặc khiên gỗ biểu thị dũng khí bảo vệ buôn làng.",
+                    "Phụ nữ Cơ Tu trong trang phục váy áo thổ cẩm rực rỡ múa điệu 'Da dá': ngửa hai lòng bàn tay ngang vai hướng lên trời, nhịp chân nhẹ nhàng uyển chuyển cầu mong sự no ấm, sinh sôi nảy nở."
+                ],
+                festivities: "Mọi người kết thành vòng tròn lớn quanh cây Nêu, vừa đi vừa hòa nhịp theo tiếng trống, tiếng cồng chiêng rộn rã rực lửa giữa đại ngàn.",
+                meaning: "Điệu múa Tân tung Da dá là sự kết hợp hài hòa âm - dương, đất - trời, thể hiện sức mạnh quật cường của nam giới và nét duyên dáng, thủy chung của nữ giới Cơ Tu.",
+                youtubeId: ""
+            },
+            "dung-cay-neu": {
+                name: "Lễ Dựng cây Nêu & Mở cửa Nhà Gươl",
+                thumb: "https://lh3.googleusercontent.com/d/1Qc2hVPSmAzc9te4kj3rdL8rhN6X41zVg",
+                timePlace: "🗓 Diễn ra khi thôn lập làng mới, hoàn thành xây dựng hoặc phục dựng Nhà Gươl truyền thống.",
+                rituals: [
+                    "Các nghệ nhân già làng lựa chọn cây gỗ rừng dẻo dai, đẽo gọt và chạm khắc các dải hoa văn biểu tượng mặt trời, chim thần, kỳ đà.",
+                    "Thực hiện nghi lễ dựng cột cây Nêu (cột Guôl) ngay trước sân nhà Gươl nối liền đất với trời.",
+                    "Lễ cắt băng, mở cửa chính Nhà Gươl và rước trống, cồng chiêng cùng các linh vật vào bên trong nhà."
+                ],
+                festivities: "Bà con cùng tụ hội bên bếp lửa thiêng giữa nhà Gươl, nghe già làng kể khan, hát lý đối đáp và cùng nhau chia sẻ chén rượu ấm nồng.",
+                meaning: "Cây Nêu và Nhà Gươl là biểu tượng cao nhất cho uy quyền, sự che chở của tổ tiên và là 'ngôi nhà chung' lưu giữ toàn bộ giá trị tinh thần bất diệt của làng Cơ Tu.",
+                youtubeId: ""
+            },
+            "an-the-ket-nghia": {
+                name: "Lễ hội Ăn thề kết nghĩa buôn làng",
+                thumb: "https://lh3.googleusercontent.com/d/1MwZz-sEyvcKhhVLf35fByQmgZKwSJhRO",
+                timePlace: "🗓 Định kỳ hoặc khi hai buôn làng tổ chức giao lưu kết nghĩa anh em.",
+                rituals: [
+                    "Hai già làng đại diện cho hai buôn đứng trước bàn tế lễ, tuyên đọc lời thề nguyện cùng nhau chia ngọt sẻ bùi.",
+                    "Nghi thức trao đổi lễ vật truyền thống (ché rượu, tấm dồ thổ cẩm, vòng cườm bạc).",
+                    "Hai vị già làng cùng uống chung bát rượu thề hòa huyết chứng giám của thần linh và đất trời."
+                ],
+                festivities: "Thanh niên nam nữ hai làng giao lưu các trò chơi dân gian (bắn nỏ, đẩy gậy, kéo co), cùng múa xoang và thưởng thức ẩm thực truyền thống.",
+                meaning: "Tạo nên mối dây liên kết bền chặt, giúp đỡ nhau lúc hoạn nạn khó khăn, bảo vệ biên giới buôn làng và bảo tồn các phong tục tốt đẹp.",
+                youtubeId: ""
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const festId = params.get('id');
+        const item = festData[festId];
+
+        if (item) {
+            document.title = item.name + " - Lễ hội Phú Túc";
+            document.getElementById("fest-name").innerText = item.name;
+            document.getElementById("fest-image").src = item.thumb;
+            document.getElementById("fest-image").alt = item.name;
+            document.getElementById("time-place").innerText = item.timePlace;
+            document.getElementById("rituals").innerHTML = item.rituals.map(r => `<li>${r}</li>`).join('');
+            document.getElementById("festivities").innerText = item.festivities;
+            document.getElementById("meaning").innerText = item.meaning;
+
+            if (item.youtubeId && item.youtubeId.trim() !== "") {
+                document.getElementById("video-box").innerHTML = `
+                    <iframe src="https://www.youtube.com/embed/${item.youtubeId}?rel=0" allowfullscreen></iframe>
+                `;
+            } else {
+                document.getElementById("video-heading").style.display = "none";
+                document.getElementById("video-box").style.display = "none";
+            }
+        } else {
+            document.getElementById("fest-name").innerText = "Không tìm thấy thông tin";
+            document.querySelector(".content-box").innerHTML = "<p style='text-align:center; padding: 20px;'>Nội dung không tồn tại hoặc đang được cập nhật.</p>";
+        }
+    </script>
+</body>
+</html>
