@@ -6,7 +6,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-VZHXVRX7XZ');
     </script>
 
@@ -24,24 +23,17 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     
     <style>
-        /* Đồng bộ giao diện và tối ưu hiển thị máy tính & điện thoại */
-        footer {
-            text-align: center;
-            padding: 20px 10px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #dee2e6;
-            margin-top: 30px;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
+            background: #f5f5f5;
         }
-        .visitor-badge {
-            margin-top: 10px;
-            display: inline-block;
-        }
-        .footer-text {
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin: 5px 0;
-        }
+
         .nav-back-bar {
             text-align: center;
             padding: 10px 15px;
@@ -57,6 +49,38 @@
         .nav-back-bar a:hover {
             text-decoration: underline;
         }
+
+        /* KHUNG TÌM KIẾM - CỐ ĐỊNH KHÔNG BỊ ĐÈ */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 15px;
+            background: #ffffff;
+            gap: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            z-index: 20;
+        }
+        .search-container input {
+            width: 420px;
+            max-width: 70%;
+            padding: 10px 14px;
+            font-size: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .filter-tags {
             display: flex;
             gap: 6px;
@@ -84,9 +108,10 @@
             color: white;
             border-color: #2e7d32;
         }
+
         .location-item {
             cursor: pointer;
-            padding: 12px 8px;
+            padding: 12px 10px;
             border-bottom: 1px solid #eee;
             transition: background 0.2s ease;
         }
@@ -96,7 +121,7 @@
         .btn-view-detail {
             display: inline-block;
             margin-top: 6px;
-            padding: 5px 12px;
+            padding: 6px 12px;
             background-color: #2e7d32;
             color: white;
             border-radius: 4px;
@@ -109,55 +134,84 @@
             background-color: #1b5e20;
         }
 
-        /* Responsive */
+        #map {
+            background: #e5e3df !important;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive Máy tính */
         @media (min-width: 769px) {
             .container {
-                display: flex;
-                flex-direction: row;
-                height: calc(100vh - 240px);
-                min-height: 520px;
+                display: flex !important;
+                flex-direction: row !important;
+                height: calc(100vh - 220px) !important;
+                min-height: 540px !important;
+                position: relative;
             }
             .sidebar {
-                width: 360px;
-                flex-shrink: 0;
-                overflow-y: auto;
-                padding-right: 10px;
-                border-right: 1px solid #ddd;
+                width: 380px !important;
+                flex-shrink: 0 !important;
+                overflow-y: auto !important;
+                padding: 15px 12px !important;
+                border-right: 1px solid #ddd !important;
+                background: #ffffff;
+                order: 1 !important;
             }
             #map {
-                flex: 1;
-                height: 100%;
+                flex: 1 !important;
+                order: 2 !important;
             }
         }
 
+        /* Responsive Điện thoại */
         @media (max-width: 768px) {
-            header {
-                padding: 12px 10px;
+            .search-container {
+                padding: 8px 10px;
             }
-            header h1 {
-                font-size: 1.2rem;
-                margin: 5px 0;
+            .search-container input {
+                font-size: 13.5px;
+                padding: 8px 10px;
             }
-            header h2 {
-                font-size: 1rem;
+            .search-container button {
+                padding: 8px 14px;
+                font-size: 13px;
             }
             .container {
-                display: flex;
-                flex-direction: column;
+                display: flex !important;
+                flex-direction: column !important;
+                height: auto !important;
             }
             #map {
-                height: 48vh;
-                width: 100%;
-                order: 1;
+                height: 34vh !important;
+                min-height: 230px !important;
+                max-height: 270px !important;
+                order: 1 !important;
             }
             .sidebar {
-                height: 42vh;
-                width: 100%;
-                overflow-y: auto;
-                order: 2;
-                padding: 12px;
-                box-sizing: border-box;
+                height: 48vh !important;
+                width: 100% !important;
+                overflow-y: auto !important;
+                order: 2 !important;
+                padding: 10px 12px !important;
+                background: #ffffff;
             }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: #ffffff;
+            border-top: 1px solid #dee2e6;
+        }
+        .visitor-badge {
+            margin-top: 8px;
+            display: inline-block;
+        }
+        .footer-text {
+            font-size: 0.88rem;
+            color: #555;
+            margin: 3px 0;
         }
     </style>
 </head>
@@ -181,9 +235,9 @@
         <a href="index.html">← Quay lại Bản đồ số Di tích Lịch sử Xã Hòa Vang</a>
     </div>
 
-    <section class="search">
+    <section class="search-container">
         <input type="text" id="searchInput" placeholder="Tìm điểm du lịch, văn hóa, ẩm thực...">
-        <button id="searchBtn" style="background-color: #2e7d32;">Tìm kiếm</button>
+        <button id="searchBtn">Tìm kiếm</button>
     </section>
 
     <section class="container">
@@ -192,10 +246,10 @@
                 <button class="filter-btn active" data-subcat="all">Tất cả</button>
                 <button class="filter-btn" data-subcat="van-hoa">Văn hóa Cơ Tu</button>
                 <button class="filter-btn" data-subcat="sinh-thai">KDL Sinh thái</button>
-                <button class="filter-btn" data-subcat="am-thuc">Ẩm thực & Dịch vụ</button>
+                <button class="filter-btn" data-subcat="am-thuc">Ẩm thực</button>
             </div>
 
-            <h3 style="margin: 10px 0; font-size: 1.1rem; color: #2e7d32;">Điểm đến nổi bật tại Phú Túc</h3>
+            <h3 style="margin: 5px 0 10px 0; font-size: 1rem; color: #2e7d32;">Điểm đến nổi bật tại Phú Túc</h3>
             <ul id="list" style="list-style: none; padding: 0; margin: 0;"></ul>
         </div>
         
@@ -212,7 +266,6 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Danh mục các điểm du lịch Phú Túc (đã bổ sung Rượu cần Phú Túc)
         const phuTucLocations = [
             {
                 id: "nha-guol",
@@ -224,13 +277,24 @@
                 description: "Không gian sinh hoạt cộng đồng đặc trưng của người Cơ Tu, lưu giữ kiến trúc cột gỗ nguyên khối và các bức bích họa rực rỡ sắc màu."
             },
             {
-                id: "ruou-can-phu-tuc",
-                name: "Nghề ủ Rượu cần Truyền thống Phú Túc",
-                subcat: "am-thuc",
+                id: "nghe-truyen-thong",
+                name: "Nghề thủ công Truyền thống Cơ Tu (Đan lát, Điêu khắc, Rượu cần)",
+                subcat: "van-hoa",
                 lat: 15.985500,
-                lng: 108.013200,
-                address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
-                description: "Sản vật nức tiếng của đồng bào Cơ Tu được ủ từ men lá rừng tự nhiên, nếp rẫy thơm dẻo, mang hương vị nồng ấm hiếu khách."
+                lng: 108.016200,
+                address: "Nhà Gươl thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
+                url: "nghe-truyen-thong.html",
+                description: "Khám phá nghệ thuật đan lát mây tre, điêu khắc gỗ dân gian và nghề ủ rượu cần men lá bí truyền của đồng bào Cơ Tu."
+            },
+            {
+                id: "am-thuc-phu-tuc",
+                name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
+                subcat: "am-thuc",
+                lat: 15.984200,
+                lng: 108.014000,
+                address: "Tuyến đường chính Thôn Phú Túc",
+                url: "am-thuc-phu-tuc.html",
+                description: "Thưởng thức men nồng rượu cần, gà đồi nướng than hoa, cá niên suối nướng, rau dớn, ốc đá và lá sắn xào tóp mỡ."
             },
             {
                 id: "toom-sara",
@@ -258,43 +322,24 @@
                 lng: 108.006200,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm cắm trại dã ngoại, chèo thuyền và vườn cây ăn trái phong phú."
-            },
-            {
-                id: "am-thuc-phu-tuc",
-                name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
-                subcat: "am-thuc",
-                lat: 15.984200,
-                lng: 108.014000,
-                address: "Tuyến đường chính Thôn Phú Túc",
-                url: "am-thuc-phu-tuc.html", // <-- THÊM DÒNG NÀY VÀO ĐÂY
-                description: "Thưởng thức men nồng rượu cần, rượu Tr'đin, gà đồi nướng than hoa, cá niên và các món rau rừng đặc trưng vùng cao."
-            },
-            {
-                id: "nghe-truyen-thong",
-                name: "Nghề thủ công Truyền thống Cơ Tu (Đan lát, Điêu khắc, Rượu cần)",
-                subcat: "van-hoa",
-                lat: 15.985500,
-                lng: 108.016200,
-                address: "Nhà Gươl thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
-                url: "nghe-truyen-thong.html", // <-- Dẫn thẳng sang trang 3 nghề
-                description: "Khám phá nghệ thuật đan lát mây tre, điêu khắc gỗ dân gian và nghề ủ rượu cần men lá bí truyền của đồng bào Cơ Tu."
             }
         ];
 
-        // Khởi tạo bản đồ Leaflet tâm tại Nhà Gươl Phú Túc
-        const map = L.map('map').setView([15.986835, 108.012541], 14);
+        // Khởi tạo bản đồ Leaflet tâm tại Phú Túc
+        const map = L.map('map').setView([15.9850, 108.0140], 14);
 
-        // ĐOẠN MỚI (Nền Google Maps tiếng Việt chuẩn như trang chính):
-L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
-    attribution: 'Google Maps',
-    maxZoom: 20
-}).addTo(map);
+        // Lớp nền Google Maps tải ổn định, chống lỗi ô caro
+        L.tileLayer('https://{s}.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: 'Google Maps'
+        }).addTo(map);
 
         setTimeout(() => {
             map.invalidateSize();
-        }, 400);
+        }, 500);
 
-        // Marker màu xanh lá cây
+        // Marker màu xanh lá
         const greenMarkerIcon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -318,14 +363,15 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
 
             items.forEach(item => {
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
-const detailUrl = item.url ? item.url : `chi-tiet-phu-tuc.html?id=${item.id}`;
-                // Popup bản đồ
+                const detailUrl = item.url ? item.url : `chi-tiet-phu-tuc.html?id=${item.id}`;
+
+                // Nội dung popup trên bản đồ
                 const popupBody = `
                     <div style="font-family: Arial, sans-serif; max-width: 220px; line-height: 1.4;">
                         <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 0.95rem;">${item.name}</h4>
                         <p style="margin: 0 0 5px 0; font-size: 0.75rem; color: #666;">📍 ${item.address}</p>
                         <p style="font-size: 0.82rem; margin: 0 0 8px 0; color: #333;">${item.description}</p>
-                        <a href="${detailUrl}" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: bold;">
+                        <a href="${detailUrl}" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: bold;">
                             ▶️ Xem giới thiệu & Video
                         </a>
                     </div>
@@ -333,14 +379,14 @@ const detailUrl = item.url ? item.url : `chi-tiet-phu-tuc.html?id=${item.id}`;
                 marker.bindPopup(popupBody);
                 markerLayerGroup.addLayer(marker);
 
-                // Danh sách Sidebar
+                // Danh sách địa điểm ở Sidebar
                 const li = document.createElement('li');
                 li.className = 'location-item';
                 li.innerHTML = `
                     <strong style="color: #2e7d32; display: block; font-size: 0.95rem;">${item.name}</strong>
                     <span style="font-size: 0.8rem; color: #666;">📍 ${item.address}</span>
                     <div>
-                        <a href="${detailUrl}" target="_blank" class="btn-view-detail">
+                        <a href="${detailUrl}" class="btn-view-detail">
                             Chi tiết & Video ↗
                         </a>
                     </div>
