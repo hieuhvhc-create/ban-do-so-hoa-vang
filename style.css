@@ -885,3 +885,83 @@ footer {
 
 }
 ```
+/* =======================================================
+   TỐI ƯU GIAO DIỆN RIÊNG CHO ĐIỆN THOẠI (Mobile Responsive)
+   ======================================================= */
+@media (max-width: 768px) {
+    /* 1. Thu gọn chiều cao Header để nhường chỗ cho bản đồ */
+    header {
+        padding: 12px 10px !important;
+        min-height: auto !important;
+    }
+    header .overlay {
+        padding: 10px !important;
+    }
+    .logo-item {
+        max-height: 36px !important;
+        margin-bottom: 4px !important;
+    }
+    .ten-don-vi {
+        font-size: 0.72rem !important;
+        margin-bottom: 2px !important;
+    }
+    header h1 {
+        font-size: 1.05rem !important;
+        margin: 4px 0 !important;
+        line-height: 1.3 !important;
+    }
+    header h2 {
+        font-size: 0.9rem !important;
+        margin-bottom: 2px !important;
+    }
+    header p {
+        display: none !important; /* Ẩn câu slogan dài để màn hình thoáng hơn */
+    }
+
+    /* 2. Menu 2 nút bấm chuyển trang gọn gàng */
+    .main-nav-bar {
+        padding: 8px 10px !important;
+        gap: 8px !important;
+    }
+    .nav-link-btn {
+        padding: 7px 10px !important;
+        font-size: 0.8rem !important;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* 3. Khung tìm kiếm nhỏ gọn */
+    .search {
+        padding: 6px 10px !important;
+        margin-bottom: 6px !important;
+    }
+    .search input {
+        padding: 6px 10px !important;
+        font-size: 0.85rem !important;
+    }
+    .search button {
+        padding: 6px 12px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* 4. QUAN TRỌNG NHẤT: ĐƯA BẢN ĐỒ LÊN TRÊN, DANH SÁCH XUỐNG DƯỚI */
+    .container {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    #map {
+        order: 1 !important;          /* Bản đồ xuất hiện ngay sau thanh tìm kiếm */
+        height: 52vh !important;       /* Chiếm hơn 50% màn hình để dễ vuốt chạm */
+        width: 100% !important;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .sidebar {
+        order: 2 !important;          /* Danh sách nằm gọn bên dưới bản đồ */
+        width: 100% !important;
+        height: 38vh !important;       /* Cuộn mượt danh sách ở nửa dưới */
+        overflow-y: auto !important;
+        padding: 8px 10px !important;
+        box-sizing: border-box !important;
+    }
+}
