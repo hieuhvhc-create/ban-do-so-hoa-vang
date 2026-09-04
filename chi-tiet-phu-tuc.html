@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Chi tiết điểm đến - Du lịch Phú Túc</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+        .detail-header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 30px 15px;
+            text-align: center;
+        }
+        .detail-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+        .detail-container {
+            max-width: 900px;
+            margin: -20px auto 40px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 25px 30px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .detail-meta {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .video-box {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỉ lệ 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            margin: 20px 0;
+        }
+        .video-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .btn-maps {
+            display: inline-block;
+            background: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .btn-maps:hover {
+            background: #1b5e20;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="detail-header">
+        <h1 id="place-title">Đang tải thông tin...</h1>
+        <p>Bản đồ số Du lịch Sinh thái & Bản sắc Văn hóa Cơ Tu Phú Túc</p>
+    </div>
+
+    <div class="detail-container">
+        <a href="du-lich-phu-tuc.html" class="back-link">← Quay lại Bản đồ Du lịch Phú Túc</a>
+
+        <div class="detail-meta">
+            <p><strong>📍 Địa chỉ:</strong> <span id="place-address">---</span></p>
+            <p><strong>🏷️ Phân loại:</strong> <span id="place-category">---</span></p>
+        </div>
+
+        <h3>Giới thiệu địa điểm</h3>
+        <div class="content-section" id="place-desc"></div>
+
+        <h3>Video giới thiệu & Trải nghiệm thực tế</h3>
+        <div class="video-box" id="video-container">
+            <!-- Video iframe sẽ được render ở đây -->
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a id="btn-directions" href="#" target="_blank" class="btn-maps">🧭 Chỉ đường trên Google Maps</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Công trình Chuyển đổi số của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
+    </footer>
+
+    <script>
+        // Dữ liệu chi tiết từng địa điểm (bao gồm cả ID video YouTube)
+        const detailsData = {
+            "nha-guol": {
+                name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
+                address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
+                category: "Không gian Văn hóa Truyền thống Cơ Tu",
+                desc: "Nhà Gươl Phú Túc là linh hồn làng bản, nơi lưu giữ toàn bộ nét sinh hoạt cộng đồng, hội họp và lễ hội của đồng bào Cơ Tu. Tại đây có kiến trúc cột gỗ nguyên khối điêu khắc hình chim thú, mái tranh cao vút. Cùng với con đường bích họa rực rỡ, đây là điểm dừng chân văn hóa không thể bỏ qua.",
+                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
+                lat: 15.9868,
+                lng: 108.0125
+            },
+            "toom-sara": {
+                name: "Làng Du lịch Sinh thái Cộng đồng Toom Sara",
+                address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
+                category: "Du lịch Sinh thái - Trải nghiệm Văn hóa",
+                desc: "Làng Toom Sara nằm nép mình bên dòng suối trong vắt rợp bóng cây. Du khách đến đây được hòa mình vào điệu múa Tung tung Da dá, trải nghiệm dệt thổ cẩm Cơ Tu, cắm trại qua đêm và thưởng thức ẩm thực cơm lam thịt nướng đặc trưng.",
+                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
+                lat: 15.9815,
+                lng: 108.0202
+            },
+            "suoi-hoa": {
+                name: "Khu du lịch Sinh thái Suối Hoa",
+                address: "Km 20, QL14G, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
+                category: "Du lịch Sinh thái & Thắng cảnh",
+                desc: "Khu du lịch Suối Hoa nổi bật với các ghềnh thác tự nhiên, hồ tắm suối trong xanh mát lạnh và ngút ngàn thảm hoa rừng. Đây là điểm tránh nóng lý tưởng, thích hợp cho các buổi dã ngoại gia đình và teambuilding.",
+                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
+                lat: 15.9682,
+                lng: 107.9950
+            },
+            "lai-thieu": {
+                name: "Khu du lịch Lái Thiêu",
+                address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
+                category: "Du lịch Sinh thái Miệt Vườn",
+                desc: "Khu sinh thái Lái Thiêu mang đến không gian vườn cây trái râm mát, khu chèo thuyền, hồ bơi và khu vực nhà sàn cắm trại thư giãn cuối tuần.",
+                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
+                lat: 15.9754,
+                lng: 108.0062
+            },
+            "am-thuc-phu-tuc": {
+                name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
+                address: "Tuyến QL14G, Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
+                category: "Ẩm thực Vùng cao & Nông sản Đặc sản",
+                desc: "Điểm thưởng thức các món ăn truyền thống của núi rừng: Gà nướng than hồng, cá niêng, ốc đá suối, rau dớn luộc chấm mắm nêm, cùng men say nồng của rượu cần và rượu Tr'đin.",
+                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
+                lat: 15.9842,
+                lng: 108.0140
+            }
+        };
+
+        // Lấy tham số 'id' từ URL (ví dụ: ?id=nha-guol)
+        const urlParams = new URLSearchParams(window.location.search);
+        const placeId = urlParams.get('id');
+
+        const place = detailsData[placeId];
+
+        if (place) {
+            document.getElementById('page-title').innerText = place.name + " - Du lịch Phú Túc";
+            document.getElementById('place-title').innerText = place.name;
+            document.getElementById('place-address').innerText = place.address;
+            document.getElementById('place-category').innerText = place.category;
+            document.getElementById('place-desc').innerText = place.desc;
+
+            // Nhúng video YouTube
+            document.getElementById('video-container').innerHTML = `
+                <iframe src="https://www.youtube.com/embed/${place.youtubeId}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `;
+
+            // Tạo link Google Maps chỉ đường
+            document.getElementById('btn-directions').href = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
+        } else {
+            document.getElementById('place-title').innerText = "Không tìm thấy địa điểm";
+            document.getElementById('place-desc').innerHTML = "<p>Địa điểm bạn đang tìm kiếm không tồn tại hoặc đã được cập nhật lại.</p>";
+            document.getElementById('video-container').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
