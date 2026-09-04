@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZHXVRX7XZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VZHXVRX7XZ');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nghề truyền thống Cơ Tu Phú Túc - Hòa Vang</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .craft-hero {
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.65)), url('https://lh3.googleusercontent.com/d/1MwZz-sEyvcKhhVLf35fByQmgZKwSJhRO') center/cover no-repeat;
+            background-color: #8d6e63;
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        .craft-hero h1 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .craft-hero p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nav-back-bar {
+            background: #efebe9;
+            padding: 10px 15px;
+            text-align: center;
+            border-bottom: 1px solid #d7ccc8;
+        }
+
+        .nav-back-bar a {
+            color: #5d4037;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .craft-grid {
+            max-width: 1100px;
+            margin: 25px auto 40px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .craft-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eaeaea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .craft-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .craft-thumb {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .craft-info {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .craft-info h3 {
+            margin: 0 0 8px 0;
+            color: #5d4037;
+            font-size: 1.2rem;
+        }
+
+        .craft-info p {
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.45;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .btn-craft {
+            display: block;
+            text-align: center;
+            background: #6d4c41;
+            color: #ffffff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.88rem;
+            transition: background 0.2s;
+        }
+
+        .btn-craft:hover {
+            background: #4e342e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 15px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.82rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .craft-hero { padding: 25px 12px; }
+            .craft-hero h1 { font-size: 1.25rem; }
+            .craft-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 12px; }
+            .craft-thumb { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="craft-hero">
+        <h1>Nghề truyền thống Cơ Tu</h1>
+        <p>Hồn cốt đại ngàn kết tinh qua bàn tay tài hoa của nghệ nhân đồng bào Cơ Tu Phú Túc</p>
+    </header>
+
+    <div class="nav-back-bar">
+        <a href="du-lich-phu-tuc.html">← Quay lại Bản đồ số Du lịch Phú Túc</a>
+    </div>
+
+    <main class="craft-grid" id="craftGrid"></main>
+
+    <footer>
+        <p><strong>Bản đồ số Di tích & Du lịch sinh thái cộng đồng Xã Hòa Vang</strong></p>
+        <p>Công trình Chuyển đổi số thanh niên</p>
+    </footer>
+
+    <script>
+        const crafts = [
+            {
+                id: "dan-lat",
+                name: "Nghề đan lát mây tre",
+                desc: "Nghệ thuật đan gùi (Tà-léc, Đao), nong, nia, giỏ đựng... từ sợi mây nứa rừng dẻo dai với các hoa văn kỷ hà độc đáo mang đậm bản sắc núi rừng.",
+                thumb: "https://lh3.googleusercontent.com/d/1Qc2hVPSmAzc9te4kj3rdL8rhN6X41zVg"
+            },
+            {
+                id: "dieu-khac-go",
+                name: "Nghề điêu khắc gỗ dân gian",
+                desc: "Đôi tay tài hoa của nghệ nhân Cơ Tu thổi hồn vào thớ gỗ rừng: tượng người gùi lúa, múa tung tung da dá, cột tế lễ và hoa văn nhà Gươl uy nghiêm.",
+                thumb: "https://lh3.googleusercontent.com/d/1FlV4j9a1wuu3ctGfLlOmUS08yy5RDVYF"
+            },
+            {
+                id: "ruou-can-men-la",
+                name: "Nghề ủ rượu cần men lá",
+                desc: "Bí quyết ủ rượu men lá truyền thống từ vỏ cây, rễ thảo mộc rừng cùng nếp nương trong ché sành; men say đại ngàn không thể thiếu trong ngày hội làng.",
+                thumb: "https://lh3.googleusercontent.com/d/1MwZz-sEyvcKhhVLf35fByQmgZKwSJhRO"
+            }
+        ];
+
+        const container = document.getElementById("craftGrid");
+        container.innerHTML = crafts.map(item => `
+            <div class="craft-card">
+                <img src="${item.thumb}" alt="${item.name}" class="craft-thumb" loading="lazy">
+                <div class="craft-info">
+                    <h3>${item.name}</h3>
+                    <p>${item.desc}</p>
+                    <a href="chi-tiet-nghe.html?id=${item.id}" class="btn-craft">
+                        🪵 Khám phá quy trình & Video ▶
+                    </a>
+                </div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>
