@@ -50,7 +50,7 @@
             text-decoration: underline;
         }
 
-        /* KHUNG TÌM KIẾM - CỐ ĐỊNH KHÔNG BỊ ĐÈ */
+        /* KHUNG TÌM KIẾM CỐ ĐỊNH */
         .search-container {
             display: flex;
             justify-content: center;
@@ -140,7 +140,7 @@
             height: 100%;
         }
 
-        /* Responsive Máy tính */
+        /* Giao diện Máy tính */
         @media (min-width: 769px) {
             .container {
                 display: flex !important;
@@ -164,7 +164,7 @@
             }
         }
 
-        /* Responsive Điện thoại */
+        /* Giao diện Điện thoại */
         @media (max-width: 768px) {
             .search-container {
                 padding: 8px 10px;
@@ -244,7 +244,8 @@
         <div class="sidebar">
             <div class="filter-tags">
                 <button class="filter-btn active" data-subcat="all">Tất cả</button>
-                <button class="filter-btn" data-subcat="van-hoa">Văn hóa Cơ Tu</button>
+                <button class="filter-btn" data-subcat="van-hoa">Văn hóa & Nghề</button>
+                <button class="filter-btn" data-subcat="le-hoi">Lễ hội Cơ Tu</button>
                 <button class="filter-btn" data-subcat="sinh-thai">KDL Sinh thái</button>
                 <button class="filter-btn" data-subcat="am-thuc">Ẩm thực</button>
             </div>
@@ -287,6 +288,16 @@
                 description: "Khám phá nghệ thuật đan lát mây tre, điêu khắc gỗ dân gian và nghề ủ rượu cần men lá bí truyền của đồng bào Cơ Tu."
             },
             {
+                id: "le-hoi-truyen-thong",
+                name: "Không gian Lễ hội Truyền thống (Cồng chiêng & Vũ điệu Tân tung Da dá)",
+                subcat: "le-hoi",
+                lat: 15.986200,
+                lng: 108.013800,
+                address: "Sân vận động / Sân Nhà Gươl thôn Phú Túc",
+                url: "le-hoi-truyen-thong.html",
+                description: "Hòa mình vào không khí ngày hội Mừng lúa mới, tiếng chiêng rộn rã và điệu múa Tân tung Da dá hào hùng quanh ngọn lửa trại bập bùng."
+            },
+            {
                 id: "am-thuc-phu-tuc",
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
                 subcat: "am-thuc",
@@ -323,22 +334,12 @@
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm cắm trại dã ngoại, chèo thuyền và vườn cây ăn trái phong phú."
             }
-            {
-                id: "le-hoi-truyen-thong",
-                name: "Không gian Trình diễn Lễ hội Truyền thống (Cồng chiêng & Múa Tân tung Da dá)",
-                subcat: "van-hoa",
-                lat: 15.986200,
-                lng: 108.013800,
-                address: "Sân vận động / Sân Nhà Gươl thôn Phú Túc",
-                url: "le-hoi-truyen-thong.html", // <-- Dẫn thẳng sang trang lễ hội
-                description: "Hòa mình vào không khí ngày hội Mừng lúa mới, tiếng chiêng rộn rã và điệu múa Tân tung Da dá hào hùng quanh ngọn lửa trại bập bùng."
-            },
         ];
 
-        // Khởi tạo bản đồ Leaflet tâm tại Phú Túc
+        // Khởi tạo bản đồ Leaflet
         const map = L.map('map').setView([15.9850, 108.0140], 14);
 
-        // Lớp nền Google Maps tải ổn định, chống lỗi ô caro
+        // Lớp nền Google Maps
         L.tileLayer('https://{s}.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -349,7 +350,7 @@
             map.invalidateSize();
         }, 500);
 
-        // Marker màu xanh lá
+        // Marker xanh lá cây
         const greenMarkerIcon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -375,7 +376,6 @@
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
                 const detailUrl = item.url ? item.url : `chi-tiet-phu-tuc.html?id=${item.id}`;
 
-                // Nội dung popup trên bản đồ
                 const popupBody = `
                     <div style="font-family: Arial, sans-serif; max-width: 220px; line-height: 1.4;">
                         <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 0.95rem;">${item.name}</h4>
@@ -389,7 +389,6 @@
                 marker.bindPopup(popupBody);
                 markerLayerGroup.addLayer(marker);
 
-                // Danh sách địa điểm ở Sidebar
                 const li = document.createElement('li');
                 li.className = 'location-item';
                 li.innerHTML = `
