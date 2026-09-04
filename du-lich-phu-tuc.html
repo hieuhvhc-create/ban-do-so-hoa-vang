@@ -260,12 +260,13 @@
                 description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm cắm trại dã ngoại, chèo thuyền và vườn cây ăn trái phong phú."
             },
             {
-                id: "am-thuc-phu-tuc.html",
+                id: "am-thuc-phu-tuc",
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
                 subcat: "am-thuc",
                 lat: 15.984200,
                 lng: 108.014000,
                 address: "Tuyến đường chính Thôn Phú Túc",
+                url: "am-thuc-phu-tuc.html", // <-- THÊM DÒNG NÀY VÀO ĐÂY
                 description: "Thưởng thức men nồng rượu cần, rượu Tr'đin, gà đồi nướng than hoa, cá niên và các món rau rừng đặc trưng vùng cao."
             }
         ];
@@ -307,8 +308,7 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
 
             items.forEach(item => {
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
-                const detailUrl = `chi-tiet-phu-tuc.html?id=${item.id}`;
-
+const detailUrl = item.url ? item.url : `chi-tiet-phu-tuc.html?id=${item.id}`;
                 // Popup bản đồ
                 const popupBody = `
                     <div style="font-family: Arial, sans-serif; max-width: 220px; line-height: 1.4;">
