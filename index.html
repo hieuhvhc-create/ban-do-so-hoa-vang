@@ -24,7 +24,40 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     
     <style>
-        /* CSS bổ sung để căn chỉnh chân trang đẹp mắt */
+        /* CSS căn chỉnh thanh điều hướng và chân trang */
+        .main-nav-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px 10px;
+            background-color: #ffffff;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .nav-link-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 18px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.25s ease;
+        }
+        .nav-link-btn.active {
+            background-color: #c62828;
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(198, 40, 40, 0.35);
+        }
+        .nav-link-btn.secondary {
+            background-color: #f1f8e9;
+            color: #2e7d32;
+            border: 1px solid #81c784;
+        }
+        .nav-link-btn.secondary:hover {
+            background-color: #2e7d32;
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(46, 125, 50, 0.35);
+        }
         footer {
             text-align: center;
             padding: 20px 10px;
@@ -59,6 +92,12 @@
             <p>Khám phá Hòa Vang – Chạm vào những dấu son lịch sử</p>
         </div>
     </header>
+
+    <!-- Menu chuyển đổi giữa Bản đồ Di tích và Du lịch Phú Túc -->
+    <nav class="main-nav-bar">
+        <a href="index.html" class="nav-link-btn active">🏛️ Di tích Lịch sử - Văn hóa</a>
+        <a href="du-lich-phu-tuc.html" class="nav-link-btn secondary">🌿 Khám phá Du lịch Phú Túc</a>
+    </nav>
 
     <section class="search">
         <input type="text" id="searchInput" placeholder="Nhập tên di tích...">
