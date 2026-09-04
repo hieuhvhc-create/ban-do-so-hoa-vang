@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title id="dish-title">Cách chế biến món ăn - Du lịch Phú Túc</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background: #f4f6f8; color: #333; line-height: 1.6; }
+        .top-nav {
+            background: white;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .top-nav a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .dish-header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 25px 15px 35px 15px;
+            text-align: center;
+        }
+        .dish-header h1 { font-size: 1.6rem; margin-bottom: 5px; }
+        .content-box {
+            max-width: 800px;
+            margin: -20px auto 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .section-title {
+            color: #2e7d32;
+            font-size: 1.15rem;
+            margin: 20px 0 10px 0;
+            border-left: 4px solid #2e7d32;
+            padding-left: 8px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            margin: 15px 0;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+        ul, ol { padding-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 6px; }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.85rem;
+            border-top: 1px solid #ddd;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <a href="am-thuc-phu-tuc.html">← Danh sách Ẩm thực Phú Túc</a>
+    </div>
+
+    <div class="dish-header">
+        <h1 id="name">Tên món ăn</h1>
+        <p>Món ngon truyền thống của đồng bào Cơ Tu Phú Túc</p>
+    </div>
+
+    <main class="content-box">
+        <h2 class="section-title">Nguyên liệu chuẩn bị</h2>
+        <ul id="ingredients"></ul>
+
+        <h2 class="section-title">Cách chế biến truyền thống</h2>
+        <ol id="steps"></ol>
+
+        <h2 class="section-title" id="video-heading">Video trải nghiệm & Hướng dẫn</h2>
+        <div class="video-wrapper" id="video-box"></div>
+    </main>
+
+    <footer>
+        <p>Bản đồ số Di tích Lịch sử & Du lịch Xã Hòa Vang</p>
+    </footer>
+
+    <script>
+        const dishData = {
+            "com-lam": {
+                name: "Cơm lam ống tre Phú Túc",
+                ingredients: [
+                    "Gạo nếp nương thơm dẻo của đồng bào vùng cao.",
+                    "Ống tre hoặc nứa tươi non (còn nguyên lớp màng lụa bên trong).",
+                    "Lá chuối non hoặc lá dong để bịt đầu ống.",
+                    "Nước suối nguồn trong lành."
+                ],
+                steps: [
+                    "Vo sạch nếp rẫy, ngâm nước suối khoảng 2-4 tiếng cho mềm hạt.",
+                    "Cho nếp vào ống nứa, chừa lại một đoạn khoảng 5cm rồi châm nước suối xăm xắp mặt gạo.",
+                    "Dùng lá chuối non cuộn chặt bịt kín miệng ống nứa.",
+                    "Đưa ống nứa lên bếp than hồng, liên tục xoay tròn đều tay để cơm chín dẻo từ ngoài vào trong mà không bị cháy.",
+                    "Khi cơm chín thơm lừng, dùng dao chẻ bớt lớp vỏ nứa cháy bên ngoài, chỉ để lại lớp màng lụa mỏng bọc quanh khúc cơm lam trắng ngần."
+                ],
+                youtubeId: "3NrLA4jUi0k" // Thay bằng ID video Youtube thật của bạn
+            },
+            "thit-nuong-ong": {
+                name: "Thịt heo nướng ống (Za-ră Cơ Tu)",
+                ingredients: [
+                    "Thịt heo cỏ/heo bản tươi ngon thái lát mỏng.",
+                    "Tiêu rừng, ớt xiêm, củ kiệu hoang, muối hột.",
+                    "Ống nứa tươi dày dặn."
+                ],
+                steps: [
+                    "Thịt heo ướp cùng gia vị rừng giã nhuyễn cho ngấm đều khoảng 30 phút.",
+                    "Nhồi thịt chặt vào bên trong ống nứa tươi.",
+                    "Nướng ống trên than hồng, lật đều các mặt đến khi ống nứa xèo xèo bốc khói thơm phức là thịt đã chín mềm, ngọt đậm đà."
+                ],
+                youtubeId: ""
+            },
+            "ca-nien": {
+                name: "Cá niên nướng than hồng",
+                ingredients: [
+                    "Cá niên suối tự nhiên còn tươi sống.",
+                    "Thanh nứa tươi làm kẹp nướng.",
+                    "Muối hột, ớt xiêm xanh rừng."
+                ],
+                steps: [
+                    "Cá niên rửa sạch, giữ nguyên vảy và ruột (phần ruột có vị đắng nhân nhẫn rất đặc trưng).",
+                    "Kẹp cá vào nẹp nứa rồi nướng trên than củi hồng rực.",
+                    "Nướng đến khi vảy cá vàng ruộm, thịt săn lại tỏa mùi thơm đặc trưng, ăn kèm muối ớt rừng cay nồng."
+                ],
+                youtubeId: ""
+            },
+            "rau-don": {
+                name: "Rau dớn rừng luộc / xào tỏi",
+                ingredients: [
+                    "Ngọn rau dớn rừng non tươi hái ven suối.",
+                    "Tỏi củ, dầu ăn, gia vị tự nhiên."
+                ],
+                steps: [
+                    "Nhặt lấy phần đọt non uốn cong của rau dớn, rửa sạch nhẹ tay.",
+                    "Trần sơ qua nước sôi để giữ màu xanh mướt và độ giòn ngọt.",
+                    "Phi tỏi thơm rồi cho rau vào đảo nhanh tay trên lửa lớn, nêm chút muối là hoàn thành món rau rừng giòn ngọt tuyệt hảo."
+                ],
+                youtubeId: ""
+            },
+            "ruou-can": {
+                name: "Rượu cần men lá Phú Túc",
+                ingredients: [
+                    "Nếp nương hoặc sắn rẫy phơi khô.",
+                    "Men lá rừng bí truyền (từ hơn 10 loại rễ, vỏ cây tự nhiên).",
+                    "Vỏ trấu sạch, ché sành ủ rượu."
+                ],
+                steps: [
+                    "Nấu chín nếp nương, xới tơi và để nguội hoàn toàn.",
+                    "Giã nhỏ bánh men lá rừng, rắc đều và trộn kỹ cùng xôi nếp và trấu sạch.",
+                    "Cho hỗn hợp vào ché sành, bịt kín miệng và ủ nơi thoáng mát từ 1 đến 3 tháng.",
+                    "Khi thưởng thức, châm nước suối mát vào ché rồi cắm cần tre để mọi người cùng vít cần nâng chén sum vầy."
+                ],
+                youtubeId: ""
+            },
+            "banh-sung-trau": {
+                name: "Bánh sừng trâu (Kuốc)",
+                ingredients: [
+                    "Gạo nếp rẫy ngon.",
+                    "Lá đót rừng hái trên núi."
+                ],
+                steps: [
+                    "Lá đót lau sạch, khéo léo cuộn thành hình chóp nón tựa như chiếc sừng trâu.",
+                    "Đổ nếp đã ngâm vào trong ruột lá rồi gập kín mép lại.",
+                    "Dùng lạt mềm buộc thành từng cặp dính liền nhau.",
+                    "Cho bánh vào nồi luộc liên tục 3-4 tiếng cho đến khi bánh dẻo thơm hạt nếp nương."
+                ],
+                youtubeId: ""
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const dishId = params.get('id');
+        const dish = dishData[dishId];
+
+        if (dish) {
+            document.title = dish.name + " - Ẩm thực Phú Túc";
+            document.getElementById("name").innerText = dish.name;
+            document.getElementById("ingredients").innerHTML = dish.ingredients.map(i => `<li>${i}</li>`).join('');
+            document.getElementById("steps").innerHTML = dish.steps.map(s => `<li>${s}</li>`).join('');
+
+            if (dish.youtubeId && dish.youtubeId.trim() !== "") {
+                document.getElementById("video-box").innerHTML = `
+                    <iframe src="https://www.youtube.com/embed/${dish.youtubeId}?rel=0" allowfullscreen></iframe>
+                `;
+            } else {
+                document.getElementById("video-heading").style.display = "none";
+                document.getElementById("video-box").style.display = "none";
+            }
+        } else {
+            document.getElementById("name").innerText = "Không tìm thấy món ăn";
+            document.querySelector(".content-box").innerHTML = "<p>Món ăn không tồn tại hoặc đã được cập nhật lại.</p>";
+        }
+    </script>
+</body>
+</html>
