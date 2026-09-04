@@ -23,7 +23,7 @@ body {
     color: #333;
 }
 
-/* 2. HEADER CHUNG (MÁY TÍNH) */
+/* 2. HEADER (MÁY TÍNH & TABLET) */
 header {
     height: 360px;
     background-image:
@@ -176,7 +176,7 @@ header p {
     cursor: pointer;
 }
 
-/* 6. BỐ CỤC CHUẨN MÁY TÍNH (> 768px) */
+/* 6. BỐ CỤC MÁY TÍNH (> 768px) */
 @media (min-width: 769px) {
     .container {
         display: flex;
@@ -262,46 +262,49 @@ footer {
 }
 
 /* =========================================================
-   8. TỐI ƯU TOÀN DIỆN CHO ĐIỆN THOẠI (<= 768px, 480px, 360px)
+   8. TỐI ƯU TOÀN DIỆN CHO ĐIỆN THOẠI (<= 768px)
    ========================================================= */
 @media (max-width: 768px) {
-    /* HEADER SIÊU GỌN - KHÔNG BỊ TRÀN */
+    /* HEADER THU GỌN THANH LỊCH */
     header {
         height: auto !important;
         min-height: 0 !important;
-        padding: 12px 10px !important;
+        padding: 10px 8px !important;
     }
 
     .overlay {
         width: 98% !important;
-        padding: 10px 12px !important;
+        padding: 8px 10px !important;
+        border-radius: 8px !important;
     }
 
     .header-logos {
-        margin-bottom: 4px !important;
+        margin-bottom: 2px !important;
     }
 
     .logo-item {
-        height: 38px !important;
+        height: 32px !important;
     }
 
     .ten-don-vi {
-        font-size: 11px !important;
-        margin-bottom: 4px !important;
+        font-size: 10.5px !important;
+        margin-bottom: 2px !important;
+        letter-spacing: 0.5px !important;
     }
 
     header h1 {
-        font-size: 17px !important;
+        font-size: 16px !important;
         margin-bottom: 2px !important;
+        line-height: 1.2 !important;
     }
 
     header h2 {
-        font-size: 14px !important;
-        margin-bottom: 2px !important;
+        font-size: 13.5px !important;
+        margin-bottom: 0 !important;
     }
 
     header p {
-        display: none !important; /* Ẩn hẳn câu slogan để tiết kiệm diện tích */
+        display: none !important; /* Ẩn slogan để tiết kiệm diện tích */
     }
 
     /* MENU 2 NÚT BẤM */
@@ -312,32 +315,32 @@ footer {
 
     .nav-link-btn, .menu-item {
         flex: 1 !important;
-        min-height: 36px !important;
-        padding: 6px 8px !important;
-        font-size: 12px !important;
+        min-height: 34px !important;
+        padding: 5px 8px !important;
+        font-size: 11.5px !important;
         text-align: center !important;
     }
 
-    /* THANH TÌM KIẾM */
+    /* THANH TÌM KIẾM GỌN */
     .search {
-        padding: 8px 10px !important;
+        padding: 6px 10px !important;
         gap: 6px !important;
     }
 
     .search input {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 8px 10px !important;
-        font-size: 13.5px !important;
+        padding: 7px 10px !important;
+        font-size: 13px !important;
     }
 
     .search button {
-        padding: 8px 14px !important;
-        font-size: 13px !important;
+        padding: 7px 12px !important;
+        font-size: 12.5px !important;
         white-space: nowrap !important;
     }
 
-    /* BẢN ĐỒ VÀ DANH SÁCH: ĐẢO VỊ TRÍ CHUẨN */
+    /* BẢN ĐỒ VÀ DANH SÁCH */
     .container {
         display: flex !important;
         flex-direction: column !important;
@@ -345,36 +348,42 @@ footer {
         min-height: 0 !important;
     }
 
-    /* 1. BẢN ĐỒ LÊN TRÊN */
+    /* 1. KHUNG BẢN ĐỒ: THU GỌN CHIỀU CAO VỪA TẦM MẮT */
     #map {
         order: 1 !important;
         width: 100% !important;
-        height: 50vh !important;       /* Chiếm 50% màn hình điện thoại */
-        min-height: 320px !important;
+        height: 32vh !important;       /* Chiếm khoảng 32% chiều cao màn hình */
+        min-height: 220px !important;  /* Khóa chiều cao tối thiểu */
+        max-height: 260px !important;  /* Khóa chiều cao tối đa */
         flex: none !important;
+        border-radius: 4px;
+        margin-bottom: 6px;
     }
 
-    /* 2. DANH SÁCH XUỐNG DƯỚI */
+    /* 2. DANH SÁCH BÊN DƯỚI: RỘNG RÃI VÀ LỘ NGAY TRƯỚC MẮT */
     .sidebar {
         order: 2 !important;
         width: 100% !important;
-        height: 36vh !important;       /* Chiếm 36% màn hình, cuộn mượt */
+        height: 48vh !important;       /* Dành nhiều không gian để cuộn xem danh sách */
         max-height: none !important;
         border-right: none !important;
         border-top: 1px solid #eee !important;
-        padding: 10px 0 !important;
+        padding: 8px 0 !important;
+        overflow-y: auto !important;
     }
 
     .sidebar h3 {
-        font-size: 14.5px !important;
-        margin-bottom: 8px !important;
+        font-size: 14px !important;
+        margin-bottom: 6px !important;
+        padding: 0 12px !important;
     }
 
     .sidebar li {
-        padding: 10px 15px !important;
+        padding: 10px 12px !important;
     }
 
     .sidebar li a {
-        font-size: 13.5px !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
     }
 }
