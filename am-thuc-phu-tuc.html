@@ -10,132 +10,175 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ẩm thực Truyền thống Cơ Tu Phú Túc - Hòa Vang</title>
-    <link rel="stylesheet" href="style.css">
     
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
         }
+
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* BANNER TIÊU ĐỀ TRÀN VIỀN */
         .cuisine-hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('images/bg-am-thuc.jpg') center/cover;
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.65)), url('https://lh3.googleusercontent.com/d/1ZFCkhCSu0MOes1JX_hcgTjxOl2RU6lPn') center/cover no-repeat;
             background-color: #2e7d32;
             color: white;
             text-align: center;
-            padding: 40px 15px;
+            padding: 35px 15px;
         }
+
         .cuisine-hero h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
         }
+
         .cuisine-hero p {
-            font-size: 0.95rem;
-            opacity: 0.9;
+            font-size: 0.9rem;
+            opacity: 0.95;
             max-width: 600px;
             margin: 0 auto;
         }
+
+        /* NÚT QUAY LẠI */
         .nav-back-bar {
             background: #e8f5e9;
             padding: 10px 15px;
             text-align: center;
             border-bottom: 1px solid #c8e6c9;
         }
+
         .nav-back-bar a {
             color: #2e7d32;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
         }
+
+        /* LƯỚI HIỂN THỊ MÓN ĂN */
         .food-grid {
-            max-width: 1000px;
-            margin: 30px auto;
+            max-width: 1100px;
+            margin: 20px auto 40px auto;
             padding: 0 15px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
+
+        /* THẺ MÓN ĂN */
         .food-card {
-            background: white;
-            border-radius: 10px;
+            background: #ffffff;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eaeaea;
         }
-        .food-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-        }
+
         .food-thumb {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
             background-color: #e0e0e0;
         }
+
         .food-info {
             padding: 15px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
+
         .food-info h3 {
             margin: 0 0 8px 0;
-            color: #2e7d32;
-            font-size: 1.2rem;
+            color: #1b5e20;
+            font-size: 1.15rem;
         }
+
         .food-info p {
             font-size: 0.88rem;
             color: #555;
-            line-height: 1.5;
+            line-height: 1.45;
             margin-bottom: 15px;
             flex: 1;
         }
+
         .btn-recipe {
             display: block;
             text-align: center;
             background: #2e7d32;
-            color: white;
-            padding: 9px 12px;
+            color: #ffffff;
+            padding: 10px 14px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             transition: background 0.2s;
         }
+
         .btn-recipe:hover {
             background: #1b5e20;
         }
+
+        /* FOOTER */
         footer {
             text-align: center;
-            padding: 20px;
-            background: white;
-            border-top: 1px solid #ddd;
-            margin-top: 40px;
-            font-size: 0.85rem;
+            padding: 20px 15px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.82rem;
             color: #666;
+        }
+
+        /* TỐI ƯU RIÊNG CHO ĐIỆN THOẠI */
+        @media (max-width: 600px) {
+            .cuisine-hero {
+                padding: 25px 12px;
+            }
+            .cuisine-hero h1 {
+                font-size: 1.25rem;
+            }
+            .cuisine-hero p {
+                font-size: 0.82rem;
+            }
+            .food-grid {
+                grid-template-columns: 1fr; /* Điện thoại xếp 1 cột dọc rất to và rõ */
+                gap: 16px;
+                padding: 0 12px;
+            }
+            .food-thumb {
+                height: 180px;
+            }
+            .food-info h3 {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="cuisine-hero">
-        <h1>ẨM THỰC TRUYỀN THỐNG CƠ TU</h1>
+    <header class="cuisine-hero">
+        <h1>Ẩm thực Truyền thống Cơ Tu</h1>
         <p>Hương vị núi rừng Phú Túc – Hòa Vang kết tinh từ men lá, nếp nương và thảo mộc đại ngàn</p>
-    </div>
+    </header>
 
     <div class="nav-back-bar">
         <a href="du-lich-phu-tuc.html">← Quay lại Bản đồ số Du lịch Phú Túc</a>
     </div>
 
-    <main class="food-grid" id="foodGrid">
-        <!-- Danh sách các món ăn hiển thị bằng JS -->
-    </main>
+    <main class="food-grid" id="foodGrid"></main>
 
     <footer>
         <p><strong>Bản đồ số Di tích & Du lịch sinh thái cộng đồng Xã Hòa Vang</strong></p>
@@ -143,49 +186,62 @@
     </footer>
 
     <script>
+        // Danh sách 8 món ăn kèm đường dẫn Google Drive chuẩn
         const dishes = [
             {
                 id: "com-lam",
                 name: "Cơm lam ống tre",
                 desc: "Gạo nếp rẫy thơm dẻo nấu trong ống nứa tươi trên than hồng, thoang thoảng hương thơm thanh khiết của nứa rừng non.",
-                thumb: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=60" // Thay bằng link ảnh của bạn
+                thumb: "https://lh3.googleusercontent.com/d/1qb8FdsM5eYyVLVsgsHh7BMDy9wRurlHw"
             },
             {
                 id: "thit-nuong-ong",
                 name: "Thịt heo nướng ống (Za-ră)",
                 desc: "Món ăn đặc sản độc đáo của người Cơ Tu: thịt ướp ớt tiêu rừng, nhồi ống nứa rồi nướng chín thơm ngậy.",
-                thumb: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop&q=60"
+                thumb: "https://lh3.googleusercontent.com/d/19F5LwT2BiZxYvVOPB4sQ5MbwOIb3m_1o"
             },
             {
                 id: "ca-nien",
                 name: "Cá niên nướng than hồng",
                 desc: "Cá niên suối tươi rói nướng giòn trên than củi, chấm cùng muối hột ớt hiểm thơm lừng và đậm đà vị ngọt bùi.",
-                thumb: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600&auto=format&fit=crop&q=60"
+                thumb: "https://lh3.googleusercontent.com/d/1qU95gOYkNhGUPqilX2W8JohHqUnq6vFg"
             },
             {
                 id: "rau-don",
                 name: "Rau dớn rừng xào tỏi / luộc",
                 desc: "Rau dớn hái bên bờ suối đầu nguồn mát rượi, giòn ngọt tự nhiên, món ăn thanh mát giải nhiệt đặc trưng vùng cao.",
-                thumb: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&auto=format&fit=crop&q=60"
+                thumb: "https://lh3.googleusercontent.com/d/1wvywZjcE6RLgMY6YbNPli9cYBmyxcQXv"
             },
             {
                 id: "ruou-can",
                 name: "Rượu cần men lá Phú Túc",
                 desc: "Ủ từ gạo nếp nương cùng men vỏ cây, rễ thảo mộc rừng; men say dịu êm gắn kết buôn làng bên bếp lửa bập bùng.",
-                thumb: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&auto=format&fit=crop&q=60"
+                thumb: "https://lh3.googleusercontent.com/d/1ZFCkhCSu0MOes1JX_hcgTjxOl2RU6lPn"
             },
             {
                 id: "banh-sung-trau",
                 name: "Bánh sừng trâu (Kuốc)",
                 desc: "Bánh truyền thống dâng cúng tổ tiên trong các ngày hội cồng chiêng, gói bằng lá đót tạo hình đôi sừng trâu kiên cường.",
-                thumb: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&auto=format&fit=crop&q=60"
+                thumb: "https://lh3.googleusercontent.com/d/16b4d3nFYXfDL2iBkrZsB4QhBzc_9w6Jc"
+            },
+            {
+                id: "oc-da-suoi",
+                name: "Ốc đá suối xào sả ớt",
+                desc: "Ốc bám vách đá suối mát lành, thịt giòn ngọt thanh sần sật, hòa quyện vị cay nồng của sả ớt rừng thơm phức.",
+                thumb: "https://lh3.googleusercontent.com/d/115ij-XzePBzYYfRoAJ9LkBmbTnZmCPz8"
+            },
+            {
+                id: "la-san-xao-top-mo",
+                name: "Lá sắn xào tóp mỡ",
+                desc: "Đọt lá sắn non vò kỹ xào cùng tóp mỡ béo ngậy, dậy mùi tỏi ớt, vị bùi bùi đắng dịu rất đưa cơm.",
+                thumb: "https://lh3.googleusercontent.com/d/19y_JmuU5Nc3HWbzUUqdkf1kWIjZlBs_8"
             }
         ];
 
         const container = document.getElementById("foodGrid");
         container.innerHTML = dishes.map(item => `
             <div class="food-card">
-                <img src="${item.thumb}" alt="${item.name}" class="food-thumb">
+                <img src="${item.thumb}" alt="${item.name}" class="food-thumb" loading="lazy">
                 <div class="food-info">
                     <h3>${item.name}</h3>
                     <p>${item.desc}</p>
