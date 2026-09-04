@@ -1,69 +1,162 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZHXVRX7XZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VZHXVRX7XZ');
+    </script>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title id="page-title">Chi tiết điểm đến - Du lịch Phú Túc</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <meta property="og:title" content="Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc - Hòa Vang" />
+    <meta property="og:description" content="Khám phá nét đẹp văn hóa Cơ Tu và các điểm du lịch sinh thái đặc sắc tại thôn Phú Túc, xã Hòa Phú." />
+    <meta property="og:image" content="images/thumb-facebook.png" />
+    <meta property="og:type" content="article" />
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #f4f6f8;
-            color: #333;
+            color: #2c3e50;
+            line-height: 1.6;
         }
-        .detail-header {
-            background: linear-gradient(135deg, #1b5e20, #2e7d32);
-            color: white;
-            padding: 30px 15px;
-            text-align: center;
+
+        /* Top Header */
+        .top-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 10px 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .detail-header h1 {
-            margin: 0 0 10px 0;
-            font-size: 1.8rem;
-        }
-        .detail-container {
-            max-width: 900px;
-            margin: -20px auto 40px auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            padding: 25px 30px;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             color: #2e7d32;
             text-decoration: none;
-            font-weight: bold;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .detail-meta {
+            font-weight: 600;
             font-size: 0.95rem;
-            color: #555;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #e8f5e9;
+            transition: all 0.2s ease;
+        }
+        .back-btn:hover {
+            background: #c8e6c9;
+        }
+        .unit-tag {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Banner tiêu đề */
+        .hero-banner {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: #ffffff;
+            padding: 25px 15px 35px 15px;
+            text-align: center;
+        }
+        .hero-banner h1 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .hero-banner p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Thân trang (Container) */
+        .main-wrapper {
+            max-width: 850px;
+            margin: -20px auto 30px auto;
+            padding: 0 12px;
+        }
+        .content-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            padding: 20px;
             margin-bottom: 20px;
+        }
+
+        /* Thông tin tóm tắt (Badge & Meta) */
+        .meta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px dashed #e0e0e0;
         }
-        .content-section {
-            margin-bottom: 30px;
+        .badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .meta-item {
+            width: 100%;
+            font-size: 0.95rem;
+            color: #455a64;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        /* Đoạn văn bản nội dung */
+        .section-title {
+            font-size: 1.15rem;
+            color: #1b5e20;
+            margin: 20px 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid #2e7d32;
+            padding-left: 10px;
+        }
+        .desc-text {
+            font-size: 1rem;
+            color: #37474f;
+            text-align: justify;
+            white-space: pre-line;
             line-height: 1.8;
-            font-size: 1.05rem;
         }
-        .video-box {
+
+        /* Khung Video 16:9 Responsive */
+        .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Tỉ lệ 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 10px;
-            background: #000;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-            margin: 20px 0;
+            background: #000000;
+            margin-top: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        .video-box iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -71,134 +164,290 @@
             height: 100%;
             border: 0;
         }
-        .btn-maps {
-            display: inline-block;
-            background: #2e7d32;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
+
+        /* Điểm nhấn nổi bật */
+        .highlights-box {
+            background: #fafafa;
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+            padding: 15px;
             margin-top: 15px;
+        }
+        .highlights-box ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .highlights-box li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* Cụm nút hành động (Chỉ đường & Chia sẻ) */
+        .action-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .btn-maps {
+            background: #2e7d32;
+            color: #ffffff;
         }
         .btn-maps:hover {
             background: #1b5e20;
         }
+        .btn-share {
+            background: #f1f8e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+        .btn-share:hover {
+            background: #dcedc8;
+        }
+
+        /* Chân trang */
         footer {
             text-align: center;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9rem;
-            border-top: 1px solid #ddd;
+            padding: 25px 15px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+            color: #78909c;
+        }
+
+        /* Tinh chỉnh riêng cho Màn hình điện thoại nhỏ */
+        @media (max-width: 600px) {
+            .hero-banner h1 {
+                font-size: 1.3rem;
+            }
+            .content-card {
+                padding: 15px;
+            }
+            .desc-text {
+                font-size: 0.95rem;
+                text-align: left;
+            }
+            .action-bar {
+                grid-template-columns: 1fr;
+            }
+            .btn {
+                padding: 11px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="detail-header">
+    <!-- Thanh điều hướng cố định phía trên -->
+    <nav class="top-nav">
+        <a href="du-lich-phu-tuc.html" class="back-btn">← Bản đồ Phú Túc</a>
+        <span class="unit-tag">Đoàn xã Hòa Vang</span>
+    </nav>
+
+    <!-- Banner tiêu đề điểm đến -->
+    <header class="hero-banner">
         <h1 id="place-title">Đang tải thông tin...</h1>
-        <p>Bản đồ số Du lịch Sinh thái & Bản sắc Văn hóa Cơ Tu Phú Túc</p>
-    </div>
+        <p>Bản đồ số Di tích & Du lịch sinh thái cộng đồng</p>
+    </header>
 
-    <div class="detail-container">
-        <a href="du-lich-phu-tuc.html" class="back-link">← Quay lại Bản đồ Du lịch Phú Túc</a>
+    <div class="main-wrapper">
+        <main class="content-card">
+            <!-- Thông tin phân loại và địa chỉ -->
+            <div class="meta-group">
+                <span class="badge" id="place-category">Phân loại</span>
+                <div class="meta-item">
+                    <span>📍</span>
+                    <span id="place-address">Đang cập nhật địa chỉ...</span>
+                </div>
+            </div>
 
-        <div class="detail-meta">
-            <p><strong>📍 Địa chỉ:</strong> <span id="place-address">---</span></p>
-            <p><strong>🏷️ Phân loại:</strong> <span id="place-category">---</span></p>
-        </div>
+            <!-- Bài viết giới thiệu chi tiết -->
+            <h2 class="section-title">Giới thiệu & Bản sắc đặc trưng</h2>
+            <div class="desc-text" id="place-desc"></div>
 
-        <h3>Giới thiệu địa điểm</h3>
-        <div class="content-section" id="place-desc"></div>
+            <!-- Trải nghiệm nổi bật -->
+            <div class="highlights-box" id="highlights-container" style="display: none;">
+                <strong style="color: #2e7d32;">✨ Trải nghiệm không nên bỏ lỡ:</strong>
+                <ul id="highlights-list"></ul>
+            </div>
 
-        <h3>Video giới thiệu & Trải nghiệm thực tế</h3>
-        <div class="video-box" id="video-container">
-            <!-- Video iframe sẽ được render ở đây -->
-        </div>
+            <!-- Video Clip trải nghiệm thực tế -->
+            <h2 class="section-title" id="video-heading">Video Giới thiệu & Toàn cảnh</h2>
+            <div class="video-wrapper" id="video-box">
+                <!-- Iframe Youtube nhúng tự động bằng JS -->
+            </div>
 
-        <div style="text-align: center; margin-top: 30px;">
-            <a id="btn-directions" href="#" target="_blank" class="btn-maps">🧭 Chỉ đường trên Google Maps</a>
-        </div>
+            <!-- Nút chức năng: Chỉ đường Google Maps & Chia sẻ -->
+            <div class="action-bar">
+                <a id="btn-directions" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-maps">
+                    🧭 Chỉ đường đi (Google Maps)
+                </a>
+                <button id="btn-share" class="btn btn-share" onclick="sharePage()">
+                    🔗 Chia sẻ địa điểm này
+                </button>
+            </div>
+        </main>
     </div>
 
     <footer>
-        <p>Công trình Chuyển đổi số của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
+        <p><strong>Bản đồ số Di tích Lịch sử - Văn hóa & Du lịch Xã Hòa Vang</strong></p>
+        <p>Công trình Chuyển đổi số thanh niên năm 2026</p>
     </footer>
 
     <script>
-        // Dữ liệu chi tiết từng địa điểm (bao gồm cả ID video YouTube)
+        // CƠ SỞ DỮ LIỆU CÁC ĐIỂM DU LỊCH PHÚ TÚC
         const detailsData = {
             "nha-guol": {
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
+                category: "Không gian Bản sắc Văn hóa Cơ Tu",
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
-                category: "Không gian Văn hóa Truyền thống Cơ Tu",
-                desc: "Nhà Gươl Phú Túc là linh hồn làng bản, nơi lưu giữ toàn bộ nét sinh hoạt cộng đồng, hội họp và lễ hội của đồng bào Cơ Tu. Tại đây có kiến trúc cột gỗ nguyên khối điêu khắc hình chim thú, mái tranh cao vút. Cùng với con đường bích họa rực rỡ, đây là điểm dừng chân văn hóa không thể bỏ qua.",
-                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
                 lat: 15.9868,
-                lng: 108.0125
+                lng: 108.0125,
+                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID YouTube thực tế của bạn
+                highlights: [
+                    "Kiến trúc cột gỗ lim chạm khắc tinh xảo hình chim tring, thú rừng và hoa văn truyền thống.",
+                    "Không gian tổ chức các ngày hội văn hóa, cồng chiêng và lễ hội Mừng lúa mới.",
+                    "Check-in con đường bích họa rực rỡ sắc màu tái hiện đời sống đồng bào Cơ Tu."
+                ],
+                desc: "Nhà Gươl thôn Phú Túc được xem là 'linh hồn' của cộng đồng người Cơ Tu nơi đây. Trong tâm thức của bà con, Nhà Gươl không chỉ là nơi hội họp bàn việc làng, hòa giải mâu thuẫn hay đón tiếp khách quý, mà còn là bảo tàng sống lưu giữ hồn cốt tổ tiên.\n\nNgôi nhà được xây dựng vững chãi với hệ thống cột cái lớn bằng gỗ chạm trổ họa tiết dân gian sinh động. Cùng với tuyến đường bích họa dẫn vào thôn, du khách đến đây sẽ cảm nhận rõ nét không khí thanh bình, mộc mạc và sự hiếu khách nồng hậu của bà con vùng cao Hòa Vang."
             },
             "toom-sara": {
                 name: "Làng Du lịch Sinh thái Cộng đồng Toom Sara",
+                category: "Du lịch Sinh thái & Trải nghiệm Văn hóa",
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
-                category: "Du lịch Sinh thái - Trải nghiệm Văn hóa",
-                desc: "Làng Toom Sara nằm nép mình bên dòng suối trong vắt rợp bóng cây. Du khách đến đây được hòa mình vào điệu múa Tung tung Da dá, trải nghiệm dệt thổ cẩm Cơ Tu, cắm trại qua đêm và thưởng thức ẩm thực cơm lam thịt nướng đặc trưng.",
-                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
                 lat: 15.9815,
-                lng: 108.0202
+                lng: 108.0202,
+                youtubeId: "dQw4w9WgXcQ",
+                highlights: [
+                    "Trải nghiệm tắm suối tự nhiên trong vắt giữa thung lũng rợp bóng cây xanh.",
+                    "Tìm hiểu nghề dệt thổ cẩm cổ truyền và thưởng thức điệu múa Tung tung Da dá.",
+                    "Thưởng thức ẩm thực nướng than hồng, cơm lam ống tre và rượu cần men lá."
+                ],
+                desc: "Toom Sara theo tiếng Cơ Tu có nghĩa là 'suối hoa ớt'. Khu du lịch được quy hoạch bảo tồn dựa trên cảnh quan nguyên sơ của núi rừng, mang lại cho du khách cảm giác tách biệt hoàn toàn khỏi phố thị xô bồ.\n\nTại đây, bạn có thể nghỉ dưỡng trong các căn nhà sàn truyền thống, nhâm nhi tách trà ấm bên suối, ngắm nhìn các nghệ nhân Cơ Tu thoăn thoắt dệt từng tấm thổ cẩm rực rỡ và thưởng thức những món ăn dân dã đậm vị quê hương."
             },
             "suoi-hoa": {
-                name: "Khu du lịch Sinh thái Suối Hoa",
+                name: "Khu Du lịch Sinh thái Suối Hoa",
+                category: "Khu Du lịch Sinh thái & Thắng cảnh",
                 address: "Km 20, QL14G, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
-                category: "Du lịch Sinh thái & Thắng cảnh",
-                desc: "Khu du lịch Suối Hoa nổi bật với các ghềnh thác tự nhiên, hồ tắm suối trong xanh mát lạnh và ngút ngàn thảm hoa rừng. Đây là điểm tránh nóng lý tưởng, thích hợp cho các buổi dã ngoại gia đình và teambuilding.",
-                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
                 lat: 15.9682,
-                lng: 107.9950
+                lng: 107.9950,
+                youtubeId: "dQw4w9WgXcQ",
+                highlights: [
+                    "Chiêm ngưỡng thác nước Rù Rì, thác Hạ tung bọt trắng xóa quanh năm.",
+                    "Cầu treo lãng mạn bắc ngang dòng suối lớn ngút ngàn thảm hoa dại.",
+                    "Không gian dã ngoại cuối tuần lý tưởng cho gia đình, cơ quan và nhóm bạn trẻ."
+                ],
+                desc: "Nằm ven tuyến Quốc lộ 14G, KDL Suối Hoa là một trong những điểm đến dã ngoại quen thuộc của người dân Đà Nẵng và du khách thập phương. Dòng nước suối từ đỉnh Trường Sơn chảy qua các bậc ghềnh đá tự nhiên tạo thành nhiều hồ tắm lộ thiên nông, sạch và rất mát mẻ.\n\nBao bọc đôi bờ là thảm thực vật phong phú, nhiều loài hoa rừng bản địa khoe sắc cùng những tán cây cổ thụ tỏa bóng mát rượi."
             },
             "lai-thieu": {
-                name: "Khu du lịch Lái Thiêu",
+                name: "Khu Du lịch Sinh thái Lái Thiêu",
+                category: "Du lịch Sinh thái Miệt vườn & Dã ngoại",
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang, TP. Đà Nẵng",
-                category: "Du lịch Sinh thái Miệt Vườn",
-                desc: "Khu sinh thái Lái Thiêu mang đến không gian vườn cây trái râm mát, khu chèo thuyền, hồ bơi và khu vực nhà sàn cắm trại thư giãn cuối tuần.",
-                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
                 lat: 15.9754,
-                lng: 108.0062
+                lng: 108.0062,
+                youtubeId: "dQw4w9WgXcQ",
+                highlights: [
+                    "Vườn cây ăn trái nhiệt đới sum sê trĩu quả.",
+                    "Hồ bơi nhân tạo, dịch vụ chèo thuyền kayak và khu cắm trại bãi cỏ xanh mướt.",
+                    "Nhà rông, nhà sàn truyền thống phục vụ tiệc họp mặt và nghỉ ngơi qua đêm."
+                ],
+                desc: "KDL Lái Thiêu kết hợp khéo léo giữa nét mộc mạc miệt vườn Nam Bộ và không gian núi rừng miền Trung. Nơi đây sở hữu nhiều chủng loại cây ăn trái râm mát, suối nhân tạo và các bãi cỏ rộng rãi phù hợp tổ chức sự kiện cắm trại, team building, giáo dục kỹ năng sống ngoài trời."
             },
             "am-thuc-phu-tuc": {
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
-                address: "Tuyến QL14G, Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
-                category: "Ẩm thực Vùng cao & Nông sản Đặc sản",
-                desc: "Điểm thưởng thức các món ăn truyền thống của núi rừng: Gà nướng than hồng, cá niêng, ốc đá suối, rau dớn luộc chấm mắm nêm, cùng men say nồng của rượu cần và rượu Tr'đin.",
-                youtubeId: "dQw4w9WgXcQ", // Thay bằng ID video Youtube thật của bạn
+                category: "Ẩm thực Vùng cao & Đặc sản Địa phương",
+                address: "Tuyến đường Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 lat: 15.9842,
-                lng: 108.0140
+                lng: 108.0140,
+                youtubeId: "dQw4w9WgXcQ",
+                highlights: [
+                    "Thịt heo bản nướng than hồng ướp lá rừng thơm nức.",
+                    "Rau dớn luộc chấm mắm, cá niên nấu canh chua hoặc nướng trui.",
+                    "Men cay ấm áp từ ché rượu cần truyền thống và rượu Tr'đin tự nhiên."
+                ],
+                desc: "Ẩm thực của đồng bào Cơ Tu tại Phú Túc mang đậm hương vị tự nhiên của núi rừng. Mỗi món ăn đều được chế biến mộc mạc, không dùng gia vị hóa chất mà tận dụng các loại lá, rễ cây thơm ngát từ đại ngàn.\n\nThưởng thức bữa cơm lam nóng hổi bên bếp than hồng và nghe già làng kể chuyện xưa là trải nghiệm văn hóa sâu lắng dành cho bất kỳ ai đặt chân đến Phú Túc."
             }
         };
 
-        // Lấy tham số 'id' từ URL (ví dụ: ?id=nha-guol)
-        const urlParams = new URLSearchParams(window.location.search);
-        const placeId = urlParams.get('id');
+        // 1. ĐỌC THAM SỐ ?id= TỪ THANH ĐỊA CHỈ TRÌNH DUYỆT
+        const params = new URLSearchParams(window.location.search);
+        const placeId = params.get('id');
+        const item = detailsData[placeId];
 
-        const place = detailsData[placeId];
+        // 2. RENDER DỮ LIỆU LÊN GIAO DIỆN
+        if (item) {
+            document.title = item.name + " | Bản đồ số Hòa Vang";
+            document.getElementById('place-title').innerText = item.name;
+            document.getElementById('place-category').innerText = item.category;
+            document.getElementById('place-address').innerText = item.address;
+            document.getElementById('place-desc').innerText = item.desc;
 
-        if (place) {
-            document.getElementById('page-title').innerText = place.name + " - Du lịch Phú Túc";
-            document.getElementById('place-title').innerText = place.name;
-            document.getElementById('place-address').innerText = place.address;
-            document.getElementById('place-category').innerText = place.category;
-            document.getElementById('place-desc').innerText = place.desc;
+            // Render danh sách trải nghiệm nổi bật (nếu có)
+            if (item.highlights && item.highlights.length > 0) {
+                const hlBox = document.getElementById('highlights-container');
+                const hlList = document.getElementById('highlights-list');
+                hlBox.style.display = 'block';
+                hlList.innerHTML = item.highlights.map(h => `<li>${h}</li>`).join('');
+            }
 
-            // Nhúng video YouTube
-            document.getElementById('video-container').innerHTML = `
-                <iframe src="https://www.youtube.com/embed/${place.youtubeId}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            `;
+            // Nhúng Video Youtube
+            if (item.youtubeId && item.youtubeId.trim() !== "") {
+                document.getElementById('video-box').innerHTML = `
+                    <iframe src="https://www.youtube.com/embed/${item.youtubeId}?rel=0" 
+                            title="${item.name}" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                `;
+            } else {
+                document.getElementById('video-heading').style.display = 'none';
+                document.getElementById('video-box').style.display = 'none';
+            }
 
-            // Tạo link Google Maps chỉ đường
-            document.getElementById('btn-directions').href = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
+            // Gắn link chỉ đường Google Maps
+            document.getElementById('btn-directions').href = `https://www.google.com/maps/dir/?api=1&destination=${item.lat},${item.lng}`;
         } else {
+            // Trường hợp người dùng gõ link sai hoặc không có tham số ID
             document.getElementById('place-title').innerText = "Không tìm thấy địa điểm";
-            document.getElementById('place-desc').innerHTML = "<p>Địa điểm bạn đang tìm kiếm không tồn tại hoặc đã được cập nhật lại.</p>";
-            document.getElementById('video-container').style.display = 'none';
+            document.getElementById('place-address').innerText = "Vui lòng kiểm tra lại đường dẫn truy cập.";
+            document.getElementById('place-category').style.display = 'none';
+            document.getElementById('place-desc').innerHTML = `
+                <div style="text-align: center; padding: 30px 10px;">
+                    <p style="font-size: 1.1rem; color: #888;">Địa điểm bạn đang tìm kiếm không tồn tại hoặc đã được chuyển dời.</p>
+                    <a href="du-lich-phu-tuc.html" style="display: inline-block; margin-top: 15px; color: #2e7d32; font-weight: bold;">← Quay về Trang chủ Bản đồ Phú Túc</a>
+                </div>
+            `;
+            document.getElementById('video-heading').style.display = 'none';
+            document.getElementById('video-box').style.display = 'none';
+            document.getElementById('btn-directions').style.display = 'none';
+        }
+
+        // 3. HÀM CHIA SẺ TRANG (Tối ưu cho cả điện thoại & máy tính)
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    text: `Khám phá ${item ? item.name : 'Du lịch Phú Túc'} trên Bản đồ số Hòa Vang!`,
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Đã sao chép liên kết vào bộ nhớ tạm! Bạn có thể dán để gửi qua Zalo, Messenger.");
+            }
         }
     </script>
 </body>
