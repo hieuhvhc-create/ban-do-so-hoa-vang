@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     
     <style>
-        /* CSS căn chỉnh giao diện */
+        /* Đồng bộ giao diện và tối ưu hiển thị máy tính & điện thoại */
         footer {
             text-align: center;
             padding: 20px 10px;
@@ -63,10 +63,10 @@
             margin-bottom: 12px;
             overflow-x: auto;
             padding-bottom: 4px;
-            scrollbar-width: none; /* Ẩn scrollbar Firefox */
+            scrollbar-width: none;
         }
         .filter-tags::-webkit-scrollbar {
-            display: none; /* Ẩn scrollbar Chrome/Safari */
+            display: none;
         }
         .filter-btn {
             background: #f1f8e9;
@@ -96,10 +96,9 @@
         .btn-view-detail {
             display: inline-block;
             margin-top: 6px;
-            padding: 4px 10px;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border: 1px solid #a5d6a7;
+            padding: 5px 12px;
+            background-color: #2e7d32;
+            color: white;
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: bold;
@@ -107,11 +106,10 @@
             transition: all 0.2s;
         }
         .btn-view-detail:hover {
-            background-color: #2e7d32;
-            color: white;
+            background-color: #1b5e20;
         }
 
-        /* Tối ưu hiển thị responsive đa màn hình */
+        /* Responsive */
         @media (min-width: 769px) {
             .container {
                 display: flex;
@@ -214,23 +212,32 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Danh mục các điểm du lịch Phú Túc gắn mã ID kết nối chi-tiet-phu-tuc.html
+        // Danh mục các điểm du lịch Phú Túc (đã bổ sung Rượu cần Phú Túc)
         const phuTucLocations = [
             {
                 id: "nha-guol",
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
                 subcat: "van-hoa",
-                lat: 15.9868,
-                lng: 108.0125,
+                lat: 15.986835,
+                lng: 108.012541,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Không gian sinh hoạt cộng đồng đặc trưng của người Cơ Tu, lưu giữ kiến trúc cột gỗ nguyên khối và các bức bích họa rực rỡ sắc màu."
+            },
+            {
+                id: "ruou-can-phu-tuc",
+                name: "Nghề ủ Rượu cần Truyền thống Phú Túc",
+                subcat: "am-thuc",
+                lat: 15.985500,
+                lng: 108.013200,
+                address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
+                description: "Sản vật nức tiếng của đồng bào Cơ Tu được ủ từ men lá rừng tự nhiên, nếp rẫy thơm dẻo, mang hương vị nồng ấm hiếu khách."
             },
             {
                 id: "toom-sara",
                 name: "Làng Du lịch Sinh thái Cộng đồng Toom Sara",
                 subcat: "sinh-thai",
-                lat: 15.9815,
-                lng: 108.0202,
+                lat: 15.981500,
+                lng: 108.020200,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Khu sinh thái nép mình bên dòng suối mát, gìn giữ nghề dệt thổ cẩm, ẩm thực cơm lam thịt nướng và văn hóa cồng chiêng."
             },
@@ -238,8 +245,8 @@
                 id: "suoi-hoa",
                 name: "Khu du lịch Sinh thái Suối Hoa",
                 subcat: "sinh-thai",
-                lat: 15.9682,
-                lng: 107.9950,
+                lat: 15.968200,
+                lng: 107.995000,
                 address: "Km 20, QL14G, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Danh thắng nổi tiếng với ghềnh thác tự nhiên, hồ tắm suối mát rượi giữa thung lũng hoa rừng ngút ngàn."
             },
@@ -247,8 +254,8 @@
                 id: "lai-thieu",
                 name: "Khu du lịch Lái Thiêu",
                 subcat: "sinh-thai",
-                lat: 15.9754,
-                lng: 108.0062,
+                lat: 15.975400,
+                lng: 108.006200,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm cắm trại dã ngoại, chèo thuyền và vườn cây ăn trái phong phú."
             },
@@ -256,26 +263,25 @@
                 id: "am-thuc-phu-tuc",
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
                 subcat: "am-thuc",
-                lat: 15.9842,
-                lng: 108.0140,
+                lat: 15.984200,
+                lng: 108.014000,
                 address: "Tuyến đường chính Thôn Phú Túc",
                 description: "Thưởng thức men nồng rượu cần, rượu Tr'đin, gà đồi nướng than hoa, cá niên và các món rau rừng đặc trưng vùng cao."
             }
         ];
 
-        // Khởi tạo Leaflet Map căn giữa khu vực Phú Túc
-        const map = L.map('map').setView([15.9780, 108.0080], 14);
+        // Khởi tạo bản đồ Leaflet tâm tại Nhà Gươl Phú Túc
+        const map = L.map('map').setView([15.986835, 108.012541], 14);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Đảm bảo Leaflet render trơn tru trên mọi kích thước màn hình
         setTimeout(() => {
             map.invalidateSize();
         }, 400);
 
-        // Marker xanh lá cây chuyên dụng cho du lịch sinh thái
+        // Marker màu xanh lá cây
         const greenMarkerIcon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -301,7 +307,7 @@
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
                 const detailUrl = `chi-tiet-phu-tuc.html?id=${item.id}`;
 
-                // Popup trên bản đồ có nút xem chi tiết và video
+                // Popup bản đồ
                 const popupBody = `
                     <div style="font-family: Arial, sans-serif; max-width: 220px; line-height: 1.4;">
                         <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 0.95rem;">${item.name}</h4>
@@ -315,7 +321,7 @@
                 marker.bindPopup(popupBody);
                 markerLayerGroup.addLayer(marker);
 
-                // Phần tử danh sách Sidebar
+                // Danh sách Sidebar
                 const li = document.createElement('li');
                 li.className = 'location-item';
                 li.innerHTML = `
@@ -328,7 +334,6 @@
                     </div>
                 `;
 
-                // Click vào dòng (ngoài nút link) thì di chuyển bản đồ đến điểm đó
                 li.addEventListener('click', (e) => {
                     if (e.target.tagName !== 'A') {
                         map.flyTo([item.lat, item.lng], 15, { duration: 1.2 });
@@ -340,7 +345,6 @@
             });
         }
 
-        // Hàm lọc và tìm kiếm kết hợp
         function filterLocations() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             const filtered = phuTucLocations.filter(loc => {
@@ -351,7 +355,6 @@
             renderList(filtered);
         }
 
-        // Sự kiện click chọn bộ lọc (Tabs)
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', (e) => {
                 document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -361,11 +364,9 @@
             });
         });
 
-        // Sự kiện nhập ô tìm kiếm
         document.getElementById('searchInput').addEventListener('input', filterLocations);
         document.getElementById('searchBtn').addEventListener('click', filterLocations);
 
-        // Khởi chạy hiển thị dữ liệu ban đầu
         renderList(phuTucLocations);
     </script>
 </body>
