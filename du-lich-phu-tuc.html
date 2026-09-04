@@ -36,7 +36,7 @@
 
         .nav-back-bar {
             text-align: center;
-            padding: 10px 15px;
+            padding: 9px 12px;
             background-color: #e8f5e9;
             border-bottom: 1px solid #c8e6c9;
         }
@@ -44,7 +44,7 @@
             color: #2e7d32;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .nav-back-bar a:hover {
             text-decoration: underline;
@@ -55,9 +55,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 12px 15px;
+            padding: 10px 15px;
             background: #ffffff;
-            gap: 10px;
+            gap: 8px;
             border-bottom: 1px solid #e0e0e0;
             position: relative;
             z-index: 20;
@@ -65,14 +65,14 @@
         .search-container input {
             width: 420px;
             max-width: 70%;
-            padding: 10px 14px;
-            font-size: 15px;
+            padding: 9px 13px;
+            font-size: 14.5px;
             border: 1px solid #ddd;
             border-radius: 6px;
             outline: none;
         }
         .search-container button {
-            padding: 10px 20px;
+            padding: 9px 18px;
             background-color: #2e7d32;
             color: white;
             border: none;
@@ -88,7 +88,7 @@
         .filter-tags {
             display: flex;
             gap: 6px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             overflow-x: auto;
             padding-bottom: 4px;
             scrollbar-width: none;
@@ -100,9 +100,9 @@
             background: #f1f8e9;
             border: 1px solid #81c784;
             color: #2e7d32;
-            padding: 6px 12px;
+            padding: 5px 11px;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             cursor: pointer;
             white-space: nowrap;
             transition: all 0.2s;
@@ -115,7 +115,7 @@
 
         .location-item {
             cursor: pointer;
-            padding: 12px 10px;
+            padding: 11px 8px;
             border-bottom: 1px solid #eee;
             transition: background 0.2s ease;
         }
@@ -123,22 +123,22 @@
             background: #f1f8e9;
         }
 
-        /* NÚT CHI TIẾT & VIDEO NỔI BẬT TÔNG CAM VÀNG */
+        /* NÚT CHI TIẾT & VIDEO CAM VÀNG NỔI BẬT */
         .btn-view-detail {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            margin-top: 8px;
-            padding: 7px 15px;
+            gap: 5px;
+            margin-top: 7px;
+            padding: 6px 14px;
             background: linear-gradient(135deg, #ff9800, #f57c00);
             color: #ffffff !important;
             border-radius: 20px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-decoration: none;
             box-shadow: 0 3px 8px rgba(245, 124, 0, 0.35);
             transition: all 0.25s ease;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
         }
         .btn-view-detail:hover {
             background: linear-gradient(135deg, #f57c00, #e65100);
@@ -154,6 +154,16 @@
 
         /* Giao diện Máy tính */
         @media (min-width: 769px) {
+            header {
+                padding: 20px 15px;
+            }
+            header h1 {
+                font-size: 1.45rem;
+                margin: 6px 0;
+            }
+            header h2 {
+                font-size: 1.15rem;
+            }
             .container {
                 display: flex !important;
                 flex-direction: row !important;
@@ -176,18 +186,40 @@
             }
         }
 
-        /* Giao diện Điện thoại */
+        /* TỐI ƯU CHO ĐIỆN THOẠI: CHỮ KHÔNG BỊ TO HAY TRÀN XUỐNG DÒNG */
         @media (max-width: 768px) {
+            header {
+                padding: 10px 8px !important;
+            }
+            .ten-don-vi {
+                font-size: 0.72rem !important;
+                letter-spacing: 0.2px;
+            }
+            header h1 {
+                font-size: 1.02rem !important; /* Vừa chuẩn 1 dòng trên màn hình điện thoại */
+                line-height: 1.35 !important;
+                margin: 4px 0 !important;
+                white-space: normal;
+            }
+            header h2 {
+                font-size: 0.9rem !important;
+                margin-bottom: 2px !important;
+            }
+            header p {
+                font-size: 0.76rem !important;
+                line-height: 1.3 !important;
+                opacity: 0.9;
+            }
             .search-container {
-                padding: 8px 10px;
+                padding: 7px 10px;
             }
             .search-container input {
-                font-size: 13.5px;
-                padding: 8px 10px;
+                font-size: 13px;
+                padding: 7px 10px;
             }
             .search-container button {
-                padding: 8px 14px;
-                font-size: 13px;
+                padding: 7px 12px;
+                font-size: 12.5px;
             }
             .container {
                 display: flex !important;
@@ -212,18 +244,18 @@
 
         footer {
             text-align: center;
-            padding: 20px 10px;
+            padding: 18px 10px;
             background-color: #ffffff;
             border-top: 1px solid #dee2e6;
         }
         .visitor-badge {
-            margin-top: 8px;
+            margin-top: 6px;
             display: inline-block;
         }
         .footer-text {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #555;
-            margin: 3px 0;
+            margin: 2px 0;
         }
     </style>
 </head>
@@ -262,7 +294,7 @@
                 <button class="filter-btn" data-subcat="am-thuc">Ẩm thực</button>
             </div>
 
-            <h3 style="margin: 5px 0 10px 0; font-size: 1rem; color: #2e7d32;">Điểm đến nổi bật tại Phú Túc</h3>
+            <h3 style="margin: 5px 0 10px 0; font-size: 0.98rem; color: #2e7d32;">Điểm đến nổi bật tại Phú Túc</h3>
             <ul id="list" style="list-style: none; padding: 0; margin: 0;"></ul>
         </div>
         
@@ -284,8 +316,8 @@
                 id: "nha-guol",
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
                 subcat: "van-hoa",
-                lat: 15.9697833,
-                lng: 108.0456533,
+                lat: 15.986835,
+                lng: 108.012541,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Không gian sinh hoạt cộng đồng đặc trưng của người Cơ Tu, lưu giữ kiến trúc cột gỗ nguyên khối và các bức bích họa rực rỡ sắc màu."
             },
@@ -293,8 +325,8 @@
                 id: "nghe-truyen-thong",
                 name: "Nghề thủ công Truyền thống Cơ Tu (Đan lát, Điêu khắc, Rượu cần)",
                 subcat: "van-hoa",
-                lat: 15.9697833,
-                lng: 108.0456533,
+                lat: 15.985500,
+                lng: 108.016200,
                 address: "Nhà Gươl thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 url: "nghe-truyen-thong.html",
                 description: "Khám phá nghệ thuật đan lát mây tre, điêu khắc gỗ dân gian và nghề ủ rượu cần men lá bí truyền của đồng bào Cơ Tu."
@@ -303,8 +335,8 @@
                 id: "le-hoi-truyen-thong",
                 name: "Không gian Lễ hội Truyền thống (Cồng chiêng & Vũ điệu Tung tung Da dá)",
                 subcat: "le-hoi",
-                lat: 15.9697833,
-                lng: 108.0456533,
+                lat: 15.986200,
+                lng: 108.013800,
                 address: "Sân vận động / Sân Nhà Gươl thôn Phú Túc",
                 url: "le-hoi-truyen-thong.html",
                 description: "Hòa mình vào không khí ngày hội Mừng lúa mới, tiếng chiêng rộn rã và điệu múa Tung tung Da dá hào hùng quanh ngọn lửa trại bập bùng."
@@ -313,8 +345,8 @@
                 id: "am-thuc-phu-tuc",
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
                 subcat: "am-thuc",
-                lat: 15.9697833,
-                lng: 108.0456533,
+                lat: 15.984200,
+                lng: 108.014000,
                 address: "Tuyến đường chính Thôn Phú Túc",
                 url: "am-thuc-phu-tuc.html",
                 description: "Thưởng thức men nồng rượu cần, gà đồi nướng than hoa, cá niên suối nướng, rau dớn, ốc đá và lá sắn xào tóp mỡ."
@@ -323,8 +355,8 @@
                 id: "toom-sara",
                 name: "Làng Du lịch Sinh thái Cộng đồng Toom Sara",
                 subcat: "sinh-thai",
-                lat: 15.9580918,
-                lng: 107.9930937,
+                lat: 15.981500,
+                lng: 108.020200,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Khu sinh thái nép mình bên dòng suối mát, gìn giữ nghề dệt thổ cẩm, ẩm thực cơm lam thịt nướng và văn hóa cồng chiêng."
             },
@@ -332,8 +364,8 @@
                 id: "suoi-hoa",
                 name: "Khu du lịch Sinh thái Suối Hoa",
                 subcat: "sinh-thai",
-                lat: 15.9580918,
-                lng: 107.9930937,
+                lat: 15.968200,
+                lng: 107.995000,
                 address: "Km 20, QL14G, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Danh thắng nổi tiếng với ghềnh thác tự nhiên, hồ tắm suối mát rượi giữa thung lũng hoa rừng ngút ngàn."
             },
@@ -341,38 +373,38 @@
                 id: "lai-thieu",
                 name: "Khu du lịch Lái Thiêu",
                 subcat: "sinh-thai",
-                lat: 15.9560187,
-                lng: 107.9748397,
+                lat: 15.975400,
+                lng: 108.006200,
                 address: "Thôn Phú Túc, Xã Hòa Phú, Huyện Hòa Vang",
                 description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm cắm trại dã ngoại, chèo thuyền và vườn cây ăn trái phong phú."
             }
         ];
 
-        // 1. Lớp Bản đồ đường sá chuẩn (Google Streets)
+        // 1. Lớp Bản đồ đường sá (Google Streets)
         const googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: 'Google Maps'
         });
 
-        // 2. Lớp Ảnh Vệ tinh có hiển thị tên đường và địa danh (Google Hybrid)
+        // 2. Lớp Ảnh Vệ tinh có địa danh (Google Hybrid)
         const googleSatellite = L.tileLayer('https://{s}.google.com/vt/lyrs=y&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: 'Google Satellite'
         });
 
-        // Khởi tạo bản đồ (mặc định mở bản đồ đường sá)
+        // Khởi tạo bản đồ (mặc định xem Đường sá)
         const map = L.map('map', {
             center: [15.9850, 108.0140],
             zoom: 14,
-            layers: [googleStreets] // Lớp hiển thị đầu tiên
+            layers: [googleStreets]
         });
 
-        // 3. Thêm bảng chọn chuyển đổi qua lại giữa Vệ tinh và Đường sá ở góc trên bên phải
+        // Nút chuyển đổi Đường sá / Vệ tinh ở góc trên bên phải
         const baseMaps = {
-            "🗺️ Bản đồ đường sá": googleStreets,
-            "🛰️ Ảnh vệ tinh núi rừng": googleSatellite
+            "🗺️ Bản đồ đường": googleStreets,
+            "🛰️ Ảnh vệ tinh": googleSatellite
         };
         L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
 
@@ -406,7 +438,7 @@
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
                 const detailUrl = item.url ? item.url : `chi-tiet-phu-tuc.html?id=${item.id}`;
 
-                // Popup trên bản đồ - Nút màu cam vàng nổi bật
+                // Popup trên bản đồ - Nút cam vàng nổi bật
                 const popupBody = `
                     <div style="font-family: Arial, sans-serif; max-width: 230px; line-height: 1.45;">
                         <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 0.95rem;">${item.name}</h4>
@@ -424,7 +456,7 @@
                 const li = document.createElement('li');
                 li.className = 'location-item';
                 li.innerHTML = `
-                    <strong style="color: #2e7d32; display: block; font-size: 0.95rem;">${item.name}</strong>
+                    <strong style="color: #2e7d32; display: block; font-size: 0.94rem;">${item.name}</strong>
                     <span style="font-size: 0.8rem; color: #666;">📍 ${item.address}</span>
                     <div>
                         <a href="${detailUrl}" class="btn-view-detail">
