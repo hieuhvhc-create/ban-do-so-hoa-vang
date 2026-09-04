@@ -1,14 +1,9 @@
-```css
 /* =========================================================
    BẢN ĐỒ SỐ DI TÍCH LỊCH SỬ - VĂN HÓA XÃ HÒA VANG
-   STYLE.CSS
+   STYLE.CSS - ĐỒNG BỘ CHUẨN ĐA THIẾT BỊ
    ========================================================= */
 
-
-/* =========================================================
-   1. CẤU HÌNH CHUNG
-   ========================================================= */
-
+/* 1. CẤU HÌNH CHUNG */
 * {
     margin: 0;
     padding: 0;
@@ -28,940 +23,358 @@ body {
     color: #333;
 }
 
-
-/* =========================================================
-   2. HEADER
-   ========================================================= */
-
+/* 2. HEADER CHUNG (MÁY TÍNH) */
 header {
-    height: 480px;
-
+    height: 360px;
     background-image:
         linear-gradient(
-            rgba(0, 0, 0, 0.12),
-            rgba(0, 0, 0, 0.25)
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.35)
         ),
         url('images/bg-header.jpg');
-
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: white;
     text-align: center;
-
     position: relative;
-
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
-
-/* =========================================================
-   3. LỚP OVERLAY
-   ========================================================= */
-
 .overlay {
-    background: rgba(0, 0, 0, 0.20);
-
+    background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.40);
-
-    padding: 30px 45px;
-
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    padding: 20px 35px;
     border-radius: 12px;
-
     width: 92%;
     max-width: 850px;
-
     margin: auto;
 }
 
-
-/* =========================================================
-   4. LOGO
-   ========================================================= */
-
+/* 3. LOGO VÀ TIÊU ĐỀ */
 .header-logos {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    gap: 20px;
-
-    margin-bottom: 10px;
+    gap: 15px;
+    margin-bottom: 8px;
 }
 
 .logo-item {
-    height: 65px;
+    height: 55px;
     width: auto;
-
     object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0 2px 4px rgba(0, 0, 0, 0.30)
-        );
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.30));
 }
-
-
-/* =========================================================
-   5. TÊN ĐƠN VỊ
-   ========================================================= */
 
 .ten-don-vi {
-    font-size: 18px;
-
+    font-size: 16px;
     font-weight: bold;
-
     letter-spacing: 1px;
-
     color: #fffb00;
-
     text-transform: uppercase;
-
-    margin-bottom: 35px;
+    margin-bottom: 12px;
 }
 
-
-/* =========================================================
-   6. TIÊU ĐỀ HEADER
-   ========================================================= */
-
 header h1 {
-    font-size: 34px;
-
-    margin-bottom: 8px;
-
+    font-size: 28px;
+    margin-bottom: 6px;
     letter-spacing: 0.5px;
-
     line-height: 1.25;
-
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
 }
 
 header h2 {
-    font-size: 22px;
-
-    margin-bottom: 8px;
-
-    opacity: 0.92;
-
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.30);
+    font-size: 18px;
+    margin-bottom: 6px;
+    opacity: 0.95;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.30);
 }
 
 header p {
-    font-size: 15px;
-
-    opacity: 0.90;
-
-    line-height: 1.5;
-}
-
-
-/* =========================================================
-   7. MENU CHUYỂN TRANG
-   DI TÍCH - DU LỊCH PHÚ TÚC
-   ========================================================= */
-
-.main-menu {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 12px;
-
-    flex-wrap: wrap;
-
-    margin-top: 25px;
-}
-
-
-/* Nút menu */
-
-.menu-item {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 44px;
-
-    padding: 11px 22px;
-
-    border-radius: 8px;
-
-    text-decoration: none;
-
     font-size: 14px;
+    opacity: 0.90;
+    line-height: 1.4;
+}
 
+/* 4. MENU CHUYỂN TRANG (DI TÍCH - DU LỊCH) */
+.main-nav-bar, .main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-link-btn, .menu-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13.5px;
     font-weight: bold;
-
-    color: #b71c1c;
-
-    background: rgba(255, 255, 255, 0.96);
-
-    border: 1px solid rgba(255,255,255,0.90);
-
-    box-shadow:
-        0 3px 10px rgba(0,0,0,0.20);
-
-    transition:
-        all 0.25s ease;
+    color: #c62828;
+    background: #ffffff;
+    border: 1px solid #c62828;
+    transition: all 0.25s ease;
 }
 
-
-/* Hover */
-
-.menu-item:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 7px 18px rgba(0,0,0,0.28);
-}
-
-
-/* Trang hiện tại */
-
-.menu-item.active {
-    background: #b71c1c;
-
+.nav-link-btn.active, .menu-item.active {
+    background: #c62828;
     color: #ffffff;
-
-    border-color: #b71c1c;
 }
 
-
-/* Du lịch Phú Túc */
-
-.menu-item.tourism {
-    background: #2e7d32;
-
-    color: #ffffff;
-
+.nav-link-btn.secondary, .menu-item.tourism {
+    color: #2e7d32;
     border-color: #2e7d32;
+    background: #f1f8e9;
 }
 
-
-/* Hover Du lịch */
-
-.menu-item.tourism:hover {
-    background: #1b5e20;
-
-    border-color: #1b5e20;
+.nav-link-btn.secondary.active, .menu-item.tourism.active {
+    background: #2e7d32;
+    color: #ffffff;
 }
 
-
-/* =========================================================
-   8. THANH TÌM KIẾM
-   ========================================================= */
-
+/* 5. THANH TÌM KIẾM */
 .search {
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    padding: 15px;
-
+    padding: 12px;
     background: #ffffff;
-
     gap: 10px;
-
     border-bottom: 1px solid #e0e0e0;
-
-    box-shadow:
-        0 2px 6px rgba(0,0,0,0.04);
 }
 
 .search input {
     width: 420px;
-
-    padding: 12px;
-
-    font-size: 16px;
-
+    max-width: 70%;
+    padding: 10px 14px;
+    font-size: 15px;
     border: 1px solid #ddd;
-
     border-radius: 6px;
-
     outline: none;
-
-    transition:
-        border 0.3s,
-        box-shadow 0.3s;
-}
-
-.search input:focus {
-    border-color: #c62828;
-
-    box-shadow:
-        0 0 0 3px rgba(198,40,40,0.08);
 }
 
 .search button {
-    padding: 12px 25px;
-
+    padding: 10px 20px;
     background: #c62828;
-
     color: white;
-
     border: none;
-
     border-radius: 6px;
-
     font-weight: bold;
-
     cursor: pointer;
-
-    transition:
-        background 0.2s,
-        transform 0.2s;
 }
 
-.search button:hover {
-    background: #b71c1c;
+/* 6. BỐ CỤC CHUẨN MÁY TÍNH (> 768px) */
+@media (min-width: 769px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: calc(100vh - 280px);
+        min-height: 520px;
+        margin: 0;
+    }
 
-    transform: translateY(-1px);
+    .sidebar {
+        width: 360px;
+        background: #ffffff;
+        overflow-y: auto;
+        padding: 15px 0;
+        border-right: 1px solid #eee;
+        flex-shrink: 0;
+        order: 1;
+    }
+
+    #map {
+        flex: 1;
+        min-width: 0;
+        height: 100%;
+        order: 2;
+        z-index: 1;
+    }
 }
 
-
-/* =========================================================
-   9. BỐ CỤC BẢN ĐỒ
-   ========================================================= */
-
-.container {
-    display: flex;
-
-    flex: 1;
-
-    height: 100%;
-
-    min-height: 500px;
-}
-
-
-/* =========================================================
-   10. SIDEBAR
-   ========================================================= */
-
-.sidebar {
-    width: 350px;
-
-    background: #ffffff;
-
-    overflow-y: auto;
-
-    padding: 20px 0;
-
-    border-right: 1px solid #eee;
-
-    flex-shrink: 0;
-}
-
+/* 7. PHẦN TỬ DANH SÁCH & BẢN ĐỒ */
 .sidebar h3 {
-    margin-bottom: 15px;
-
-    padding: 0 20px;
-
+    margin-bottom: 12px;
+    padding: 0 15px;
     color: #333;
-
-    font-size: 18px;
-
-    line-height: 1.4;
+    font-size: 16px;
 }
 
 .sidebar ul {
     list-style: none;
-
-    margin: 0;
-
-    padding: 0;
 }
 
 .sidebar li {
-    border-bottom: 1px solid #eee;
-
-    transition:
-        background 0.2s;
-}
-
-.sidebar li a {
-    display: block;
-
-    padding: 14px 20px;
-
-    color: #444;
-
-    text-decoration: none;
-
-    font-size: 15px;
-
-    line-height: 1.4;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .sidebar li:hover {
     background: #fdf2f2;
 }
 
-.sidebar li:hover a {
-    color: #c62828;
-
-    font-weight: bold;
+.sidebar li a {
+    color: #444;
+    text-decoration: none;
+    font-size: 14.5px;
+    display: block;
 }
 
-
-/* =========================================================
-   11. BẢN ĐỒ LEAFLET
-   ========================================================= */
-
-#map {
-    flex: 1;
-
-    min-width: 0;
-
-    min-height: 500px;
-
-    z-index: 1;
+/* Thanh cuộn Sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
 }
-
-
-/* =========================================================
-   12. POPUP LEAFLET
-   ========================================================= */
-
-.leaflet-popup-content-wrapper {
+.sidebar::-webkit-scrollbar-thumb {
+    background: #ccc;
     border-radius: 10px;
 }
 
-.leaflet-popup-content {
-    font-size: 14px;
-
-    line-height: 1.5;
-}
-
-.leaflet-popup-content h3 {
-    color: #b71c1c;
-
-    margin-bottom: 8px;
-}
-
-
-/* =========================================================
-   13. VIDEO
-   ========================================================= */
-
-#video iframe {
-    width: 100%;
-
-    height: 450px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    margin-top: 20px;
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,0.10);
-}
-
-
-/* =========================================================
-   14. FOOTER
-   ========================================================= */
-
+/* Footer */
 footer {
     text-align: center;
-
-    padding: 25px 15px;
-
+    padding: 20px 10px;
     background-color: #ffffff;
-
     border-top: 1px solid #e0e0e0;
 }
-
 .footer-text {
-    font-size: 0.95rem;
-
-    color: #333333;
-
-    margin: 4px 0;
-
-    line-height: 1.5;
+    font-size: 0.88rem;
+    color: #555;
+    margin: 3px 0;
 }
-
 .visitor-badge {
-    margin-top: 12px;
-
+    margin-top: 8px;
     display: inline-block;
 }
 
-
 /* =========================================================
-   15. THANH CUỘN SIDEBAR
+   8. TỐI ƯU TOÀN DIỆN CHO ĐIỆN THOẠI (<= 768px, 480px, 360px)
    ========================================================= */
-
-.sidebar::-webkit-scrollbar {
-    width: 7px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background: #cccccc;
-
-    border-radius: 10px;
-}
-
-.sidebar::-webkit-scrollbar-thumb:hover {
-    background: #999999;
-}
-
-
-/* =========================================================
-   16. RESPONSIVE - TABLET
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    header {
-        height: 430px;
-    }
-
-    .overlay {
-        width: 94%;
-
-        padding: 25px 25px;
-    }
-
-    header h1 {
-        font-size: 30px;
-    }
-
-    .sidebar {
-        width: 300px;
-    }
-
-}
-
-
-/* =========================================================
-   17. RESPONSIVE - ĐIỆN THOẠI
-   ========================================================= */
-
 @media (max-width: 768px) {
-
-    /* HEADER */
-
+    /* HEADER SIÊU GỌN - KHÔNG BỊ TRÀN */
     header {
-        height: auto;
-
-        min-height: 390px;
-
-        padding: 30px 10px;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 12px 10px !important;
     }
-
 
     .overlay {
-        width: 96%;
-
-        padding: 20px 15px;
-
-        border-radius: 10px;
+        width: 98% !important;
+        padding: 10px 12px !important;
     }
-
-
-    /* LOGO */
-
-    .logo-item {
-        height: 50px;
-    }
-
-
-    /* TÊN ĐƠN VỊ */
-
-    .ten-don-vi {
-        font-size: 12px;
-
-        margin-bottom: 20px;
-
-        letter-spacing: 0.5px;
-    }
-
-
-    /* TIÊU ĐỀ */
-
-    header h1 {
-        font-size: 24px;
-
-        line-height: 1.25;
-    }
-
-
-    header h2 {
-        font-size: 18px;
-    }
-
-
-    header p {
-        font-size: 13px;
-    }
-
-
-    /* MENU */
-
-    .main-menu {
-        gap: 8px;
-
-        margin-top: 18px;
-    }
-
-
-    .menu-item {
-        min-height: 40px;
-
-        padding: 9px 13px;
-
-        font-size: 12px;
-    }
-
-
-    /* SEARCH */
-
-    .search {
-        flex-direction: row;
-
-        padding: 10px;
-    }
-
-
-    .search input {
-        width: 100%;
-
-        min-width: 0;
-
-        padding: 11px;
-
-        font-size: 14px;
-    }
-
-
-    .search button {
-        padding: 11px 15px;
-
-        white-space: nowrap;
-
-        font-size: 13px;
-    }
-
-
-    /* BẢN ĐỒ */
-
-    .container {
-        flex-direction: column;
-
-        height: auto;
-
-        min-height: 0;
-    }
-
-
-    /* SIDEBAR */
-
-    .sidebar {
-        width: 100%;
-
-        height: 250px;
-
-        max-height: 250px;
-
-        border-right: none;
-
-        border-bottom: 1px solid #eee;
-
-        padding: 15px 0;
-    }
-
-
-    .sidebar h3 {
-        font-size: 16px;
-
-        margin-bottom: 10px;
-    }
-
-
-    .sidebar li a {
-        padding: 12px 15px;
-
-        font-size: 14px;
-    }
-
-
-    /* MAP */
-
-    #map {
-        width: 100%;
-
-        height: 400px;
-
-        min-height: 350px;
-
-        flex: none;
-    }
-
-
-    /* VIDEO */
-
-    #video iframe {
-        height: 250px;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-        padding: 20px 10px;
-    }
-
-
-    .footer-text {
-        font-size: 13px;
-    }
-
-}
-
-
-/* =========================================================
-   18. RESPONSIVE - ĐIỆN THOẠI NHỎ
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-    header {
-        min-height: 370px;
-    }
-
-
-    .overlay {
-        padding: 18px 12px;
-    }
-
 
     .header-logos {
-        margin-bottom: 7px;
-    }
-
-
-    .logo-item {
-        height: 45px;
-    }
-
-
-    .ten-don-vi {
-        font-size: 11px;
-
-        margin-bottom: 17px;
-    }
-
-
-    header h1 {
-        font-size: 21px;
-    }
-
-
-    header h2 {
-        font-size: 16px;
-    }
-
-
-    header p {
-        font-size: 12px;
-    }
-
-
-    /* MENU XẾP DỌC */
-
-    .main-menu {
-        flex-direction: column;
-
-        width: 100%;
-
-        gap: 7px;
-
-        margin-top: 16px;
-    }
-
-
-    .menu-item {
-        width: 100%;
-
-        max-width: 270px;
-
-        min-height: 39px;
-
-        font-size: 11px;
-    }
-
-
-    /* SEARCH */
-
-    .search {
-        gap: 6px;
-    }
-
-
-    .search input {
-        font-size: 13px;
-
-        padding: 10px;
-    }
-
-
-    .search button {
-        padding: 10px 12px;
-
-        font-size: 12px;
-    }
-
-
-    /* SIDEBAR */
-
-    .sidebar {
-        height: 230px;
-
-        max-height: 230px;
-    }
-
-
-    /* MAP */
-
-    #map {
-        height: 380px;
-
-        min-height: 350px;
-    }
-
-}
-
-
-/* =========================================================
-   19. CHẾ ĐỘ MÀN HÌNH RẤT NHỎ
-   ========================================================= */
-
-@media (max-width: 360px) {
-
-    header h1 {
-        font-size: 19px;
-    }
-
-    header h2 {
-        font-size: 15px;
-    }
-
-    .menu-item {
-        max-width: 240px;
-
-        font-size: 10px;
-    }
-
-    .search button {
-        padding-left: 9px;
-
-        padding-right: 9px;
-    }
-
-}
-```
-/* =======================================================
-   TỐI ƯU GIAO DIỆN RIÊNG CHO ĐIỆN THOẠI (Mobile Responsive)
-   ======================================================= */
-@media (max-width: 768px) {
-    /* 1. Thu gọn chiều cao Header để nhường chỗ cho bản đồ */
-    header {
-        padding: 12px 10px !important;
-        min-height: auto !important;
-    }
-    header .overlay {
-        padding: 10px !important;
-    }
-    .logo-item {
-        max-height: 36px !important;
         margin-bottom: 4px !important;
     }
+
+    .logo-item {
+        height: 38px !important;
+    }
+
     .ten-don-vi {
-        font-size: 0.72rem !important;
-        margin-bottom: 2px !important;
+        font-size: 11px !important;
+        margin-bottom: 4px !important;
     }
+
     header h1 {
-        font-size: 1.05rem !important;
-        margin: 4px 0 !important;
-        line-height: 1.3 !important;
-    }
-    header h2 {
-        font-size: 0.9rem !important;
+        font-size: 17px !important;
         margin-bottom: 2px !important;
     }
+
+    header h2 {
+        font-size: 14px !important;
+        margin-bottom: 2px !important;
+    }
+
     header p {
-        display: none !important; /* Ẩn câu slogan dài để màn hình thoáng hơn */
+        display: none !important; /* Ẩn hẳn câu slogan để tiết kiệm diện tích */
     }
 
-    /* 2. Menu 2 nút bấm chuyển trang gọn gàng */
-    .main-nav-bar {
-        padding: 8px 10px !important;
-        gap: 8px !important;
-    }
-    .nav-link-btn {
-        padding: 7px 10px !important;
-        font-size: 0.8rem !important;
-        text-align: center;
-        justify-content: center;
+    /* MENU 2 NÚT BẤM */
+    .main-nav-bar, .main-menu {
+        padding: 6px 8px !important;
+        gap: 6px !important;
     }
 
-    /* 3. Khung tìm kiếm nhỏ gọn */
+    .nav-link-btn, .menu-item {
+        flex: 1 !important;
+        min-height: 36px !important;
+        padding: 6px 8px !important;
+        font-size: 12px !important;
+        text-align: center !important;
+    }
+
+    /* THANH TÌM KIẾM */
     .search {
-        padding: 6px 10px !important;
-        margin-bottom: 6px !important;
-    }
-    .search input {
-        padding: 6px 10px !important;
-        font-size: 0.85rem !important;
-    }
-    .search button {
-        padding: 6px 12px !important;
-        font-size: 0.85rem !important;
+        padding: 8px 10px !important;
+        gap: 6px !important;
     }
 
-    /* 4. QUAN TRỌNG NHẤT: ĐƯA BẢN ĐỒ LÊN TRÊN, DANH SÁCH XUỐNG DƯỚI */
+    .search input {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 8px 10px !important;
+        font-size: 13.5px !important;
+    }
+
+    .search button {
+        padding: 8px 14px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+    }
+
+    /* BẢN ĐỒ VÀ DANH SÁCH: ĐẢO VỊ TRÍ CHUẨN */
     .container {
         display: flex !important;
         flex-direction: column !important;
+        height: auto !important;
+        min-height: 0 !important;
     }
+
+    /* 1. BẢN ĐỒ LÊN TRÊN */
     #map {
-        order: 1 !important;          /* Bản đồ xuất hiện ngay sau thanh tìm kiếm */
-        height: 52vh !important;       /* Chiếm hơn 50% màn hình để dễ vuốt chạm */
+        order: 1 !important;
         width: 100% !important;
-        border-radius: 8px;
-        margin-bottom: 10px;
+        height: 50vh !important;       /* Chiếm 50% màn hình điện thoại */
+        min-height: 320px !important;
+        flex: none !important;
     }
+
+    /* 2. DANH SÁCH XUỐNG DƯỚI */
     .sidebar {
-        order: 2 !important;          /* Danh sách nằm gọn bên dưới bản đồ */
+        order: 2 !important;
         width: 100% !important;
-        height: 38vh !important;       /* Cuộn mượt danh sách ở nửa dưới */
-        overflow-y: auto !important;
-        padding: 8px 10px !important;
-        box-sizing: border-box !important;
+        height: 36vh !important;       /* Chiếm 36% màn hình, cuộn mượt */
+        max-height: none !important;
+        border-right: none !important;
+        border-top: 1px solid #eee !important;
+        padding: 10px 0 !important;
+    }
+
+    .sidebar h3 {
+        font-size: 14.5px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .sidebar li {
+        padding: 10px 15px !important;
+    }
+
+    .sidebar li a {
+        font-size: 13.5px !important;
     }
 }
