@@ -273,9 +273,11 @@
         // Khởi tạo bản đồ Leaflet tâm tại Nhà Gươl Phú Túc
         const map = L.map('map').setView([15.986835, 108.012541], 14);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+        // ĐOẠN MỚI (Nền Google Maps tiếng Việt chuẩn như trang chính):
+L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
+    attribution: 'Google Maps',
+    maxZoom: 20
+}).addTo(map);
 
         setTimeout(() => {
             map.invalidateSize();
