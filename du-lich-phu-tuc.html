@@ -348,15 +348,33 @@
             }
         ];
 
-        // Khởi tạo bản đồ Leaflet
-        const map = L.map('map').setView([15.9850, 108.0140], 14);
-
-        // Lớp nền Google Maps
-        L.tileLayer('https://{s}.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
+        // 1. Lớp Bản đồ đường sá chuẩn (Google Streets)
+        const googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
             attribution: 'Google Maps'
-        }).addTo(map);
+        });
+
+        // 2. Lớp Ảnh Vệ tinh có hiển thị tên đường và địa danh (Google Hybrid)
+        const googleSatellite = L.tileLayer('https://{s}.google.com/vt/lyrs=y&hl=vi&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: 'Google Satellite'
+        });
+
+        // Khởi tạo bản đồ (mặc định mở bản đồ đường sá)
+        const map = L.map('map', {
+            center: [15.9850, 108.0140],
+            zoom: 14,
+            layers: [googleStreets] // Lớp hiển thị đầu tiên
+        });
+
+        // 3. Thêm bảng chọn chuyển đổi qua lại giữa Vệ tinh và Đường sá ở góc trên bên phải
+        const baseMaps = {
+            "🗺️ Bản đồ đường sá": googleStreets,
+            "🛰️ Ảnh vệ tinh núi rừng": googleSatellite
+        };
+        L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
 
         setTimeout(() => {
             map.invalidateSize();
