@@ -23,8 +23,8 @@
             text-align: center;
         }
         .header h3 {
-            margin: 0 0 4px 0;
-            font-size: 0.8rem;
+            margin: 0 0 5px 0;
+            font-size: 0.82rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             opacity: 0.9;
@@ -32,6 +32,13 @@
         .header h1 {
             margin: 0;
             font-size: 1.35rem;
+            line-height: 1.35;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .mobile-break {
+            display: none;
         }
 
         .nav-bar {
@@ -168,6 +175,26 @@
             margin-bottom: 8px;
         }
 
+        /* KHUNG NHÚNG VIDEO RESPONSIVE 16:9 */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         footer {
             text-align: center;
             padding: 20px 10px;
@@ -177,10 +204,20 @@
             color: #666;
         }
 
+        /* TỐI ƯU GIAO DIỆN ĐIỆN THOẠI */
         @media (max-width: 600px) {
+            .header { padding: 14px 10px; }
+            .header h3 { font-size: 0.74rem; margin-bottom: 3px; }
+            .header h1 {
+                font-size: 1.15rem;
+                line-height: 1.35;
+            }
+            .mobile-break {
+                display: inline;
+            }
             .banner-img { height: 220px; }
             .content { padding: 16px; }
-            .kdl-name { font-size: 1.3rem; }
+            .kdl-name { font-size: 1.28rem; }
             .btn { width: 100%; justify-content: center; }
         }
     </style>
@@ -189,7 +226,7 @@
 
     <header class="header">
         <h3>Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</h3>
-        <h1>BẢN ĐỒ SỐ DU LỊCH SINH THÁI PHÚ TÚC</h1>
+        <h1>BẢN ĐỒ SỐ DU LỊCH <br class="mobile-break">SINH THÁI PHÚ TÚC</h1>
     </header>
 
     <div class="nav-bar">
@@ -207,11 +244,12 @@
     </footer>
 
     <script>
-        // CƠ SỞ DỮ LIỆU ĐÃ CẬP NHẬT ĐẦY ĐỦ 11 ẢNH DRIVE TRỰC TIẾP
+        // BẠN CHỈ CẦN ĐIỀN MÃ RÚT GỌN YOUTUBE (VÍ DỤ: "dQw4w9WgXcQ") VÀO youtubeId
         const kdlData = {
             "nui-than-tai": {
                 name: "Công viên Suối khoáng nóng Núi Thần Tài",
                 image: "https://lh3.googleusercontent.com/d/1W64K3U2F5v657IQrXY3mCJ18KRa1czxB",
+                youtubeId: "", // <- Nhập mã video YouTube rút gọn tại đây
                 address: "Thôn Phú Túc, QL14G, Hòa Vang, Đà Nẵng",
                 hotline: "0898 181 777",
                 hours: "08:30 – 17:30 (Tất cả các ngày trong tuần)",
@@ -231,6 +269,7 @@
             "hoa-phu-thanh": {
                 name: "Khu du lịch Hòa Phú Thành Tourist - Trượt thác Đà Nẵng",
                 image: "https://lh3.googleusercontent.com/d/1Q2qxdsmzmn1DjKQP6QRaDxZAd9bCbiG3",
+                youtubeId: "", // <- Nhập mã video YouTube rút gọn tại đây
                 address: "Km 20, QL14G, Hòa Vang, Đà Nẵng",
                 hotline: "0932 564 777",
                 hours: "07:30 – 16:30 hằng ngày (Ca trượt thác chính: 10h00 và 14h00)",
@@ -250,6 +289,7 @@
             "toom-sara": {
                 name: "Làng Du Lịch Sinh Thái Toom Sara",
                 image: "https://lh3.googleusercontent.com/d/1zpYPFif_sllSliHZIXAa1ojYfb6--TCG",
+                youtubeId: "",
                 address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0919 225 544",
                 hours: "08:00 – 18:00 hằng ngày",
@@ -268,6 +308,7 @@
             "suoi-hoa": {
                 name: "Khu du lịch Sinh thái Suối Hoa",
                 image: "https://lh3.googleusercontent.com/d/1NRx1SejJI-3dOx_FEpLPvJo-Y4VcS80x",
+                youtubeId: "",
                 address: "Km 20, QL14G, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0986 797 461",
                 hours: "Mở cửa cả ngày (07:00 – 17:30)",
@@ -286,6 +327,7 @@
             "lai-thieu": {
                 name: "Khu Du Lịch Sinh Thái Lái Thiêu",
                 image: "https://lh3.googleusercontent.com/d/1miaaY31gwF5ml2TgSFlWnLzKFnRJhNPQ",
+                youtubeId: "",
                 address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0902 595 779",
                 hours: "Mở cửa cả ngày (07:30 – 17:30)",
@@ -304,6 +346,7 @@
             "binh-yen-ecofarm": {
                 name: "Bình Yên Ecofarm",
                 image: "https://lh3.googleusercontent.com/d/1Ch-Zhew9wxzahkIB-lSdJsxOJLKS0IPG",
+                youtubeId: "",
                 address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0905 646 603",
                 hours: "Mở cửa đón khách cả ngày (24/7)",
@@ -322,6 +365,7 @@
             "kien-hill": {
                 name: "Kien Hill Glamping",
                 image: "https://lh3.googleusercontent.com/d/1ramff2V-V85KMqSxCqzr8IMfmPnSXZIs",
+                youtubeId: "",
                 address: "Khu vực Dốc Kiền, Hòa Vang, Đà Nẵng",
                 hotline: "0908 666 608",
                 hours: "Mở cửa phục vụ khách lưu trú 24/7",
@@ -340,6 +384,7 @@
             "68-park-hills": {
                 name: "68 Park Hills - Thượng Nguồn Lộc Phát",
                 image: "https://lh3.googleusercontent.com/d/1X6sZcJFRB3yyIWrIb9A14YaNRb_sj8Sz",
+                youtubeId: "",
                 address: "Cầu U2, QL14G, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0931 103 579",
                 hours: "07:30 – 18:00 hằng ngày",
@@ -358,6 +403,7 @@
             "hestia-farm": {
                 name: "Hestia Farm Đà Nẵng",
                 image: "https://lh3.googleusercontent.com/d/1X4fuup0f9DV6V8J0TndfjPv4F0ozfEBl",
+                youtubeId: "",
                 address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0236 7301 080",
                 hours: "Thứ Tư – Chủ Nhật: 08:00 – 21:00 (Nghỉ Thứ Hai, Thứ Ba)",
@@ -376,6 +422,7 @@
             "v-village": {
                 name: "V Village Đà Nẵng - Làng quê Việt",
                 image: "https://lh3.googleusercontent.com/d/17cX7oVDU_IcwRAl_LyvgZiBzDwyzxHkD",
+                youtubeId: "",
                 address: "Tổ 1, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0935 020 608",
                 hours: "Mở cửa đón khách cả ngày (24/7)",
@@ -394,6 +441,7 @@
             "kaya-retreat": {
                 name: "Kaya Retreat Da Nang",
                 image: "https://lh3.googleusercontent.com/d/1NqafWMQwLbBXMCoP56oI0XTrBxhY8IT7",
+                youtubeId: "",
                 address: "Khu vực Cầu Nước Ngọt, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0812 078 738",
                 hours: "Mở cửa theo lịch hẹn hoặc chương trình Retreat",
@@ -410,15 +458,28 @@
             }
         };
 
-        // ĐỌC THAM SỐ ID TỪ URL (Ví dụ: chi-tiet-kdl.html?id=nui-than-tai)
+        // HÀM TỰ ĐỘNG BÓC TÁCH MÃ ID RÚT GỌN TỪ BẤT KỲ LINK YOUTUBE NÀO
+        function getYouTubeId(input) {
+            if (!input) return '';
+            const trimmed = input.trim();
+            // Nếu người dùng chỉ nhập mỗi mã ID (11 ký tự)
+            if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
+                return trimmed;
+            }
+            // Nếu người dùng dán cả link YouTube
+            const match = trimmed.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|shorts\/)|&v=)([^#&?]*).*/);
+            return (match && match[1].length === 11) ? match[1] : '';
+        }
+
         const params = new URLSearchParams(window.location.search);
         const kdlId = params.get('id') || 'nui-than-tai';
         const data = kdlData[kdlId] || kdlData['nui-than-tai'];
 
-        // Cập nhật tiêu đề trang
         document.getElementById('page-title').innerText = `${data.name} - Du Lịch Sinh Thái Phú Túc`;
 
-        // Render toàn bộ nội dung ra giao diện
+        // Kiểm tra xem có video hay không
+        const ytId = getYouTubeId(data.youtubeId);
+
         const container = document.getElementById('detail-box');
         container.innerHTML = `
             <img src="${data.image}" alt="${data.name}" class="banner-img" loading="lazy">
@@ -447,6 +508,14 @@
                 <ul class="feature-list body-desc">
                     ${data.highlights.map(item => `<li>${item}</li>`).join('')}
                 </ul>
+
+                <!-- TỰ ĐỘNG HIỆN VIDEO KHI ĐIỀN MÃ YOUTUBE RÚT GỌN -->
+                ${ytId ? `
+                    <h2 class="section-title">Video trải nghiệm & Giới thiệu</h2>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/${ytId}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                ` : ''}
             </div>
         `;
     </script>
