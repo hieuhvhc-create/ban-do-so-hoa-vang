@@ -15,6 +15,7 @@
             line-height: 1.6;
         }
 
+        /* HEADER CHUẨN ĐOÀN THANH NIÊN */
         .header {
             background: linear-gradient(135deg, #1b5e20, #2e7d32);
             color: white;
@@ -67,7 +68,7 @@
 
         .banner-img {
             width: 100%;
-            height: 360px;
+            height: 380px;
             object-fit: cover;
             display: block;
             background-color: #e0e0e0;
@@ -127,20 +128,20 @@
         }
         .btn-orange {
             background: linear-gradient(135deg, #ff9800, #f57c00);
-            color: #ffffff;
+            color: #ffffff !important;
             box-shadow: 0 3px 8px rgba(245, 124, 0, 0.35);
         }
         .btn-orange:hover { background: linear-gradient(135deg, #f57c00, #e65100); }
         .btn-green {
             background: #2e7d32;
-            color: white;
+            color: white !important;
             box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3);
         }
         .btn-green:hover { background: #1b5e20; }
         .btn-outline {
             background: white;
             border: 1px solid #81c784;
-            color: #2e7d32;
+            color: #2e7d32 !important;
         }
         .btn-outline:hover { background: #e8f5e9; }
 
@@ -177,7 +178,7 @@
         }
 
         @media (max-width: 600px) {
-            .banner-img { height: 210px; }
+            .banner-img { height: 220px; }
             .content { padding: 16px; }
             .kdl-name { font-size: 1.3rem; }
             .btn { width: 100%; justify-content: center; }
@@ -206,12 +207,11 @@
     </footer>
 
     <script>
-        // DỮ LIỆU ĐẦY ĐỦ CỦA CÁC ĐIỂM DU LỊCH SINH THÁI TẠI PHÚ TÚC & HÒA VANG
+        // CƠ SỞ DỮ LIỆU ĐÃ CẬP NHẬT ĐẦY ĐỦ 11 ẢNH DRIVE TRỰC TIẾP
         const kdlData = {
             "nui-than-tai": {
                 name: "Công viên Suối khoáng nóng Núi Thần Tài",
-                image: "images/kdl-nui-than-tai.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1W64K3U2F5v657IQrXY3mCJ18KRa1czxB",
                 address: "Thôn Phú Túc, QL14G, Hòa Vang, Đà Nẵng",
                 hotline: "0898 181 777",
                 hours: "08:30 – 17:30 (Tất cả các ngày trong tuần)",
@@ -230,8 +230,7 @@
 
             "hoa-phu-thanh": {
                 name: "Khu du lịch Hòa Phú Thành Tourist - Trượt thác Đà Nẵng",
-                image: "images/kdl-hoa-phu-thanh.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1Q2qxdsmzmn1DjKQP6QRaDxZAd9bCbiG3",
                 address: "Km 20, QL14G, Hòa Vang, Đà Nẵng",
                 hotline: "0932 564 777",
                 hours: "07:30 – 16:30 hằng ngày (Ca trượt thác chính: 10h00 và 14h00)",
@@ -250,8 +249,7 @@
 
             "toom-sara": {
                 name: "Làng Du Lịch Sinh Thái Toom Sara",
-                image: "images/kdl-toom-sara.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1zpYPFif_sllSliHZIXAa1ojYfb6--TCG",
                 address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0919 225 544",
                 hours: "08:00 – 18:00 hằng ngày",
@@ -269,8 +267,7 @@
 
             "suoi-hoa": {
                 name: "Khu du lịch Sinh thái Suối Hoa",
-                image: "images/kdl-suoi-hoa.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1NRx1SejJI-3dOx_FEpLPvJo-Y4VcS80x",
                 address: "Km 20, QL14G, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0986 797 461",
                 hours: "Mở cửa cả ngày (07:00 – 17:30)",
@@ -288,8 +285,7 @@
 
             "lai-thieu": {
                 name: "Khu Du Lịch Sinh Thái Lái Thiêu",
-                image: "images/kdl-lai-thieu.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1miaaY31gwF5ml2TgSFlWnLzKFnRJhNPQ",
                 address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0902 595 779",
                 hours: "Mở cửa cả ngày (07:30 – 17:30)",
@@ -307,8 +303,7 @@
 
             "binh-yen-ecofarm": {
                 name: "Bình Yên Ecofarm",
-                image: "images/kdl-binh-yen-ecofarm.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1Ch-Zhew9wxzahkIB-lSdJsxOJLKS0IPG",
                 address: "Thôn Phú Túc 2, Hòa Vang, Đà Nẵng",
                 hotline: "0905 646 603",
                 hours: "Mở cửa đón khách cả ngày (24/7)",
@@ -326,8 +321,7 @@
 
             "kien-hill": {
                 name: "Kien Hill Glamping",
-                image: "images/kdl-kien-hill.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1ramff2V-V85KMqSxCqzr8IMfmPnSXZIs",
                 address: "Khu vực Dốc Kiền, Hòa Vang, Đà Nẵng",
                 hotline: "0908 666 608",
                 hours: "Mở cửa phục vụ khách lưu trú 24/7",
@@ -344,9 +338,8 @@
             },
 
             "68-park-hills": {
-                name: "68 Park Hills - Công viên thượng nguồn Lộc Phát",
-                image: "images/kdl-68-park-hills.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=900&auto=format&fit=crop&q=80",
+                name: "68 Park Hills - Thượng Nguồn Lộc Phát",
+                image: "https://lh3.googleusercontent.com/d/1X6sZcJFRB3yyIWrIb9A14YaNRb_sj8Sz",
                 address: "Cầu U2, QL14G, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
                 hotline: "0931 103 579",
                 hours: "07:30 – 18:00 hằng ngày",
@@ -364,8 +357,7 @@
 
             "hestia-farm": {
                 name: "Hestia Farm Đà Nẵng",
-                image: "images/kdl-hestia-farm.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1X4fuup0f9DV6V8J0TndfjPv4F0ozfEBl",
                 address: "Thôn Hòa Hải, Hòa Vang, Đà Nẵng",
                 hotline: "0236 7301 080",
                 hours: "Thứ Tư – Chủ Nhật: 08:00 – 21:00 (Nghỉ Thứ Hai, Thứ Ba)",
@@ -383,8 +375,7 @@
 
             "v-village": {
                 name: "V Village Đà Nẵng - Làng quê Việt",
-                image: "images/kdl-v-village.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/17cX7oVDU_IcwRAl_LyvgZiBzDwyzxHkD",
                 address: "Tổ 1, Thôn Hòa Hải, Hòa Vang, Đà Nẵng",
                 hotline: "0935 020 608",
                 hours: "Mở cửa đón khách cả ngày (24/7)",
@@ -402,8 +393,7 @@
 
             "kaya-retreat": {
                 name: "Kaya Retreat Da Nang",
-                image: "images/kdl-kaya-retreat.jpg",
-                fallbackImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&auto=format&fit=crop&q=80",
+                image: "https://lh3.googleusercontent.com/d/1NqafWMQwLbBXMCoP56oI0XTrBxhY8IT7",
                 address: "Khu vực Cầu Nước Ngọt, Thôn Hòa Hải, Hòa Vang, Đà Nẵng",
                 hotline: "0812 078 738",
                 hours: "Mở cửa theo lịch hẹn hoặc chương trình Retreat",
@@ -431,7 +421,7 @@
         // Render toàn bộ nội dung ra giao diện
         const container = document.getElementById('detail-box');
         container.innerHTML = `
-            <img src="${data.image}" onerror="this.src='${data.fallbackImage}'" alt="${data.name}" class="banner-img">
+            <img src="${data.image}" alt="${data.name}" class="banner-img" loading="lazy">
             
             <div class="content">
                 <span class="tag-badge">🌿 ĐIỂM ĐẾN DU LỊCH SINH THÁI</span>
