@@ -13,25 +13,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc - Hòa Vang</title>
     
+    <meta property="og:title" content="Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc - Hòa Vang" />
+    <meta property="og:description" content="Khám phá Phú Túc – Hòa mình vào thiên nhiên và bản sắc văn hóa Cơ Tu. Công trình số hóa của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang." />
+    <meta property="og:image" content="https://hieuhvhc-create.github.io/ban-do-so-hoa-vang/images/thumb-facebook.png" />
+    <meta property="og:url" content="https://hieuhvhc-create.github.io/ban-do-so-hoa-vang/du-lich-phu-tuc.html" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             background: #f5f5f5;
         }
 
+        /* HEADER LOGO ĐẦY ĐỦ */
+        header {
+            position: relative;
+            background: #1b5e20 url('images/banner-bg.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+
+        header .overlay {
+            background: rgba(27, 94, 32, 0.78);
+            padding: 16px 15px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .logo-item {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .ten-don-vi {
+            margin: 0 0 3px 0;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        header h1 {
+            font-size: 1.35rem;
+            margin: 4px 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            font-size: 1.05rem;
+            margin: 0 0 3px 0;
+            font-weight: 700;
+            color: #ffe082;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 0.88rem;
+            opacity: 0.95;
+        }
+
         .nav-back-bar {
             text-align: center;
-            padding: 9px 12px;
+            padding: 8px 12px;
             background-color: #e8f5e9;
             border-bottom: 1px solid #c8e6c9;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 15px;
             flex-wrap: wrap;
         }
@@ -39,16 +107,16 @@
             color: #2e7d32;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
         .nav-back-bar a:hover { text-decoration: underline; }
 
-        /* KHUNG TÌM KIẾM CỐ ĐỊNH */
+        /* KHUNG TÌM KIẾM */
         .search-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 15px;
+            padding: 8px 15px;
             background: #ffffff;
             gap: 8px;
             border-bottom: 1px solid #e0e0e0;
@@ -58,14 +126,14 @@
         .search-container input {
             width: 420px;
             max-width: 70%;
-            padding: 9px 13px;
-            font-size: 14.5px;
+            padding: 8px 12px;
+            font-size: 14px;
             border: 1px solid #ddd;
             border-radius: 6px;
             outline: none;
         }
         .search-container button {
-            padding: 9px 18px;
+            padding: 8px 16px;
             background-color: #2e7d32;
             color: white;
             border: none;
@@ -104,7 +172,7 @@
 
         .location-item {
             cursor: pointer;
-            padding: 11px 8px;
+            padding: 10px 8px;
             border-bottom: 1px solid #eee;
             transition: background 0.2s ease;
         }
@@ -114,7 +182,7 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            margin-top: 7px;
+            margin-top: 6px;
             padding: 6px 14px;
             background: linear-gradient(135deg, #ff9800, #f57c00);
             color: #ffffff !important;
@@ -136,7 +204,6 @@
             height: 100%;
         }
 
-        /* NHÃN TÊN TRÊN TỪNG GHIM */
         .map-label {
             background-color: #ffffff !important;
             color: #1b5e20 !important;
@@ -150,16 +217,13 @@
         }
         .map-label::before { border-top-color: #ffffff !important; }
 
-        /* Giao diện Desktop */
+        /* GIAO DIỆN MÁY TÍNH: BẢN ĐỒ CỐ ĐỊNH, CUỘN DANH SÁCH BÊN TRÁI */
         @media (min-width: 769px) {
-            header { padding: 20px 15px; text-align: center; background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; }
-            header h1 { font-size: 1.45rem; margin: 6px 0; }
-            header h2 { font-size: 1.15rem; margin: 0; }
             .container {
                 display: flex !important;
                 flex-direction: row !important;
-                height: calc(100vh - 220px) !important;
-                min-height: 540px !important;
+                height: calc(100vh - 240px) !important;
+                min-height: 520px !important;
                 position: relative;
             }
             .sidebar {
@@ -171,38 +235,78 @@
                 background: #ffffff;
                 order: 1 !important;
             }
-            #map { flex: 1 !important; order: 2 !important; }
+            #map {
+                flex: 1 !important;
+                order: 2 !important;
+                height: 100% !important;
+            }
         }
 
-        /* Giao diện Mobile */
+        /* GIAO DIỆN ĐIỆN THOẠI: BẢN ĐỒ CỐ ĐỊNH NẰM TRÊN, CUỘN DANH SÁCH BÊN DƯỚI */
         @media (max-width: 768px) {
-            header { padding: 12px 10px !important; text-align: center; background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; }
+            header .overlay { padding: 12px 10px !important; }
+            .logo-item { height: 38px !important; }
             .ten-don-vi { font-size: 0.72rem !important; margin-bottom: 2px; }
             header h1 { font-size: 0.92rem !important; margin: 4px 0 !important; }
             header h2 { font-size: 0.85rem !important; margin-bottom: 2px !important; }
-            header p { font-size: 0.75rem !important; margin: 0; }
-            .container { display: flex !important; flex-direction: column !important; height: auto !important; }
-            #map { height: 38vh !important; min-height: 250px !important; order: 1 !important; }
-            .sidebar { height: 48vh !important; width: 100% !important; overflow-y: auto !important; order: 2 !important; padding: 10px 12px !important; background: #ffffff; }
+            header p { font-size: 0.75rem !important; }
+
+            .container {
+                display: flex !important;
+                flex-direction: column !important;
+                height: calc(100vh - 220px) !important;
+                overflow: hidden !important;
+            }
+
+            /* CỐ ĐỊNH KHUNG BẢN ĐỒ Ở TRÊN (STICKY) */
+            #map {
+                height: 42vh !important;
+                min-height: 250px !important;
+                flex-shrink: 0 !important;
+                order: 1 !important;
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 10 !important;
+            }
+
+            /* PHẦN DANH SÁCH CUỘN TỰ DO Ở DƯỚI */
+            .sidebar {
+                flex: 1 !important;
+                width: 100% !important;
+                overflow-y: auto !important;
+                order: 2 !important;
+                padding: 10px 12px !important;
+                background: #ffffff;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         footer {
             text-align: center;
-            padding: 16px 10px;
+            padding: 14px 10px;
             background-color: #ffffff;
             border-top: 1px solid #dee2e6;
-            font-size: 0.85rem;
+        }
+        .footer-text {
+            font-size: 0.82rem;
             color: #555;
+            margin: 2px 0;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h3 class="ten-don-vi" style="margin:0 0 4px 0; opacity:0.9;">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
-        <h1>BẢN ĐỒ SỐ DU LỊCH SINH THÁI & VĂN HÓA</h1>
-        <h2>ĐIỂM ĐẾN PHÚ TÚC</h2>
-        <p>Trải nghiệm bản sắc văn hóa Cơ Tu – Đắm mình giữa đại ngàn xanh</p>
+        <div class="overlay">
+            <div class="header-logos">
+                <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item" onerror="this.style.display='none'">
+            </div>
+
+            <h3 class="ten-don-vi">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
+            <h1>BẢN ĐỒ SỐ DU LỊCH SINH THÁI & VĂN HÓA</h1>
+            <h2>ĐIỂM ĐẾN PHÚ TÚC</h2>
+            <p>Trải nghiệm bản sắc văn hóa Cơ Tu – Đắm mình giữa đại ngàn xanh</p>
+        </div>
     </header>
 
     <div class="nav-back-bar">
@@ -234,15 +338,14 @@
     </section>
 
     <footer>
-        <p><strong>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc</strong></p>
-        <p>Công trình thanh niên chuyển đổi số - Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
+        <p class="footer-text"><strong>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc</strong></p>
+        <p class="footer-text">Một sản phẩm chuyển đổi số của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // TẤT CẢ CÁC ĐIỂM ĐƯỢC GHIM ĐẦY ĐỦ TRÊN BẢN ĐỒ
         const allLocations = [
-            // 1. CÁC ĐIỂM VĂN HÓA, LỄ HỘI, ẨM THỰC
+            // 1. VĂN HÓA, LỄ HỘI, ẨM THỰC
             {
                 id: "nha-guol",
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
@@ -288,7 +391,7 @@
                 description: "Thưởng thức men nồng rượu cần, gà đồi nướng than hoa, cá niên suối nướng, rau dớn, ốc đá và lá sắn xào tóp mỡ."
             },
 
-            // 2. GHIM ĐẦY ĐỦ 11 ĐIỂM DU LỊCH SINH THÁI
+            // 2. 11 KHU DU LỊCH SINH THÁI
             {
                 id: "nui-than-tai",
                 name: "Công viên Suối khoáng nóng Núi Thần Tài",
@@ -412,7 +515,6 @@
             }
         ];
 
-        // MỤC TỔNG HỢP GOM LẠI TRÊN SIDEBAR CHO KHU DU LỊCH SINH THÁI
         const clusterCardKDL = {
             id: "quan-the-kdl",
             name: "Quần thể các Khu Du lịch Sinh thái Phú Túc",
@@ -424,7 +526,6 @@
             description: "Khám phá trọn vẹn 11 điểm đến sinh thái nổi tiếng: Núi Thần Tài, Hòa Phú Thành, Toom Sara, Suối Hoa, Lái Thiêu, Bình Yên Ecofarm, Kien Hill, 68 Park Hills..."
         };
 
-        // LỚP BẢN ĐỒ
         const googleStreets = L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             attribution: 'Google Maps'
@@ -435,9 +536,17 @@
             attribution: 'Google Satellite'
         });
 
+        // GIỚI HẠN KHUNG BẢN ĐỒ CỐ ĐỊNH TRONG VÙNG HÒA VANG (KHÔNG BỊ KÉO TRÔI ĐI NƠI KHÁC)
+        const southWest = L.latLng(15.850000, 107.850000);
+        const northEast = L.latLng(16.080000, 108.180000);
+        const boundsHoaVang = L.latLngBounds(southWest, northEast);
+
         const map = L.map('map', {
             center: [15.968000, 108.015000],
             zoom: 13,
+            minZoom: 11, // Không cho thu nhỏ quá mức
+            maxBounds: boundsHoaVang, // Cố định phạm vi hiển thị
+            maxBoundsViscosity: 1.0, // Chống nảy kéo ra ngoài biên
             layers: [googleStreets]
         });
 
@@ -467,7 +576,6 @@
             listContainer.innerHTML = '';
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
 
-            // 1. LỌC VÀ GHIM ĐẦY ĐỦ TẤT CẢ CÁC ĐIỂM TRÊN BẢN ĐỒ
             const mapItems = allLocations.filter(loc => {
                 const matchesSubcat = (activeFilter === 'all') || (loc.subcat === activeFilter);
                 const matchesQuery = loc.name.toLowerCase().includes(query) || 
@@ -482,7 +590,6 @@
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
                 bounds.push([item.lat, item.lng]);
 
-                // Tên thu gọn luôn hiển thị ngay trên đầu ghim
                 marker.bindTooltip(item.shortName || item.name, {
                     permanent: true,
                     direction: 'top',
@@ -504,10 +611,8 @@
                 markerLayerGroup.addLayer(marker);
             });
 
-            // 2. TẠO DANH SÁCH THẺ TRÊN SIDEBAR (GOM CÁC KDL THÀNH 1 MỤC DUY NHẤT)
             let sidebarItems = [];
 
-            // Thêm các mục Văn hóa, Lễ hội, Ẩm thực nếu phù hợp bộ lọc
             allLocations.filter(loc => loc.subcat !== 'sinh-thai').forEach(loc => {
                 const matchesSubcat = (activeFilter === 'all') || (loc.subcat === activeFilter);
                 const matchesQuery = loc.name.toLowerCase().includes(query) || loc.description.toLowerCase().includes(query);
@@ -516,7 +621,6 @@
                 }
             });
 
-            // Nếu bộ lọc là 'all' hoặc 'sinh-thai', thêm thẻ gom nhóm KDL Sinh Thái
             if (activeFilter === 'all' || activeFilter === 'sinh-thai') {
                 const matchesQuery = clusterCardKDL.name.toLowerCase().includes(query) || clusterCardKDL.description.toLowerCase().includes(query);
                 if (matchesQuery) {
@@ -546,7 +650,6 @@
                 li.addEventListener('click', (e) => {
                     if (e.target.tagName !== 'A') {
                         if (item.id === 'quan-the-kdl') {
-                            // Khi click vào thẻ KDL ở sidebar, bản đồ zoom bao quát toàn bộ 11 KDL
                             const kdlBounds = allLocations.filter(l => l.subcat === 'sinh-thai').map(l => [l.lat, l.lng]);
                             map.fitBounds(kdlBounds, { padding: [40, 40], maxZoom: 14 });
                         } else {
@@ -558,7 +661,6 @@
                 listContainer.appendChild(li);
             });
 
-            // Tự động căn góc nhìn bản đồ
             if (bounds.length > 0 && activeFilter !== 'all') {
                 map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
             }
@@ -576,7 +678,6 @@
         document.getElementById('searchInput').addEventListener('input', renderApp);
         document.getElementById('searchBtn').addEventListener('click', renderApp);
 
-        // Khởi chạy ban đầu
         renderApp();
     </script>
 </body>
