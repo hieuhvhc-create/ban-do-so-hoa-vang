@@ -13,19 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc - Hòa Vang</title>
     
-    <meta property="og:title" content="Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc - Hòa Vang" />
-    <meta property="og:description" content="Khám phá Phú Túc – Hòa mình vào thiên nhiên và bản sắc văn hóa Cơ Tu. Công trình số hóa của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang." />
-    <meta property="og:image" content="https://hieuhvhc-create.github.io/ban-do-so-hoa-vang/images/thumb-facebook.png" />
-    <meta property="og:url" content="https://hieuhvhc-create.github.io/ban-do-so-hoa-vang/du-lich-phu-tuc.html" />
-    <meta property="og:type" content="website" />
-
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -39,6 +30,10 @@
             padding: 9px 12px;
             background-color: #e8f5e9;
             border-bottom: 1px solid #c8e6c9;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         .nav-back-bar a {
             color: #2e7d32;
@@ -46,9 +41,7 @@
             font-weight: bold;
             font-size: 0.9rem;
         }
-        .nav-back-bar a:hover {
-            text-decoration: underline;
-        }
+        .nav-back-bar a:hover { text-decoration: underline; }
 
         /* KHUNG TÌM KIẾM CỐ ĐỊNH */
         .search-container {
@@ -81,9 +74,7 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .search-container button:hover {
-            background-color: #1b5e20;
-        }
+        .search-container button:hover { background-color: #1b5e20; }
 
         .filter-tags {
             display: flex;
@@ -93,9 +84,7 @@
             padding-bottom: 4px;
             scrollbar-width: none;
         }
-        .filter-tags::-webkit-scrollbar {
-            display: none;
-        }
+        .filter-tags::-webkit-scrollbar { display: none; }
         .filter-btn {
             background: #f1f8e9;
             border: 1px solid #81c784;
@@ -119,11 +108,8 @@
             border-bottom: 1px solid #eee;
             transition: background 0.2s ease;
         }
-        .location-item:hover {
-            background: #f1f8e9;
-        }
+        .location-item:hover { background: #f1f8e9; }
 
-        /* NÚT CHI TIẾT & VIDEO TÔNG CAM VÀNG NỔI BẬT */
         .btn-view-detail {
             display: inline-flex;
             align-items: center;
@@ -138,11 +124,9 @@
             text-decoration: none;
             box-shadow: 0 3px 8px rgba(245, 124, 0, 0.35);
             transition: all 0.25s ease;
-            letter-spacing: 0.2px;
         }
         .btn-view-detail:hover {
             background: linear-gradient(135deg, #f57c00, #e65100);
-            box-shadow: 0 5px 12px rgba(230, 81, 0, 0.45);
             transform: translateY(-2px);
         }
 
@@ -152,18 +136,27 @@
             height: 100%;
         }
 
+        /* TÙY BIẾN NHÃN TÊN THU GỌN TRÊN BẢN ĐỒ (TOOLTIP) */
+        .map-label {
+            background-color: #ffffff !important;
+            color: #1b5e20 !important;
+            font-weight: 700 !important;
+            font-size: 11.5px !important;
+            border: 1px solid #81c784 !important;
+            border-radius: 4px !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+            padding: 2px 6px !important;
+            white-space: nowrap !important;
+        }
+        .map-label::before {
+            border-top-color: #ffffff !important;
+        }
+
         /* Giao diện Máy tính */
         @media (min-width: 769px) {
-            header {
-                padding: 20px 15px;
-            }
-            header h1 {
-                font-size: 1.45rem;
-                margin: 6px 0;
-            }
-            header h2 {
-                font-size: 1.15rem;
-            }
+            header { padding: 20px 15px; text-align: center; background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; }
+            header h1 { font-size: 1.45rem; margin: 6px 0; }
+            header h2 { font-size: 1.15rem; margin: 0; }
             .container {
                 display: flex !important;
                 flex-direction: row !important;
@@ -180,104 +173,43 @@
                 background: #ffffff;
                 order: 1 !important;
             }
-            #map {
-                flex: 1 !important;
-                order: 2 !important;
-            }
+            #map { flex: 1 !important; order: 2 !important; }
         }
 
-        /* TỐI ƯU GIAO DIỆN ĐIỆN THOẠI */
+        /* Giao diện Điện thoại */
         @media (max-width: 768px) {
-            header {
-                padding: 12px 10px !important;
-            }
-            .ten-don-vi {
-                font-size: 0.72rem !important;
-                letter-spacing: 0.2px;
-                margin-bottom: 2px;
-            }
-            header h1 {
-                font-size: 0.92rem !important;
-                line-height: 1.35 !important;
-                margin: 4px 0 !important;
-                letter-spacing: -0.2px;
-            }
-            header h2 {
-                font-size: 0.85rem !important;
-                margin-bottom: 2px !important;
-            }
-            header p {
-                font-size: 0.75rem !important;
-                line-height: 1.25 !important;
-                opacity: 0.9;
-            }
-            .search-container {
-                padding: 7px 10px;
-            }
-            .search-container input {
-                font-size: 13px;
-                padding: 7px 10px;
-            }
-            .search-container button {
-                padding: 7px 12px;
-                font-size: 12.5px;
-            }
-            .container {
-                display: flex !important;
-                flex-direction: column !important;
-                height: auto !important;
-            }
-            #map {
-                height: 34vh !important;
-                min-height: 230px !important;
-                max-height: 270px !important;
-                order: 1 !important;
-            }
-            .sidebar {
-                height: 48vh !important;
-                width: 100% !important;
-                overflow-y: auto !important;
-                order: 2 !important;
-                padding: 10px 12px !important;
-                background: #ffffff;
-            }
+            header { padding: 12px 10px !important; text-align: center; background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; }
+            .ten-don-vi { font-size: 0.72rem !important; margin-bottom: 2px; }
+            header h1 { font-size: 0.92rem !important; margin: 4px 0 !important; }
+            header h2 { font-size: 0.85rem !important; margin-bottom: 2px !important; }
+            header p { font-size: 0.75rem !important; margin: 0; }
+            .container { display: flex !important; flex-direction: column !important; height: auto !important; }
+            #map { height: 38vh !important; min-height: 250px !important; order: 1 !important; }
+            .sidebar { height: 48vh !important; width: 100% !important; overflow-y: auto !important; order: 2 !important; padding: 10px 12px !important; background: #ffffff; }
         }
 
         footer {
             text-align: center;
-            padding: 18px 10px;
+            padding: 16px 10px;
             background-color: #ffffff;
             border-top: 1px solid #dee2e6;
-        }
-        .visitor-badge {
-            margin-top: 6px;
-            display: inline-block;
-        }
-        .footer-text {
             font-size: 0.85rem;
             color: #555;
-            margin: 2px 0;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="overlay">
-            <div class="header-logos">
-                <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item">
-            </div>
-
-            <h3 class="ten-don-vi">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
-
-            <h1>BẢN ĐỒ SỐ DU LỊCH SINH THÁI & VĂN HÓA</h1>
-            <h2>ĐIỂM ĐẾN PHÚ TÚC</h2>
-            <p>Trải nghiệm bản sắc văn hóa Cơ Tu – Đắm mình giữa đại ngàn xanh</p>
-        </div>
+        <h3 class="ten-don-vi" style="margin:0 0 4px 0; opacity:0.9;">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
+        <h1>BẢN ĐỒ SỐ DU LỊCH SINH THÁI & VĂN HÓA</h1>
+        <h2>ĐIỂM ĐẾN PHÚ TÚC</h2>
+        <p>Trải nghiệm bản sắc văn hóa Cơ Tu – Đắm mình giữa đại ngàn xanh</p>
     </header>
 
     <div class="nav-back-bar">
-        <a href="index.html">← Quay lại Bản đồ số Di tích Lịch sử Xã Hòa Vang</a>
+        <a href="index.html">← Bản đồ Di tích Lịch sử</a>
+        <a href="khu-du-lich-sinh-thai.html" style="color: #e65100;">🏞️ Xem trang riêng các Khu Du Lịch Sinh Thái ↗</a>
     </div>
 
     <section class="search-container">
@@ -289,13 +221,13 @@
         <div class="sidebar">
             <div class="filter-tags">
                 <button class="filter-btn active" data-subcat="all">Tất cả</button>
+                <button class="filter-btn" data-subcat="sinh-thai">KDL Sinh thái</button>
                 <button class="filter-btn" data-subcat="van-hoa">Văn hóa & Nghề</button>
                 <button class="filter-btn" data-subcat="le-hoi">Lễ hội Cơ Tu</button>
-                <button class="filter-btn" data-subcat="sinh-thai">KDL Sinh thái</button>
                 <button class="filter-btn" data-subcat="am-thuc">Ẩm thực</button>
             </div>
 
-            <h3 style="margin: 5px 0 10px 0; font-size: 0.98rem; color: #2e7d32;">Điểm đến nổi bật tại Phú Túc</h3>
+            <h3 style="margin: 5px 0 10px 0; font-size: 0.98rem; color: #2e7d32;">Danh sách Điểm đến tại Phú Túc</h3>
             <ul id="list" style="list-style: none; padding: 0; margin: 0;"></ul>
         </div>
         
@@ -303,121 +235,219 @@
     </section>
 
     <footer>
-        <p class="footer-text"><strong>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc</strong></p>
-        <p class="footer-text">Một sản phẩm chuyển đổi số của Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
-        <div class="visitor-badge">
-            <span style="background: #555555; color: white; padding: 4px 8px; border-radius: 4px 0 0 4px; font-weight: bold;">Lượt truy cập</span><span id="counter-val" style="background: #2e7d32; color: white; padding: 4px 10px; border-radius: 0 4px 4px 0; font-weight: bold;">1</span>
-        </div>
+        <p><strong>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc</strong></p>
+        <p>Công trình thanh niên chuyển đổi số - Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
     </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
+        // DANH SÁCH TẤT CẢ ĐIỂM ĐẾN (CÓ THÊM shortName ĐỂ HIỆN NHÃN GỌN TRÊN BẢN ĐỒ)
         const phuTucLocations = [
+            // --- 1. CÁC ĐIỂM VĂN HÓA & LỄ HỘI & ẨM THỰC ---
             {
                 id: "nha-guol",
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
+                shortName: "Nhà Gươl Phú Túc",
                 subcat: "van-hoa",
                 lat: 15.9697833,
                 lng: 108.0456533,
                 address: "Thôn Phú Túc, Xã Hòa Vang",
+                url: "chi-tiet-phu-tuc.html?id=nha-guol",
                 description: "Không gian sinh hoạt cộng đồng đặc trưng của người Cơ Tu, lưu giữ kiến trúc cột gỗ nguyên khối và các bức bích họa rực rỡ sắc màu."
             },
             {
                 id: "nghe-truyen-thong",
                 name: "Nghề thủ công Truyền thống Cơ Tu (Đan lát, Điêu khắc, Rượu cần)",
+                shortName: "Làng nghề Cơ Tu",
                 subcat: "van-hoa",
-                lat: 15.9697833,
-                lng: 108.0456533,
+                lat: 15.9702000,
+                lng: 108.0461000,
                 address: "Nhà Gươl thôn Phú Túc, Xã Hòa Vang",
                 url: "nghe-truyen-thong.html",
                 description: "Khám phá nghệ thuật đan lát mây tre, điêu khắc gỗ dân gian và nghề ủ rượu cần men lá bí truyền của đồng bào Cơ Tu."
             },
             {
                 id: "le-hoi-truyen-thong",
-                name: "Không gian Lễ hội Truyền thống (Cồng chiêng & Vũ điệu Tung tung Da dá)",
+                name: "Không gian Lễ hội Truyền thống (Cồng chiêng & Múa Tung tung Da dá)",
+                shortName: "Lễ hội Cồng Chiêng",
                 subcat: "le-hoi",
-                lat: 15.9697833,
-                lng: 108.0456533,
+                lat: 15.9693000,
+                lng: 108.0452000,
                 address: "Sân vận động / Sân Nhà Gươl thôn Phú Túc",
                 url: "le-hoi-truyen-thong.html",
-                description: "Hòa mình vào không khí ngày hội Mừng lúa mới, tiếng chiêng rộn rã và điệu múa Tung tung Da dá hào hùng quanh ngọn lửa trại bập bùng."
+                description: "Hòa mình vào không khí ngày hội Mừng lúa mới, tiếng chiêng rộn rã và điệu múa Tung tung Da dá hào hùng quanh lửa trại."
             },
             {
                 id: "am-thuc-phu-tuc",
                 name: "Không gian Ẩm thực Truyền thống Cơ Tu Phú Túc",
+                shortName: "Ẩm thực Cơ Tu",
                 subcat: "am-thuc",
-                lat: 15.9697833,
-                lng: 108.0456533,
+                lat: 15.9690000,
+                lng: 108.0447000,
                 address: "Tuyến đường chính Thôn Phú Túc",
                 url: "am-thuc-phu-tuc.html",
                 description: "Thưởng thức men nồng rượu cần, gà đồi nướng than hoa, cá niên suối nướng, rau dớn, ốc đá và lá sắn xào tóp mỡ."
             },
+
+            // --- 2. CÁC KHU DU LỊCH SINH THÁI (ĐƯA VÀO TRANG RIÊNG chi-tiet-kdl.html?id=...) ---
+            {
+                id: "nui-than-tai",
+                name: "Công viên Suối khoáng nóng Núi Thần Tài",
+                shortName: "KDL Núi Thần Tài",
+                subcat: "sinh-thai",
+                lat: 15.975765,
+                lng: 107.986285,
+                address: "Thôn Phú Túc, QL14G, Hòa Vang",
+                url: "chi-tiet-kdl.html?id=nui-than-tai",
+                description: "Tổ hợp nghỉ dưỡng khoáng nóng tự nhiên tiêu chuẩn Nhật Bản, công viên nước, tắm Onsen, đền Thần Tài."
+            },
+            {
+                id: "hoa-phu-thanh",
+                name: "Khu du lịch Hòa Phú Thành Tourist",
+                shortName: "Trượt thác Hòa Phú Thành",
+                subcat: "sinh-thai",
+                lat: 15.962635,
+                lng: 107.971203,
+                address: "Km 20, QL14G, Hòa Vang",
+                url: "chi-tiet-kdl.html?id=hoa-phu-thanh",
+                description: "Trượt thác suối ghềnh đá cảm giác mạnh bằng xuồng cao su, đường trượt zipline và ẩm thực gà nướng."
+            },
             {
                 id: "toom-sara",
-                name: "Làng Du lịch Sinh thái Cộng đồng Toom Sara",
+                name: "Làng Du lịch Sinh thái Toom Sara",
+                shortName: "Làng Toom Sara",
                 subcat: "sinh-thai",
-                lat: 15.9581283,
-                lng: 107.9915508,
+                lat: 15.968512,
+                lng: 108.012540,
                 address: "Thôn Phú Túc, Xã Hòa Vang",
-                description: "Khu sinh thái nép mình bên dòng suối mát, gìn giữ nghề dệt thổ cẩm, ẩm thực cơm lam thịt nướng và văn hóa cồng chiêng."
+                url: "chi-tiet-kdl.html?id=toom-sara",
+                description: "Khu sinh thái nép mình bên suối mát, bảo tồn nghề dệt thổ cẩm, ẩm thực cơm lam và văn hóa cồng chiêng."
             },
             {
                 id: "suoi-hoa",
                 name: "Khu du lịch Sinh thái Suối Hoa",
+                shortName: "KDL Suối Hoa",
                 subcat: "sinh-thai",
-                lat: 15.9581283,
-                lng: 107.9915508,
-                address: "Km 20, QL14G, Xã Hòa Vang",
-                description: "Danh thắng nổi tiếng với ghềnh thác tự nhiên, hồ tắm suối mát rượi giữa thung lũng hoa rừng ngút ngàn."
+                lat: 15.958128,
+                lng: 107.991551,
+                address: "Km 20, QL14G, Thôn Phú Túc",
+                url: "chi-tiet-kdl.html?id=suoi-hoa",
+                description: "Danh thắng nổi tiếng với thung lũng hoa rừng ngút ngàn, hồ tắm suối tự nhiên và thác Rạ Mạ mát rượi."
             },
             {
                 id: "lai-thieu",
-                name: "Khu du lịch Lái Thiêu",
+                name: "Khu du lịch Sinh thái Lái Thiêu",
+                shortName: "KDL Lái Thiêu",
                 subcat: "sinh-thai",
-                lat: 15.9559235,
-                lng: 107.9763425,
+                lat: 15.955924,
+                lng: 107.976343,
                 address: "Thôn Phú Túc, Xã Hòa Vang",
-                description: "Khu sinh thái miệt vườn xanh mát, không gian trải nghiệm cắm trại dã ngoại, chèo thuyền và vườn cây ăn trái phong phú."
+                url: "chi-tiet-kdl.html?id=lai-thieu",
+                description: "Không gian miệt vườn Tây Nam Bộ, vườn cây ăn trái sum suê, bơi lội, chèo thuyền và cắm trại ngoài trời."
+            },
+            {
+                id: "binh-yen-ecofarm",
+                name: "Bình Yên Ecofarm",
+                shortName: "Bình Yên Ecofarm",
+                subcat: "sinh-thai",
+                lat: 15.968410,
+                lng: 108.026850,
+                address: "Thôn Phú Túc 2, Hòa Vang",
+                url: "chi-tiet-kdl.html?id=binh-yen-ecofarm",
+                description: "Nông trại dã ngoại sinh thái yên tĩnh giữa núi đồi bạt ngàn, phù hợp cắm trại picnic và ngắm cảnh hoàng hôn."
+            },
+            {
+                id: "kien-hill",
+                name: "Kien Hill Glamping",
+                shortName: "Kien Hill Glamping",
+                subcat: "sinh-thai",
+                lat: 15.959210,
+                lng: 107.962830,
+                address: "Khu vực Dốc Kiền, Hòa Vang",
+                url: "chi-tiet-kdl.html?id=kien-hill",
+                description: "Điểm cắm trại sang trọng view cao ngắm toàn cảnh thung lũng đại ngàn, săn mây và thưởng thức tiệc nướng BBQ."
+            },
+            {
+                id: "68-park-hills",
+                name: "68 Park Hills - Thượng nguồn Lộc Phát",
+                shortName: "68 Park Hills",
+                subcat: "sinh-thai",
+                lat: 15.964520,
+                lng: 108.001250,
+                address: "Cầu U2, QL14G, Thôn Phú Túc",
+                url: "chi-tiet-kdl.html?id=68-park-hills",
+                description: "Công viên sinh thái thượng nguồn bên dòng suối đá trong vắt, bãi tắm suối tự nhiên và chòi nghỉ dã ngoại."
+            },
+            {
+                id: "hestia-farm",
+                name: "Hestia Farm Đà Nẵng",
+                shortName: "Hestia Farm",
+                subcat: "sinh-thai",
+                lat: 15.986510,
+                lng: 108.051200,
+                address: "Thôn Hòa Hải, Hòa Vang",
+                url: "chi-tiet-kdl.html?id=hestia-farm",
+                description: "Nông trại sinh thái giáo dục kết hợp cà phê sân vườn, sân chơi ngoài trời cho gia đình có con nhỏ."
+            },
+            {
+                id: "v-village",
+                name: "V Village Đà Nẵng - Làng quê Việt",
+                shortName: "V Village Đà Nẵng",
+                subcat: "sinh-thai",
+                lat: 15.988200,
+                lng: 108.053400,
+                address: "Tổ 1, Thôn Hòa Hải, Hòa Vang",
+                url: "chi-tiet-kdl.html?id=v-village",
+                description: "Khu nghỉ dưỡng bungalow tre gỗ mộc mạc mang phong vị làng quê, ao cá, cắm trại và ẩm thực dân dã."
+            },
+            {
+                id: "kaya-retreat",
+                name: "Kaya Retreat Da Nang",
+                shortName: "Kaya Retreat",
+                subcat: "sinh-thai",
+                lat: 15.989800,
+                lng: 108.056100,
+                address: "Cầu Nước Ngọt, Thôn Hòa Hải",
+                url: "chi-tiet-kdl.html?id=kaya-retreat",
+                description: "Khu nghỉ dưỡng chữa lành nép mình bên bờ suối tự nhiên trong vắt, không gian tĩnh tâm, yoga và thiền định."
             }
         ];
 
-        // 1. Lớp Bản đồ đường sá chuẩn qua máy chủ mt1
+        // 1. Lớp Bản đồ đường sá chuẩn
         const googleStreets = L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             attribution: 'Google Maps'
         });
 
-        // 2. Lớp Ảnh Vệ tinh có địa danh qua máy chủ mt1
+        // 2. Lớp Ảnh Vệ tinh có địa danh
         const googleSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             attribution: 'Google Satellite'
         });
 
-        // Khởi tạo bản đồ
+        // Khởi tạo bản đồ (tọa độ trung tâm bao quát khu vực Phú Túc - Hòa Vang)
         const map = L.map('map', {
-            center: [15.9697833, 108.0456533],
-            zoom: 14,
+            center: [15.9697833, 108.0150000],
+            zoom: 13,
             layers: [googleStreets]
         });
 
-        // Bảng chọn chuyển đổi Đường sá / Vệ tinh góc trên bên phải
         const baseMaps = {
             "🗺️ Bản đồ đường": googleStreets,
             "🛰️ Ảnh vệ tinh": googleSatellite
         };
         L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
 
-        setTimeout(() => {
-            map.invalidateSize();
-        }, 400);
+        setTimeout(() => { map.invalidateSize(); }, 400);
 
-        // Marker xanh lá cây
+        // Marker màu xanh lá
         const greenMarkerIcon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
-            popupAnchor: [1, -34]
+            popupAnchor: [1, -34],
+            tooltipAnchor: [14, -20]
         });
 
         const markerLayerGroup = L.layerGroup().addTo(map);
@@ -433,25 +463,37 @@
                 return;
             }
 
+            const bounds = [];
+
             items.forEach(item => {
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
-                const detailUrl = item.url ? item.url : `chi-tiet-phu-tuc.html?id=${item.id}`;
+                bounds.push([item.lat, item.lng]);
 
-                // Popup trên bản đồ - Nút cam vàng nổi bật
+                // HIỂN THỊ TÊN THU GỌN LUÔN TRÊN ĐẦU MARKER (permanent: true)
+                marker.bindTooltip(item.shortName || item.name, {
+                    permanent: true,
+                    direction: 'top',
+                    className: 'map-label',
+                    offset: [0, -32]
+                });
+
+                const detailUrl = item.url ? item.url : `chi-tiet-kdl.html?id=${item.id}`;
+
+                // Popup chi tiết khi nhấp chuột vào Marker
                 const popupBody = `
-                    <div style="font-family: Arial, sans-serif; max-width: 230px; line-height: 1.45;">
+                    <div style="font-family: Arial, sans-serif; max-width: 240px; line-height: 1.45;">
                         <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 0.95rem;">${item.name}</h4>
                         <p style="margin: 0 0 5px 0; font-size: 0.75rem; color: #666;">📍 ${item.address}</p>
                         <p style="font-size: 0.82rem; margin: 0 0 10px 0; color: #333;">${item.description}</p>
                         <a href="${detailUrl}" style="display: block; text-align: center; background: linear-gradient(135deg, #ff9800, #f57c00); color: #ffffff; padding: 7px 12px; border-radius: 20px; text-decoration: none; font-size: 0.82rem; font-weight: bold; box-shadow: 0 2px 6px rgba(245, 124, 0, 0.35);">
-                            ▶️ Xem giới thiệu & Video
+                            ▶️ Xem giới thiệu chi tiết ↗
                         </a>
                     </div>
                 `;
                 marker.bindPopup(popupBody);
                 markerLayerGroup.addLayer(marker);
 
-                // Danh sách Sidebar
+                // Danh sách hiển thị bên Sidebar
                 const li = document.createElement('li');
                 li.className = 'location-item';
                 li.innerHTML = `
@@ -473,13 +515,20 @@
 
                 listContainer.appendChild(li);
             });
+
+            // Tự căn chỉnh góc nhìn bản đồ vừa vặn với các điểm đang lọc
+            if (bounds.length > 0 && activeFilter !== 'all') {
+                map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
+            }
         }
 
         function filterLocations() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             const filtered = phuTucLocations.filter(loc => {
                 const matchesSubcat = (activeFilter === 'all') || (loc.subcat === activeFilter);
-                const matchesQuery = loc.name.toLowerCase().includes(query) || loc.description.toLowerCase().includes(query);
+                const matchesQuery = loc.name.toLowerCase().includes(query) || 
+                                     (loc.shortName && loc.shortName.toLowerCase().includes(query)) ||
+                                     loc.description.toLowerCase().includes(query);
                 return matchesSubcat && matchesQuery;
             });
             renderList(filtered);
@@ -497,6 +546,7 @@
         document.getElementById('searchInput').addEventListener('input', filterLocations);
         document.getElementById('searchBtn').addEventListener('click', filterLocations);
 
+        // Khởi chạy hiển thị lần đầu
         renderList(phuTucLocations);
     </script>
 </body>
