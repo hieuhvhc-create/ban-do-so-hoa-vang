@@ -1,4 +1,204 @@
-<div class="grid-cards">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điểm Đến & Khu Du Lịch Sinh Thái - Phú Túc, Hòa Vang</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f7f9f6;
+            color: #333;
+        }
+
+        /* HEADER CHUẨN ĐOÀN THANH NIÊN */
+        .header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            text-align: center;
+            padding: 24px 15px;
+        }
+        .header h3 {
+            margin: 0 0 5px 0;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+        .header h1 {
+            margin: 0 0 8px 0;
+            font-size: 1.45rem;
+            text-transform: uppercase;
+        }
+        .header p {
+            margin: 0;
+            font-size: 0.92rem;
+            opacity: 0.95;
+        }
+
+        /* THANH ĐIỀU HƯỚNG QUAY LẠI */
+        .nav-back-bar {
+            text-align: center;
+            padding: 10px 15px;
+            background-color: #e8f5e9;
+            border-bottom: 1px solid #c8e6c9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .nav-back-bar a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .nav-back-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 25px auto 40px;
+            padding: 0 15px;
+        }
+
+        .intro-box {
+            background: #ffffff;
+            border-left: 4px solid #2e7d32;
+            padding: 14px 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* LƯỚI DANH SÁCH THẺ */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            border: 1px solid #e8e8e8;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            background-color: #e0e0e0;
+        }
+        .card-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .card-title {
+            color: #2e7d32;
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            line-height: 1.35;
+        }
+        .card-meta {
+            font-size: 0.83rem;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.45;
+        }
+        .card-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #444;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* NÚT BẤM */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-orange {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #ffffff !important;
+            box-shadow: 0 2px 6px rgba(245, 124, 0, 0.35);
+        }
+        .btn-orange:hover {
+            background: linear-gradient(135deg, #f57c00, #e65100);
+            box-shadow: 0 4px 10px rgba(230, 81, 0, 0.45);
+        }
+        .btn-green {
+            background: #e8f5e9;
+            color: #2e7d32 !important;
+            border: 1px solid #81c784;
+        }
+        .btn-green:hover {
+            background: #2e7d32;
+            color: #ffffff !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px 10px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h3>ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
+        <h1>QUẦN THỂ DU LỊCH SINH THÁI PHÚ TÚC</h1>
+        <p>Hành trình khám phá thiên nhiên đại ngàn, suối thác và nghỉ dưỡng dọc tuyến QL14G</p>
+    </header>
+
+    <div class="nav-back-bar">
+        <a href="du-lich-phu-tuc.html">← Quay lại Bản đồ số Phú Túc</a>
+        <span style="color: #bbb;">|</span>
+        <a href="index.html">🗺️ Bản đồ Di tích Lịch sử Hòa Vang</a>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            Khu vực thôn Phú Túc (Hòa Vang) là cửa ngõ du lịch sinh thái nổi bật phía Tây thành phố Đà Nẵng. Dọc theo cung đường QL14G thơ mộng là quần thể các khu du lịch khoáng nóng, suối thác mạo hiểm, nông trại trải nghiệm và các điểm cắm trại (glamping) giữa đại ngàn xanh ngút ngàn.
+        </div>
+
+        <div class="grid-cards">
 
             <!-- 1. CÔNG VIÊN SUỐI KHOÁNG NÓNG NÚI THẦN TÀI -->
             <div class="card">
@@ -210,3 +410,12 @@
             </div>
 
         </div>
+    </div>
+
+    <footer>
+        <p><strong>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc</strong></p>
+        <p>Công trình thanh niên chuyển đổi số - Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
+    </footer>
+
+</body>
+</html>
