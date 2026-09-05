@@ -27,74 +27,16 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        body {
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             background: #f5f5f5;
         }
 
-        /* HEADER LOGO ĐẦY ĐỦ */
-        header {
-            position: relative;
-            background: #1b5e20 url('images/banner-bg.jpg') center/cover no-repeat;
-            color: white;
-            text-align: center;
-        }
-
-        header .overlay {
-            background: rgba(27, 94, 32, 0.78);
-            padding: 16px 15px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .header-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 6px;
-        }
-
-        .logo-item {
-            height: 48px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-        }
-
-        .ten-don-vi {
-            margin: 0 0 3px 0;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        header h1 {
-            font-size: 1.35rem;
-            margin: 4px 0;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        header h2 {
-            font-size: 1.05rem;
-            margin: 0 0 3px 0;
-            font-weight: 700;
-            color: #ffe082;
-        }
-
-        header p {
-            margin: 0;
-            font-size: 0.88rem;
-            opacity: 0.95;
-        }
-
         .nav-back-bar {
             text-align: center;
-            padding: 8px 12px;
+            padding: 9px 12px;
             background-color: #e8f5e9;
             border-bottom: 1px solid #c8e6c9;
             display: flex;
@@ -107,16 +49,18 @@
             color: #2e7d32;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
         }
-        .nav-back-bar a:hover { text-decoration: underline; }
+        .nav-back-bar a:hover {
+            text-decoration: underline;
+        }
 
-        /* KHUNG TÌM KIẾM */
+        /* KHUNG TÌM KIẾM CỐ ĐỊNH */
         .search-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 8px 15px;
+            padding: 10px 15px;
             background: #ffffff;
             gap: 8px;
             border-bottom: 1px solid #e0e0e0;
@@ -126,14 +70,14 @@
         .search-container input {
             width: 420px;
             max-width: 70%;
-            padding: 8px 12px;
-            font-size: 14px;
+            padding: 9px 13px;
+            font-size: 14.5px;
             border: 1px solid #ddd;
             border-radius: 6px;
             outline: none;
         }
         .search-container button {
-            padding: 8px 16px;
+            padding: 9px 18px;
             background-color: #2e7d32;
             color: white;
             border: none;
@@ -142,7 +86,9 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .search-container button:hover { background-color: #1b5e20; }
+        .search-container button:hover {
+            background-color: #1b5e20;
+        }
 
         .filter-tags {
             display: flex;
@@ -152,7 +98,9 @@
             padding-bottom: 4px;
             scrollbar-width: none;
         }
-        .filter-tags::-webkit-scrollbar { display: none; }
+        .filter-tags::-webkit-scrollbar {
+            display: none;
+        }
         .filter-btn {
             background: #f1f8e9;
             border: 1px solid #81c784;
@@ -172,17 +120,20 @@
 
         .location-item {
             cursor: pointer;
-            padding: 10px 8px;
+            padding: 11px 8px;
             border-bottom: 1px solid #eee;
             transition: background 0.2s ease;
         }
-        .location-item:hover { background: #f1f8e9; }
+        .location-item:hover {
+            background: #f1f8e9;
+        }
 
+        /* NÚT CHI TIẾT & VIDEO TÔNG CAM VÀNG NỔI BẬT */
         .btn-view-detail {
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            margin-top: 6px;
+            margin-top: 7px;
             padding: 6px 14px;
             background: linear-gradient(135deg, #ff9800, #f57c00);
             color: #ffffff !important;
@@ -192,9 +143,11 @@
             text-decoration: none;
             box-shadow: 0 3px 8px rgba(245, 124, 0, 0.35);
             transition: all 0.25s ease;
+            letter-spacing: 0.2px;
         }
         .btn-view-detail:hover {
             background: linear-gradient(135deg, #f57c00, #e65100);
+            box-shadow: 0 5px 12px rgba(230, 81, 0, 0.45);
             transform: translateY(-2px);
         }
 
@@ -204,6 +157,7 @@
             height: 100%;
         }
 
+        /* NHÃN TÊN THU GỌN HIỆN TRÊN ĐẦU MARKER */
         .map-label {
             background-color: #ffffff !important;
             color: #1b5e20 !important;
@@ -215,15 +169,27 @@
             padding: 2px 6px !important;
             white-space: nowrap !important;
         }
-        .map-label::before { border-top-color: #ffffff !important; }
+        .map-label::before {
+            border-top-color: #ffffff !important;
+        }
 
-        /* GIAO DIỆN MÁY TÍNH: BẢN ĐỒ CỐ ĐỊNH, CUỘN DANH SÁCH BÊN TRÁI */
+        /* Giao diện Máy tính */
         @media (min-width: 769px) {
+            header {
+                padding: 20px 15px;
+            }
+            header h1 {
+                font-size: 1.45rem;
+                margin: 6px 0;
+            }
+            header h2 {
+                font-size: 1.15rem;
+            }
             .container {
                 display: flex !important;
                 flex-direction: row !important;
-                height: calc(100vh - 240px) !important;
-                min-height: 520px !important;
+                height: calc(100vh - 220px) !important;
+                min-height: 540px !important;
                 position: relative;
             }
             .sidebar {
@@ -238,38 +204,59 @@
             #map {
                 flex: 1 !important;
                 order: 2 !important;
-                height: 100% !important;
             }
         }
 
-        /* GIAO DIỆN ĐIỆN THOẠI: BẢN ĐỒ CỐ ĐỊNH NẰM TRÊN, CUỘN DANH SÁCH BÊN DƯỚI */
+        /* TỐI ƯU GIAO DIỆN ĐIỆN THOẠI - CỐ ĐỊNH BẢN ĐỒ */
         @media (max-width: 768px) {
-            header .overlay { padding: 12px 10px !important; }
-            .logo-item { height: 38px !important; }
-            .ten-don-vi { font-size: 0.72rem !important; margin-bottom: 2px; }
-            header h1 { font-size: 0.92rem !important; margin: 4px 0 !important; }
-            header h2 { font-size: 0.85rem !important; margin-bottom: 2px !important; }
-            header p { font-size: 0.75rem !important; }
-
+            header {
+                padding: 12px 10px !important;
+            }
+            .ten-don-vi {
+                font-size: 0.72rem !important;
+                letter-spacing: 0.2px;
+                margin-bottom: 2px;
+            }
+            header h1 {
+                font-size: 0.92rem !important;
+                line-height: 1.35 !important;
+                margin: 4px 0 !important;
+                letter-spacing: -0.2px;
+            }
+            header h2 {
+                font-size: 0.85rem !important;
+                margin-bottom: 2px !important;
+            }
+            header p {
+                font-size: 0.75rem !important;
+                line-height: 1.25 !important;
+                opacity: 0.9;
+            }
+            .search-container {
+                padding: 7px 10px;
+            }
+            .search-container input {
+                font-size: 13px;
+                padding: 7px 10px;
+            }
+            .search-container button {
+                padding: 7px 12px;
+                font-size: 12.5px;
+            }
             .container {
                 display: flex !important;
                 flex-direction: column !important;
-                height: calc(100vh - 220px) !important;
+                height: calc(100vh - 190px) !important;
                 overflow: hidden !important;
             }
-
-            /* CỐ ĐỊNH KHUNG BẢN ĐỒ Ở TRÊN (STICKY) */
+            /* Cố định bản đồ ở nửa trên điện thoại */
             #map {
-                height: 42vh !important;
-                min-height: 250px !important;
+                height: 40vh !important;
+                min-height: 230px !important;
                 flex-shrink: 0 !important;
                 order: 1 !important;
-                position: sticky !important;
-                top: 0 !important;
-                z-index: 10 !important;
             }
-
-            /* PHẦN DANH SÁCH CUỘN TỰ DO Ở DƯỚI */
+            /* Phần danh sách cuộn độc lập ở nửa dưới */
             .sidebar {
                 flex: 1 !important;
                 width: 100% !important;
@@ -283,12 +270,12 @@
 
         footer {
             text-align: center;
-            padding: 14px 10px;
+            padding: 18px 10px;
             background-color: #ffffff;
             border-top: 1px solid #dee2e6;
         }
         .footer-text {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             color: #555;
             margin: 2px 0;
         }
@@ -296,13 +283,15 @@
 </head>
 <body>
 
+    <!-- ĐOẠN HEADER KHÔI PHỤC NGUYÊN BẢN CHÍNH XÁC NHẤT -->
     <header>
         <div class="overlay">
             <div class="header-logos">
-                <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item" onerror="this.style.display='none'">
+                <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item">
             </div>
 
             <h3 class="ten-don-vi">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
+
             <h1>BẢN ĐỒ SỐ DU LỊCH SINH THÁI & VĂN HÓA</h1>
             <h2>ĐIỂM ĐẾN PHÚ TÚC</h2>
             <p>Trải nghiệm bản sắc văn hóa Cơ Tu – Đắm mình giữa đại ngàn xanh</p>
@@ -344,6 +333,7 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
+        // TẤT CẢ ĐỊA ĐIỂM ĐƯỢC GHIM TRÊN BẢN ĐỒ
         const allLocations = [
             // 1. VĂN HÓA, LỄ HỘI, ẨM THỰC
             {
@@ -391,7 +381,7 @@
                 description: "Thưởng thức men nồng rượu cần, gà đồi nướng than hoa, cá niên suối nướng, rau dớn, ốc đá và lá sắn xào tóp mỡ."
             },
 
-            // 2. 11 KHU DU LỊCH SINH THÁI
+            // 2. 11 KHU DU LỊCH SINH THÁI ĐƯỢC GHIM ĐẦY ĐỦ
             {
                 id: "nui-than-tai",
                 name: "Công viên Suối khoáng nóng Núi Thần Tài",
@@ -515,6 +505,7 @@
             }
         ];
 
+        // MỤC GOM NHÓM KDL CHO SIDEBAR
         const clusterCardKDL = {
             id: "quan-the-kdl",
             name: "Quần thể các Khu Du lịch Sinh thái Phú Túc",
@@ -536,7 +527,7 @@
             attribution: 'Google Satellite'
         });
 
-        // GIỚI HẠN KHUNG BẢN ĐỒ CỐ ĐỊNH TRONG VÙNG HÒA VANG (KHÔNG BỊ KÉO TRÔI ĐI NƠI KHÁC)
+        // Cố định phạm vi bản đồ trong khu vực Hòa Vang
         const southWest = L.latLng(15.850000, 107.850000);
         const northEast = L.latLng(16.080000, 108.180000);
         const boundsHoaVang = L.latLngBounds(southWest, northEast);
@@ -544,9 +535,9 @@
         const map = L.map('map', {
             center: [15.968000, 108.015000],
             zoom: 13,
-            minZoom: 11, // Không cho thu nhỏ quá mức
-            maxBounds: boundsHoaVang, // Cố định phạm vi hiển thị
-            maxBoundsViscosity: 1.0, // Chống nảy kéo ra ngoài biên
+            minZoom: 11,
+            maxBounds: boundsHoaVang,
+            maxBoundsViscosity: 1.0,
             layers: [googleStreets]
         });
 
@@ -576,6 +567,7 @@
             listContainer.innerHTML = '';
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
 
+            // 1. GHIM ĐẦY ĐỦ CÁC ĐIỂM LÊN BẢN ĐỒ
             const mapItems = allLocations.filter(loc => {
                 const matchesSubcat = (activeFilter === 'all') || (loc.subcat === activeFilter);
                 const matchesQuery = loc.name.toLowerCase().includes(query) || 
@@ -611,6 +603,7 @@
                 markerLayerGroup.addLayer(marker);
             });
 
+            // 2. GOM CÁC KDL LẠI THÀNH 1 THẺ DUY NHẤT TRÊN SIDEBAR
             let sidebarItems = [];
 
             allLocations.filter(loc => loc.subcat !== 'sinh-thai').forEach(loc => {
