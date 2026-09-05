@@ -136,7 +136,7 @@
             height: 100%;
         }
 
-        /* TÙY BIẾN NHÃN TÊN THU GỌN TRÊN BẢN ĐỒ (TOOLTIP) */
+        /* NHÃN TÊN TRÊN TỪNG GHIM */
         .map-label {
             background-color: #ffffff !important;
             color: #1b5e20 !important;
@@ -148,11 +148,9 @@
             padding: 2px 6px !important;
             white-space: nowrap !important;
         }
-        .map-label::before {
-            border-top-color: #ffffff !important;
-        }
+        .map-label::before { border-top-color: #ffffff !important; }
 
-        /* Giao diện Máy tính */
+        /* Giao diện Desktop */
         @media (min-width: 769px) {
             header { padding: 20px 15px; text-align: center; background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; }
             header h1 { font-size: 1.45rem; margin: 6px 0; }
@@ -176,7 +174,7 @@
             #map { flex: 1 !important; order: 2 !important; }
         }
 
-        /* Giao diện Điện thoại */
+        /* Giao diện Mobile */
         @media (max-width: 768px) {
             header { padding: 12px 10px !important; text-align: center; background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; }
             .ten-don-vi { font-size: 0.72rem !important; margin-bottom: 2px; }
@@ -208,8 +206,9 @@
     </header>
 
     <div class="nav-back-bar">
-        <a href="index.html">← Bản đồ Di tích Lịch sử</a>
-        <a href="khu-du-lich-sinh-thai.html" style="color: #e65100;">🏞️ Xem trang riêng các Khu Du Lịch Sinh Thái ↗</a>
+        <a href="index.html">← Quay lại Bản đồ Di tích Lịch sử</a>
+        <span style="color: #bbb;">|</span>
+        <a href="khu-du-lich-sinh-thai.html" style="color: #e65100;">🏞️ Xem trang danh sách 11 Khu Du Lịch Sinh Thái ↗</a>
     </div>
 
     <section class="search-container">
@@ -227,7 +226,7 @@
                 <button class="filter-btn" data-subcat="am-thuc">Ẩm thực</button>
             </div>
 
-            <h3 style="margin: 5px 0 10px 0; font-size: 0.98rem; color: #2e7d32;">Danh sách Điểm đến tại Phú Túc</h3>
+            <h3 style="margin: 5px 0 10px 0; font-size: 0.98rem; color: #2e7d32;">Điểm đến tại Phú Túc</h3>
             <ul id="list" style="list-style: none; padding: 0; margin: 0;"></ul>
         </div>
         
@@ -241,9 +240,9 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // DANH SÁCH TẤT CẢ ĐIỂM ĐẾN (CÓ THÊM shortName ĐỂ HIỆN NHÃN GỌN TRÊN BẢN ĐỒ)
-        const phuTucLocations = [
-            // --- 1. CÁC ĐIỂM VĂN HÓA & LỄ HỘI & ẨM THỰC ---
+        // TẤT CẢ CÁC ĐIỂM ĐƯỢC GHIM ĐẦY ĐỦ TRÊN BẢN ĐỒ
+        const allLocations = [
+            // 1. CÁC ĐIỂM VĂN HÓA, LỄ HỘI, ẨM THỰC
             {
                 id: "nha-guol",
                 name: "Nhà Gươl thôn Phú Túc & Con đường Bích họa",
@@ -289,7 +288,7 @@
                 description: "Thưởng thức men nồng rượu cần, gà đồi nướng than hoa, cá niên suối nướng, rau dớn, ốc đá và lá sắn xào tóp mỡ."
             },
 
-            // --- 2. CÁC KHU DU LỊCH SINH THÁI (ĐƯA VÀO TRANG RIÊNG chi-tiet-kdl.html?id=...) ---
+            // 2. GHIM ĐẦY ĐỦ 11 ĐIỂM DU LỊCH SINH THÁI
             {
                 id: "nui-than-tai",
                 name: "Công viên Suối khoáng nóng Núi Thần Tài",
@@ -299,7 +298,7 @@
                 lng: 107.986285,
                 address: "Thôn Phú Túc, QL14G, Hòa Vang",
                 url: "chi-tiet-kdl.html?id=nui-than-tai",
-                description: "Tổ hợp nghỉ dưỡng khoáng nóng tự nhiên tiêu chuẩn Nhật Bản, công viên nước, tắm Onsen, đền Thần Tài."
+                description: "Tổ hợp nghỉ dưỡng khoáng nóng tự nhiên chuẩn Nhật Bản, công viên nước trên núi, tắm Onsen, tắm bùn và viếng đền Thần Tài."
             },
             {
                 id: "hoa-phu-thanh",
@@ -413,21 +412,31 @@
             }
         ];
 
-        // 1. Lớp Bản đồ đường sá chuẩn
+        // MỤC TỔNG HỢP GOM LẠI TRÊN SIDEBAR CHO KHU DU LỊCH SINH THÁI
+        const clusterCardKDL = {
+            id: "quan-the-kdl",
+            name: "Quần thể các Khu Du lịch Sinh thái Phú Túc",
+            subcat: "sinh-thai",
+            lat: 15.968000,
+            lng: 108.015000,
+            address: "Dọc trục du lịch QL14G, Phú Túc, Hòa Vang",
+            url: "khu-du-lich-sinh-thai.html",
+            description: "Khám phá trọn vẹn 11 điểm đến sinh thái nổi tiếng: Núi Thần Tài, Hòa Phú Thành, Toom Sara, Suối Hoa, Lái Thiêu, Bình Yên Ecofarm, Kien Hill, 68 Park Hills..."
+        };
+
+        // LỚP BẢN ĐỒ
         const googleStreets = L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             attribution: 'Google Maps'
         });
 
-        // 2. Lớp Ảnh Vệ tinh có địa danh
         const googleSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=vi&x={x}&y={y}&z={z}', {
             maxZoom: 20,
             attribution: 'Google Satellite'
         });
 
-        // Khởi tạo bản đồ (tọa độ trung tâm bao quát khu vực Phú Túc - Hòa Vang)
         const map = L.map('map', {
-            center: [15.9697833, 108.0150000],
+            center: [15.968000, 108.015000],
             zoom: 13,
             layers: [googleStreets]
         });
@@ -440,7 +449,6 @@
 
         setTimeout(() => { map.invalidateSize(); }, 400);
 
-        // Marker màu xanh lá
         const greenMarkerIcon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -453,23 +461,28 @@
         const markerLayerGroup = L.layerGroup().addTo(map);
         let activeFilter = 'all';
 
-        function renderList(items) {
+        function renderApp() {
             markerLayerGroup.clearLayers();
             const listContainer = document.getElementById('list');
             listContainer.innerHTML = '';
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
 
-            if (items.length === 0) {
-                listContainer.innerHTML = '<li style="padding: 12px; color: #888;">Không tìm thấy địa điểm phù hợp.</li>';
-                return;
-            }
+            // 1. LỌC VÀ GHIM ĐẦY ĐỦ TẤT CẢ CÁC ĐIỂM TRÊN BẢN ĐỒ
+            const mapItems = allLocations.filter(loc => {
+                const matchesSubcat = (activeFilter === 'all') || (loc.subcat === activeFilter);
+                const matchesQuery = loc.name.toLowerCase().includes(query) || 
+                                     (loc.shortName && loc.shortName.toLowerCase().includes(query)) ||
+                                     loc.description.toLowerCase().includes(query);
+                return matchesSubcat && matchesQuery;
+            });
 
             const bounds = [];
 
-            items.forEach(item => {
+            mapItems.forEach(item => {
                 const marker = L.marker([item.lat, item.lng], { icon: greenMarkerIcon });
                 bounds.push([item.lat, item.lng]);
 
-                // HIỂN THỊ TÊN THU GỌN LUÔN TRÊN ĐẦU MARKER (permanent: true)
+                // Tên thu gọn luôn hiển thị ngay trên đầu ghim
                 marker.bindTooltip(item.shortName || item.name, {
                     permanent: true,
                     direction: 'top',
@@ -477,61 +490,78 @@
                     offset: [0, -32]
                 });
 
-                const detailUrl = item.url ? item.url : `chi-tiet-kdl.html?id=${item.id}`;
-
-                // Popup chi tiết khi nhấp chuột vào Marker
                 const popupBody = `
                     <div style="font-family: Arial, sans-serif; max-width: 240px; line-height: 1.45;">
                         <h4 style="margin: 0 0 5px 0; color: #2e7d32; font-size: 0.95rem;">${item.name}</h4>
                         <p style="margin: 0 0 5px 0; font-size: 0.75rem; color: #666;">📍 ${item.address}</p>
                         <p style="font-size: 0.82rem; margin: 0 0 10px 0; color: #333;">${item.description}</p>
-                        <a href="${detailUrl}" style="display: block; text-align: center; background: linear-gradient(135deg, #ff9800, #f57c00); color: #ffffff; padding: 7px 12px; border-radius: 20px; text-decoration: none; font-size: 0.82rem; font-weight: bold; box-shadow: 0 2px 6px rgba(245, 124, 0, 0.35);">
-                            ▶️ Xem giới thiệu chi tiết ↗
+                        <a href="${item.url}" style="display: block; text-align: center; background: linear-gradient(135deg, #ff9800, #f57c00); color: #ffffff; padding: 7px 12px; border-radius: 20px; text-decoration: none; font-size: 0.82rem; font-weight: bold; box-shadow: 0 2px 6px rgba(245, 124, 0, 0.35);">
+                            ▶️ Xem chi tiết & Cẩm nang ↗
                         </a>
                     </div>
                 `;
                 marker.bindPopup(popupBody);
                 markerLayerGroup.addLayer(marker);
+            });
 
-                // Danh sách hiển thị bên Sidebar
+            // 2. TẠO DANH SÁCH THẺ TRÊN SIDEBAR (GOM CÁC KDL THÀNH 1 MỤC DUY NHẤT)
+            let sidebarItems = [];
+
+            // Thêm các mục Văn hóa, Lễ hội, Ẩm thực nếu phù hợp bộ lọc
+            allLocations.filter(loc => loc.subcat !== 'sinh-thai').forEach(loc => {
+                const matchesSubcat = (activeFilter === 'all') || (loc.subcat === activeFilter);
+                const matchesQuery = loc.name.toLowerCase().includes(query) || loc.description.toLowerCase().includes(query);
+                if (matchesSubcat && matchesQuery) {
+                    sidebarItems.push(loc);
+                }
+            });
+
+            // Nếu bộ lọc là 'all' hoặc 'sinh-thai', thêm thẻ gom nhóm KDL Sinh Thái
+            if (activeFilter === 'all' || activeFilter === 'sinh-thai') {
+                const matchesQuery = clusterCardKDL.name.toLowerCase().includes(query) || clusterCardKDL.description.toLowerCase().includes(query);
+                if (matchesQuery) {
+                    sidebarItems.push(clusterCardKDL);
+                }
+            }
+
+            if (sidebarItems.length === 0) {
+                listContainer.innerHTML = '<li style="padding: 12px; color: #888;">Không tìm thấy nội dung phù hợp.</li>';
+                return;
+            }
+
+            sidebarItems.forEach(item => {
                 const li = document.createElement('li');
                 li.className = 'location-item';
                 li.innerHTML = `
                     <strong style="color: #2e7d32; display: block; font-size: 0.94rem;">${item.name}</strong>
                     <span style="font-size: 0.8rem; color: #666;">📍 ${item.address}</span>
+                    <p style="font-size: 0.82rem; color: #444; margin: 4px 0 6px 0;">${item.description}</p>
                     <div>
-                        <a href="${detailUrl}" class="btn-view-detail">
-                            Chi tiết & Video ↗
+                        <a href="${item.url}" class="btn-view-detail">
+                            ${item.id === 'quan-the-kdl' ? 'Khám phá 11 KDL Sinh Thái ↗' : 'Chi tiết & Video ↗'}
                         </a>
                     </div>
                 `;
 
                 li.addEventListener('click', (e) => {
                     if (e.target.tagName !== 'A') {
-                        map.flyTo([item.lat, item.lng], 15, { duration: 1.2 });
-                        marker.openPopup();
+                        if (item.id === 'quan-the-kdl') {
+                            // Khi click vào thẻ KDL ở sidebar, bản đồ zoom bao quát toàn bộ 11 KDL
+                            const kdlBounds = allLocations.filter(l => l.subcat === 'sinh-thai').map(l => [l.lat, l.lng]);
+                            map.fitBounds(kdlBounds, { padding: [40, 40], maxZoom: 14 });
+                        } else {
+                            map.flyTo([item.lat, item.lng], 15, { duration: 1.2 });
+                        }
                     }
                 });
 
                 listContainer.appendChild(li);
             });
 
-            // Tự căn chỉnh góc nhìn bản đồ vừa vặn với các điểm đang lọc
+            // Tự động căn góc nhìn bản đồ
             if (bounds.length > 0 && activeFilter !== 'all') {
                 map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
             }
-        }
-
-        function filterLocations() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            const filtered = phuTucLocations.filter(loc => {
-                const matchesSubcat = (activeFilter === 'all') || (loc.subcat === activeFilter);
-                const matchesQuery = loc.name.toLowerCase().includes(query) || 
-                                     (loc.shortName && loc.shortName.toLowerCase().includes(query)) ||
-                                     loc.description.toLowerCase().includes(query);
-                return matchesSubcat && matchesQuery;
-            });
-            renderList(filtered);
         }
 
         document.querySelectorAll('.filter-btn').forEach(button => {
@@ -539,15 +569,15 @@
                 document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
                 e.target.classList.add('active');
                 activeFilter = e.target.dataset.subcat;
-                filterLocations();
+                renderApp();
             });
         });
 
-        document.getElementById('searchInput').addEventListener('input', filterLocations);
-        document.getElementById('searchBtn').addEventListener('click', filterLocations);
+        document.getElementById('searchInput').addEventListener('input', renderApp);
+        document.getElementById('searchBtn').addEventListener('click', renderApp);
 
-        // Khởi chạy hiển thị lần đầu
-        renderList(phuTucLocations);
+        // Khởi chạy ban đầu
+        renderApp();
     </script>
 </body>
 </html>
