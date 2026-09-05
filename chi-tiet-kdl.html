@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Chi Tiết Khu Du Lịch Sinh Thái - Phú Túc, Hòa Vang</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f7f9f6;
+            color: #2b2b2b;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 18px 15px;
+            text-align: center;
+        }
+        .header h3 {
+            margin: 0 0 4px 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.35rem;
+        }
+
+        .nav-bar {
+            background-color: #e8f5e9;
+            padding: 10px 15px;
+            border-bottom: 1px solid #c8e6c9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.88rem;
+        }
+        .nav-bar a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-bar a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 860px;
+            margin: 22px auto 40px;
+            padding: 0 15px;
+        }
+
+        .main-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e0e0e0;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+            background-color: #e0e0e0;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .tag-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .kdl-name {
+            margin: 0 0 12px 0;
+            color: #1b5e20;
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .meta-info-box {
+            background: #f9fbf9;
+            border-left: 4px solid #43a047;
+            padding: 14px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 22px;
+            font-size: 0.92rem;
+        }
+        .meta-info-box p {
+            margin: 6px 0;
+        }
+
+        .action-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.88rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-orange {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #ffffff;
+            box-shadow: 0 3px 8px rgba(245, 124, 0, 0.35);
+        }
+        .btn-orange:hover { background: linear-gradient(135deg, #f57c00, #e65100); }
+        .btn-green {
+            background: #2e7d32;
+            color: white;
+            box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3);
+        }
+        .btn-green:hover { background: #1b5e20; }
+        .btn-outline {
+            background: white;
+            border: 1px solid #81c784;
+            color: #2e7d32;
+        }
+        .btn-outline:hover { background: #e8f5e9; }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: #2e7d32;
+            margin: 24px 0 10px 0;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 6px;
+        }
+
+        .body-desc {
+            font-size: 0.96rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        .feature-list {
+            margin: 10px 0 20px 20px;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .banner-img { height: 210px; }
+            .content { padding: 16px; }
+            .kdl-name { font-size: 1.3rem; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h3>Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</h3>
+        <h1>BẢN ĐỒ SỐ DU LỊCH SINH THÁI PHÚ TÚC</h1>
+    </header>
+
+    <div class="nav-bar">
+        <a href="du-lich-phu-tuc.html">🗺️ Quay lại Bản đồ số</a>
+        <a href="khu-du-lich-sinh-thai.html">🏞️ Danh sách các Khu du lịch</a>
+    </div>
+
+    <div class="container">
+        <div class="main-card" id="detail-box"></div>
+    </div>
+
+    <footer>
+        <p><strong>Bản đồ số Du lịch Sinh thái & Văn hóa Phú Túc</strong></p>
+        <p>Công trình thanh niên chuyển đổi số - Đoàn TNCS Hồ Chí Minh Xã Hòa Vang</p>
+    </footer>
+
+    <script>
+        // DỮ LIỆU ĐẦY ĐỦ CỦA CÁC ĐIỂM DU LỊCH SINH THÁI TẠI PHÚ TÚC & HÒA VANG
+        const kdlData = {
+            "nui-than-tai": {
+                name: "Công viên Suối khoáng nóng Núi Thần Tài",
+                image: "images/kdl-nui-than-tai.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&auto=format&fit=crop&q=80",
+                address: "Thôn Phú Túc, QL14G, Hòa Vang, Đà Nẵng",
+                hotline: "0898 181 777",
+                hours: "08:30 – 17:30 (Tất cả các ngày trong tuần)",
+                ticket: "Vé gói tiêu chuẩn vào cổng ~ 450.000 VNĐ / người lớn (bao gồm tắm khoáng nóng, Onsen, công viên nước)",
+                website: "http://nuithantai.vn/",
+                mapLink: "https://maps.google.com/?cid=17322092107953916815",
+                intro: "Công viên Suối khoáng nóng Núi Thần Tài là tổ hợp nghỉ dưỡng khoáng nóng tự nhiên tiêu chuẩn Nhật Bản đẳng cấp giữa cánh rừng Bà Nà Núi Chúa, mang lại không gian thư giãn, phục hồi sức khỏe và vui chơi hàng đầu.",
+                highlights: [
+                    "Khu tắm khoáng ONSEN phong cách Nhật Bản lộ thiên và trong nhà.",
+                    "Công viên nước hiện đại với hồ tạo sóng trên sườn núi và các máng trượt cảm giác mạnh.",
+                    "Sông Lười thư giãn uốn lượn dưới tán rừng râm mát.",
+                    "Dịch vụ tắm bùn khoáng, tắm sữa tươi, tắm sả chanh và luộc trứng trường thọ từ mạch khoáng nóng tự nhiên.",
+                    "Viếng Đền Thần Tài linh thiêng giữa đại ngàn."
+                ]
+            },
+
+            "hoa-phu-thanh": {
+                name: "Khu du lịch Hòa Phú Thành Tourist - Trượt thác Đà Nẵng",
+                image: "images/kdl-hoa-phu-thanh.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?w=900&auto=format&fit=crop&q=80",
+                address: "Km 20, QL14G, Hòa Vang, Đà Nẵng",
+                hotline: "0932 564 777",
+                hours: "07:30 – 16:30 hằng ngày (Ca trượt thác chính: 10h00 và 14h00)",
+                ticket: "Vé vào cổng ~ 100.000 VNĐ; Vé trượt thác tự nhiên ~ 250.000 VNĐ; Vé Zipline ~ 50.000 VNĐ",
+                website: "http://hoaphuthanh.com.vn/",
+                mapLink: "https://maps.google.com/?cid=18083325343099811059",
+                intro: "Hòa Phú Thành là điểm đến số một cho các hoạt động thể thao cảm giác mạnh tại Đà Nẵng. Đường trượt thác ghềnh đá dài gần 3km bằng xuồng cao su đôi mang lại trải nghiệm phấn khích không thể nào quên.",
+                highlights: [
+                    "Hành trình chèo xuồng cao su vượt ghềnh thác đá mạo hiểm, trang bị áo phao mũ bảo hộ an toàn tuyệt đối.",
+                    "Đường trượt Zipline trên không băng qua vòm suối thác hoang sơ.",
+                    "Dịch vụ massage cá thư giãn dưới dòng nước suối tự nhiên.",
+                    "Nhà hàng ẩm thực núi rừng: gà nướng than hoa, cơm lam, xôi nếp than, cá suối, ốc đá.",
+                    "Hệ thống nhà sàn truyền thống và khu cắm trại dã ngoại."
+                ]
+            },
+
+            "toom-sara": {
+                name: "Làng Du Lịch Sinh Thái Toom Sara",
+                image: "images/kdl-toom-sara.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&auto=format&fit=crop&q=80",
+                address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
+                hotline: "0919 225 544",
+                hours: "08:00 – 18:00 hằng ngày",
+                ticket: "Vé tham quan & tắm suối ~ 100.000 VNĐ / người",
+                website: "https://www.toomsaradanang.vn/",
+                mapLink: "https://maps.google.com/?cid=312862340775301986",
+                intro: "Làng Toom Sara là điểm du lịch sinh thái cộng đồng gắn liền với bản sắc văn hóa người Cơ Tu. Ẩn mình bên dòng suối mát và rặng tre ngút ngàn, nơi đây bảo tồn nét đẹp mộc mạc và phong vị bình yên của núi rừng.",
+                highlights: [
+                    "Dòng suối mát lạnh róc rách chảy qua bãi đá cuội, khu tắm suối an toàn cho mọi lứa tuổi.",
+                    "Trải nghiệm dệt thổ cẩm Cơ Tu, làm đồ lưu niệm thủ công từ mây tre.",
+                    "Thưởng thức mâm cỗ truyền thống: cơm lam nướng nứa, thịt ba chỉ nướng ống tre, cá niên nướng mọi.",
+                    "Giao lưu cồng chiêng, múa Tung tung Da dá bên đốm lửa trại bập bùng."
+                ]
+            },
+
+            "suoi-hoa": {
+                name: "Khu du lịch Sinh thái Suối Hoa",
+                image: "images/kdl-suoi-hoa.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=900&auto=format&fit=crop&q=80",
+                address: "Km 20, QL14G, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
+                hotline: "0986 797 461",
+                hours: "Mở cửa cả ngày (07:00 – 17:30)",
+                ticket: "Vé vào cổng tham quan & tắm suối ~ 100.000 VNĐ / người lớn",
+                website: "",
+                mapLink: "https://maps.google.com/?cid=14215357278673645395",
+                intro: "Khu du lịch sinh thái Suối Hoa nổi bật với cảnh sắc thiên nhiên thung lũng hoa ngút ngàn, dòng suối đá trong veo và các ghềnh thác tự nhiên hoang sơ quanh năm mát lạnh.",
+                highlights: [
+                    "Hồ Rù Rì, hồ Thiên Nga với mực nước suối tự nhiên trong vắt, tắm suối thư giãn.",
+                    "Thác Rạ Mạ và Cầu Treo vắt ngang suối là điểm chụp hình lưu niệm lý tưởng.",
+                    "Hệ thống nhà chòi ven suối thuận tiện nghỉ trưa và tổ chức tiệc picnic gia đình.",
+                    "Không gian Nhà Rông truyền thống lưu giữ nhiều hiện vật quý của đồng bào vùng cao."
+                ]
+            },
+
+            "lai-thieu": {
+                name: "Khu Du Lịch Sinh Thái Lái Thiêu",
+                image: "images/kdl-lai-thieu.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&auto=format&fit=crop&q=80",
+                address: "Thôn Phú Túc, Hòa Vang, Đà Nẵng",
+                hotline: "0902 595 779",
+                hours: "Mở cửa cả ngày (07:30 – 17:30)",
+                ticket: "Vé vào cổng tham quan ~ 50.000 - 80.000 VNĐ / người",
+                website: "",
+                mapLink: "https://maps.google.com/?cid=8965558059555310985",
+                intro: "Lái Thiêu mang một nét độc đáo khi tái hiện trọn vẹn phong cảnh miệt vườn Nam Bộ với vườn cây ăn quả trĩu cành giữa không gian núi rừng trùng điệp của Hòa Vang.",
+                highlights: [
+                    "Vườn cây ăn quả xum xuê: sầu riêng, chôm chôm, măng cụt, mít tố nữ...",
+                    "Khu hồ bơi ngoài trời, chèo thuyền kayak và đạp vịt trên lòng hồ cảnh quan.",
+                    "Bãi cỏ xanh rộng rãi tổ chức hội trại, sinh hoạt ngoại khóa và teambuilding.",
+                    "Nhà hàng ẩm thực dân dã ba miền phục vụ các món ăn đồng quê tươi ngon."
+                ]
+            },
+
+            "binh-yen-ecofarm": {
+                name: "Bình Yên Ecofarm",
+                image: "images/kdl-binh-yen-ecofarm.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=900&auto=format&fit=crop&q=80",
+                address: "Thôn Phú Túc 2, Hòa Vang, Đà Nẵng",
+                hotline: "0905 646 603",
+                hours: "Mở cửa đón khách cả ngày (24/7)",
+                ticket: "Tùy thuộc dịch vụ tham quan hoặc lưu trú cắm trại qua đêm",
+                website: "",
+                mapLink: "https://maps.app.goo.gl/pcKqfcZhh1bpJJ4z6",
+                intro: "Bình Yên Ecofarm đúng như tên gọi của mình, là một trang trại sinh thái dã ngoại yên ả tách biệt hoàn toàn khỏi sự ồn ào đô thị. Nằm trọn giữa thung lũng xanh mát tại thôn Phú Túc, đây là nơi nghỉ ngơi nạp lại năng lượng lý tưởng.",
+                highlights: [
+                    "Bãi cắm trại dã ngoại bên triền đồi với thảm cỏ xanh mướt, không khí trong lành.",
+                    "Trải nghiệm nông nghiệp hữu cơ sạch, chăm sóc và thu hoạch rau củ quả.",
+                    "Tiệc nướng BBQ ngoài trời ngắm hoàng hôn buông xuống chân đồi.",
+                    "Không gian tĩnh lặng phù hợp cho các buổi hội ngộ bạn bè và gia đình cuối tuần."
+                ]
+            },
+
+            "kien-hill": {
+                name: "Kien Hill Glamping",
+                image: "images/kdl-kien-hill.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=900&auto=format&fit=crop&q=80",
+                address: "Khu vực Dốc Kiền, Hòa Vang, Đà Nẵng",
+                hotline: "0908 666 608",
+                hours: "Mở cửa phục vụ khách lưu trú 24/7",
+                ticket: "Gói cắm trại Glamping trọn gói (Lều cao cấp, BBQ, ăn sáng)",
+                website: "",
+                mapLink: "https://maps.app.goo.gl/yQAASbxCsu2VVDPo8",
+                intro: "Kien Hill Glamping tọa lạc tại vị trí đắc địa trên đỉnh Dốc Kiền, mang đến trải nghiệm cắm trại sang trọng giữa đại ngàn. Với độ cao thoáng đãng, đây là điểm 'săn mây' bồng bềnh và ngắm bình minh tuyệt đẹp hàng đầu tại Hòa Vang.",
+                highlights: [
+                    "Hệ thống lều trại phong cách Glamping cao cấp, trang bị đầy đủ đệm êm, quạt mát và ánh sáng lung linh.",
+                    "Tầm nhìn 360 độ bao quát thung lũng núi rừng nguyên sinh.",
+                    "Khu vực đốt lửa trại và tiệc nướng BBQ ấm cúng trong tiết trời mát lạnh về đêm.",
+                    "Quầy cà phê check-in với nhiều góc chụp ảnh sống ảo tuyệt đẹp."
+                ]
+            },
+
+            "68-park-hills": {
+                name: "68 Park Hills - Công viên thượng nguồn Lộc Phát",
+                image: "images/kdl-68-park-hills.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=900&auto=format&fit=crop&q=80",
+                address: "Cầu U2, QL14G, Thôn Phú Túc, Hòa Vang, Đà Nẵng",
+                hotline: "0931 103 579",
+                hours: "07:30 – 18:00 hằng ngày",
+                ticket: "Vé vào cổng tham quan & tắm suối theo quy định KDL",
+                website: "https://68parkhills.com/",
+                mapLink: "https://maps.app.goo.gl/mJB85Z4mw7a6FcmU8",
+                intro: "68 Park Hills (Công viên thượng nguồn Lộc Phát) tọa lạc ngay gần Cầu U2 trên tuyến QL14G. Nơi đây sở hữu đoạn suối đá tự nhiên nước chảy róc rách trong veo cùng không gian dã ngoại bờ suối cực kỳ mát mẻ.",
+                highlights: [
+                    "Bãi tắm suối tự nhiên với làn nước trong vắt cùng ghềnh đá bằng phẳng an toàn.",
+                    "Hệ thống chòi tre lá mát rượi chạy dọc triền suối phục vụ nghỉ ngơi ăn uống.",
+                    "Ẩm thực suối thác đặc sắc với món gà đồi nướng mọi, cá niên và thịt nướng ống nứa.",
+                    "Khuôn viên bãi cỏ rộng rãi phù hợp tổ chức hoạt động dã ngoại hội nhóm ngoài trời."
+                ]
+            },
+
+            "hestia-farm": {
+                name: "Hestia Farm Đà Nẵng",
+                image: "images/kdl-hestia-farm.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=900&auto=format&fit=crop&q=80",
+                address: "Thôn Hòa Hải, Hòa Vang, Đà Nẵng",
+                hotline: "0236 7301 080",
+                hours: "Thứ Tư – Chủ Nhật: 08:00 – 21:00 (Nghỉ Thứ Hai, Thứ Ba)",
+                ticket: "Vé tham quan trải nghiệm hoặc gói dịch vụ đồ uống",
+                website: "https://hestiafarm.vn/",
+                mapLink: "https://maps.app.goo.gl/bbUTfBnuBi3bZnEK8",
+                intro: "Hestia Farm là mô hình trang trại nông nghiệp sinh thái kết hợp quán cà phê và không gian vui chơi ngoài trời. Nơi đây đem đến trải nghiệm làm quen với thiên nhiên cây cỏ, rất thích hợp cho các gia đình có trẻ nhỏ vào dịp cuối tuần.",
+                highlights: [
+                    "Vườn nông trại trải nghiệm: gieo trồng, chăm sóc cây trái và thu hoạch nông sản hữu cơ.",
+                    "Sân chơi cát, xích đu và bãi cỏ rộng an toàn cho trẻ em thỏa sức vận động.",
+                    "Quầy cà phê sân vườn với thực đơn đồ uống tự nhiên thanh mát.",
+                    "Không gian tổ chức các workshop sáng tạo, làm thủ công và dã ngoại gia đình."
+                ]
+            },
+
+            "v-village": {
+                name: "V Village Đà Nẵng - Làng quê Việt",
+                image: "images/kdl-v-village.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=900&auto=format&fit=crop&q=80",
+                address: "Tổ 1, Thôn Hòa Hải, Hòa Vang, Đà Nẵng",
+                hotline: "0935 020 608",
+                hours: "Mở cửa đón khách cả ngày (24/7)",
+                ticket: "Theo dịch vụ ăn uống, câu cá hoặc đặt phòng bungalow",
+                website: "http://vvillage.vn/",
+                mapLink: "https://maps.app.goo.gl/pXagQnEfN9T85rpq8",
+                intro: "V Village Đà Nẵng tái hiện không gian làng quê Việt Nam truyền thống với những nếp nhà gỗ tre mộc mạc, ao cá, rặng tre xào xạc và dòng nước trong lành. Đây là chốn dừng chân hoàn hảo để tận hưởng nhịp sống chậm thanh bình.",
+                highlights: [
+                    "Hệ thống Bungalow nghỉ dưỡng bằng tre gỗ tự nhiên ấm cúng, thoáng đãng.",
+                    "Hồ câu cá giải trí và đường dạo bộ rợp bóng tre mộc mạc.",
+                    "Thực đơn ẩm thực đồng quê dân dã: cá lóc nướng trui, gà thả vườn, rau luộc kho quẹt.",
+                    "Khu vực cắm trại dã ngoại và tiệc BBQ sân vườn về đêm."
+                ]
+            },
+
+            "kaya-retreat": {
+                name: "Kaya Retreat Da Nang",
+                image: "images/kdl-kaya-retreat.jpg",
+                fallbackImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&auto=format&fit=crop&q=80",
+                address: "Khu vực Cầu Nước Ngọt, Thôn Hòa Hải, Hòa Vang, Đà Nẵng",
+                hotline: "0812 078 738",
+                hours: "Mở cửa theo lịch hẹn hoặc chương trình Retreat",
+                ticket: "Theo gói dịch vụ Retreat nghỉ dưỡng & phục hồi sức khỏe",
+                website: "https://www.kayaretreatdanang.com/",
+                mapLink: "https://maps.app.goo.gl/8pEBxq6EoKRiqNGDA",
+                intro: "Kaya Retreat Da Nang là khu nghỉ dưỡng chữa lành nép mình bên dòng suối mát tự nhiên tại khu vực Cầu Nước Ngọt. Được xây dựng theo tinh thần hòa hợp tự nhiên tuyệt đối, nơi đây mang lại sự tĩnh tâm, an yên cho các khóa thiền và yoga.",
+                highlights: [
+                    "Vị trí sát bờ suối tự nhiên với âm thanh róc rách của tiếng nước chảy và rừng cây xanh mát.",
+                    "Không gian tập luyện Yoga, thiền định giữa thiên nhiên trong lành.",
+                    "Khu lưu trú sinh thái mộc mạc, tôn trọng môi trường và thân thiện với thiên nhiên.",
+                    "Thực đơn ăn uống thực dưỡng (healthy), thanh lọc cơ thể từ nguyên liệu hữu cơ tự nhiên."
+                ]
+            }
+        };
+
+        // ĐỌC THAM SỐ ID TỪ URL (Ví dụ: chi-tiet-kdl.html?id=nui-than-tai)
+        const params = new URLSearchParams(window.location.search);
+        const kdlId = params.get('id') || 'nui-than-tai';
+        const data = kdlData[kdlId] || kdlData['nui-than-tai'];
+
+        // Cập nhật tiêu đề trang
+        document.getElementById('page-title').innerText = `${data.name} - Du Lịch Sinh Thái Phú Túc`;
+
+        // Render toàn bộ nội dung ra giao diện
+        const container = document.getElementById('detail-box');
+        container.innerHTML = `
+            <img src="${data.image}" onerror="this.src='${data.fallbackImage}'" alt="${data.name}" class="banner-img">
+            
+            <div class="content">
+                <span class="tag-badge">🌿 ĐIỂM ĐẾN DU LỊCH SINH THÁI</span>
+                <h1 class="kdl-name">${data.name}</h1>
+
+                <div class="meta-info-box">
+                    <p>📍 <strong>Địa chỉ:</strong> ${data.address}</p>
+                    <p>⏰ <strong>Thời gian hoạt động:</strong> ${data.hours}</p>
+                    <p>📞 <strong>Hotline hỗ trợ:</strong> <a href="tel:${data.hotline}" style="color: #2e7d32; font-weight: bold;">${data.hotline}</a></p>
+                    <p>🎟️ <strong>Chi phí tham khảo:</strong> ${data.ticket}</p>
+                </div>
+
+                <div class="action-group">
+                    <a href="${data.mapLink}" target="_blank" class="btn btn-green">🗺️ Chỉ đường trên Google Maps</a>
+                    ${data.website ? `<a href="${data.website}" target="_blank" class="btn btn-orange">🌐 Ghé thăm Website chính thức</a>` : ''}
+                    <a href="tel:${data.hotline}" class="btn btn-outline">📞 Gọi hotline đặt chỗ</a>
+                </div>
+
+                <h2 class="section-title">Giới thiệu tổng quan</h2>
+                <p class="body-desc">${data.intro}</p>
+
+                <h2 class="section-title">Trải nghiệm & Điểm nhấn nổi bật</h2>
+                <ul class="feature-list body-desc">
+                    ${data.highlights.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    </script>
+</body>
+</html>
