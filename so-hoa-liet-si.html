@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sơ đồ & Tra cứu Mộ Liệt sĩ - Xã Hòa Vang</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Thư viện nạp dữ liệu CSV trực tuyến siêu nhẹ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <style>
         header {
@@ -28,9 +27,9 @@
         .nav-link-btn.secondary-green { background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; }
         .nav-link-btn.active-red { background: #c62828; color: #fff; box-shadow: 0 2px 6px rgba(198, 40, 40, 0.35); }
 
-        .page-container { max-width: 1250px; margin: 25px auto 40px; padding: 0 15px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .page-container { max-width: 1450px; margin: 25px auto 40px; padding: 0 15px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
-        /* Chọn Nghĩa trang */
+        /* Nút chọn Nghĩa trang */
         .cemetery-select-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 18px; }
         @media (max-width: 600px) { .cemetery-select-grid { grid-template-columns: 1fr; } }
         .nt-card-btn {
@@ -42,7 +41,7 @@
         .nt-card-btn.active h4 { color: #b91c1c; }
         .nt-card-btn p { margin: 0; font-size: 0.88rem; color: #64748b; }
 
-        /* Khung điều khiển */
+        /* Bảng điều khiển */
         .controls-card {
             background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px;
             padding: 16px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);
@@ -66,7 +65,7 @@
             border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem;
         }
 
-        /* KHUNG VẼ MẶT BẰNG SƠ ĐỒ */
+        /* Khung mặt bằng sơ đồ */
         .map-card-wrapper {
             background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px;
             padding: 24px 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow-x: auto;
@@ -82,42 +81,62 @@
             font-weight: bold; border-radius: 8px; font-size: 0.95rem;
         }
 
-        .map-grid-table { display: flex; flex-direction: column; gap: 8px; min-width: 900px; align-items: center; }
-        .map-row { display: flex; gap: 6px; align-items: center; width: 100%; justify-content: center; }
-        .row-tag { width: 60px; font-weight: bold; color: #475569; font-size: 0.85rem; text-align: right; padding-right: 10px; flex-shrink: 0; }
-        
-        .wing-group { display: flex; gap: 6px; }
-        .walkway-axis {
-            width: 50px; display: flex; align-items: center; justify-content: center;
-            font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 1px; border-left: 1px dashed #cbd5e1; border-right: 1px dashed #cbd5e1;
-            margin: 0 4px; background: #fafafa;
+        /* Định dạng chung hàng và ô mộ */
+        .map-row { display: flex; gap: 5px; align-items: center; margin-bottom: 5px; }
+        .row-tag {
+            width: 55px; font-weight: bold; color: #475569; font-size: 0.82rem;
+            text-align: right; padding-right: 8px; flex-shrink: 0;
         }
-
+        .wing-group { display: flex; gap: 5px; }
         .grave-box {
-            width: 40px; height: 40px; border-radius: 5px; display: flex;
-            align-items: center; justify-content: center; font-size: 0.78rem;
+            width: 36px; height: 36px; border-radius: 5px; display: flex;
+            align-items: center; justify-content: center; font-size: 0.74rem;
             cursor: pointer; transition: all 0.15s ease; user-select: none; flex-shrink: 0;
         }
-        .grave-box:hover { transform: scale(1.22); z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .grave-box:hover { transform: scale(1.25); z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
         .grave-box.known { background: #dcfce7; border: 1px solid #86efac; color: #166534; font-weight: bold; }
         .grave-box.unknown { background: #f1f5f9; border: 1px solid #cbd5e1; color: #64748b; }
         .grave-box.highlight {
             background: #fef08a !important; border: 2px solid #dc2626 !important;
-            color: #991b1b !important; font-weight: bold; transform: scale(1.18);
+            color: #991b1b !important; font-weight: bold; transform: scale(1.2);
+        }
+
+        /* Lối đi NTLS Hòa Phú */
+        .phu-walkway {
+            width: 48px; display: flex; align-items: center; justify-content: center;
+            font-size: 0.72rem; color: #94a3b8; font-weight: bold; text-transform: uppercase;
+            border-left: 1px dashed #cbd5e1; border-right: 1px dashed #cbd5e1;
+            margin: 0 4px; background: #fafafa;
+        }
+
+        /* Bố cục Song song NTLS Hòa Phong (Khu A | Trục Lễ | Khu B) */
+        .hp-dual-wings {
+            display: flex; justify-content: center; gap: 15px; min-width: 1350px;
+        }
+        .hp-wing {
+            flex: 1; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px;
+        }
+        .hp-wing-title {
+            text-align: center; font-size: 1.1rem; font-weight: bold; color: #991b1b;
+            margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid #fee2e2;
+        }
+        .hp-center-road {
+            width: 60px; background: #f8fafc; border-left: 2px dashed #cbd5e1; border-right: 2px dashed #cbd5e1;
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
+            color: #64748b; font-size: 0.82rem; letter-spacing: 2px;
+            writing-mode: vertical-rl; text-orientation: upright;
         }
 
         /* Danh sách thẻ */
         .martyrs-card-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
         .item-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
         .item-card-name { font-size: 1.1rem; font-weight: bold; color: #b91c1c; margin-bottom: 6px; }
-        
         .story-badge {
             background: #fffbeb; border: 1px solid #fef3c7; border-radius: 6px;
             padding: 8px 10px; margin-top: 10px; font-size: 0.85rem; color: #92400e; line-height: 1.45;
         }
 
-        /* Popup */
+        /* Modal popup chi tiết */
         .modal-layer {
             position: fixed; inset: 0; background: rgba(0,0,0,0.6);
             display: none; align-items: center; justify-content: center; z-index: 9999; padding: 15px;
@@ -127,12 +146,11 @@
             max-height: 85vh; overflow-y: auto; padding: 24px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
         .btn-close-modal { position: absolute; top: 12px; right: 15px; font-size: 26px; border: none; background: transparent; cursor: pointer; }
-        
         .story-section {
             margin-top: 14px; background: #fffdf5; border-left: 4px solid #d97706;
             padding: 12px 14px; border-radius: 0 8px 8px 0;
         }
-        .story-title { font-weight: bold; color: #b45309; font-size: 0.95rem; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .story-title { font-weight: bold; color: #b45309; font-size: 0.95rem; margin-bottom: 6px; }
         .story-content { font-size: 0.92rem; color: #374151; line-height: 1.6; text-align: justify; }
     </style>
 </head>
@@ -140,9 +158,9 @@
 
     <header>
         <img src="images/logo-doan.png" alt="Logo Đoàn" class="logo-item">
-        <h3>ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
+        <h3 class="ten-don-vi">ĐOÀN TNCS HỒ CHÍ MINH XÃ HÒA VANG</h3>
         <h1>SƠ ĐỒ & THÔNG TIN NGHĨA TRANG LIỆT SĨ</h1>
-        <p>Hệ thống số hóa sơ đồ mặt bằng và câu chuyện lịch sử tri ân các Anh hùng Liệt sĩ</p>
+        <p>Hệ thống số hóa mặt bằng nghĩa trang và lưu giữ ký ức truyền thống lịch sử</p>
     </header>
 
     <nav class="main-nav-bar">
@@ -152,7 +170,7 @@
     </nav>
 
     <div class="page-container">
-        <!-- Bộ chọn 2 Nghĩa trang -->
+        <!-- Chuyển đổi 2 Nghĩa trang -->
         <div class="cemetery-select-grid">
             <div class="nt-card-btn active" id="card-phu" onclick="changeNT('nt_hoa_phu')">
                 <h4>🏛️ NTLS Xã Hòa Phú</h4>
@@ -160,7 +178,7 @@
             </div>
             <div class="nt-card-btn" id="card-phong" onclick="changeNT('nt_hoa_phong')">
                 <h4>🏛️ NTLS Xã Hòa Phong</h4>
-                <p>Tổng số: <strong>934</strong> phần mộ</p>
+                <p>Tổng số: <strong>934</strong> phần mộ (Khu A & Khu B song song)</p>
             </div>
         </div>
 
@@ -173,28 +191,28 @@
                 <div class="legend-box">
                     <span><span class="color-dot dot-green"></span> Đã có thông tin</span>
                     <span><span class="color-dot dot-gray"></span> Chưa rõ họ tên</span>
-                    <span><span class="color-dot dot-focus"></span> Đang chọn/Tìm thấy</span>
+                    <span><span class="color-dot dot-focus"></span> Đang tìm / Chọn</span>
                 </div>
             </div>
 
             <div class="search-input-box">
-                <input type="text" id="searchInput" placeholder="Nhập họ tên liệt sĩ, quê quán hoặc số mộ..." oninput="renderView()">
+                <input type="text" id="searchInput" placeholder="Nhập tên liệt sĩ, quê quán hoặc số mộ..." oninput="renderView()">
             </div>
-            <div id="statLabel" style="font-size: 0.9rem; color: #64748b;">Đang tải dữ liệu trực tuyến từ Google Sheets...</div>
+            <div id="statLabel" style="font-size: 0.9rem; color: #64748b;">Đang kết nối dữ liệu Google Sheets...</div>
         </div>
 
-        <!-- BẢN ĐỒ SƠ ĐỒ LƯỚI THỰC ĐỊA -->
+        <!-- KHUNG SƠ ĐỒ LƯỚI THỰC ĐỊA -->
         <div id="mapWrapper" class="map-card-wrapper">
             <div class="monument-header">⭐ ĐÀI TƯỞNG NIỆM ⭐</div>
-            <div class="map-grid-table" id="mapContent"></div>
+            <div id="mapContent"></div>
             <div class="gate-footer">🚪 CỔNG NGHĨA TRANG</div>
         </div>
 
-        <!-- DANH SÁCH DẠNG THẺ -->
+        <!-- DANH SÁCH THẺ -->
         <div id="listWrapper" class="martyrs-card-list" style="display: none;"></div>
     </div>
 
-    <!-- POPUP XEM CHI TIẾT & CÂU CHUYỆN LỊCH SỬ -->
+    <!-- POPUP CHI TIẾT VÀ CÂU CHUYỆN LỊCH SỬ -->
     <div class="modal-layer" id="modalLayer" onclick="closePopup(event)">
         <div class="modal-box" onclick="event.stopPropagation()">
             <button class="btn-close-modal" onclick="closePopup()">&times;</button>
@@ -209,13 +227,14 @@
     </div>
 
     <script>
-        // LINK XUẤT BẢN CSV TỪ GOOGLE SHEETS CỦA BẠN
+        // Link Google Sheets đã xuất bản CSV trực tiếp
         const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRs0Fjhcj_Jo7-OYNNwAVAiEq_ajBh6AGVxDi9Vynv_-qGGR_hZvbtrUrp-Z_w_iw/pub?output=csv";
 
         let allMartyrs = [];
         let activeNT = 'nt_hoa_phu';
         let currentMode = 'map';
 
+        // Sơ đồ thực địa NTLS Hòa Phú (sheet SƠ ĐỒ H PHÚ)
         const phuGroundPlan = [
             { label: "Hàng 1", left: [1, 2, 3, 4, 5, 6, 7, 8], right: [9, 10, 11, 12, 13, 14, 15, 16] },
             { label: "Hàng 2", left: [32, 31, 30, 29, 28, 27, 26, 25], right: [24, 23, 22, 21, 20, 19, 18, 17] },
@@ -229,17 +248,16 @@
             { label: "Hàng 10", left: [139, 140, 141, 142, 143, 144], right: [145, 146, 147] }
         ];
 
-        // Tự động tải dữ liệu trực tuyến từ Google Sheets
+        // Tự động tải từ Google Sheets
         Papa.parse(GOOGLE_SHEET_CSV_URL, {
             download: true,
             header: true,
             skipEmptyLines: true,
             complete: function(res) {
-                // Nhận dạng linh hoạt các tên cột từ Google Sheets
                 allMartyrs = res.data.map(item => {
                     const cemeteryVal = item["cemetery_id"] || item["cemetery"] || item["Nghĩa trang"] || "";
                     const isPhu = cemeteryVal.toLowerCase().includes("phú") || cemeteryVal.toLowerCase().includes("phu");
-                    
+
                     return {
                         cemetery_id: isPhu ? 'nt_hoa_phu' : 'nt_hoa_phong',
                         name: item["name"] || item["Họ và tên liệt sĩ"] || item["Họ và tên"] || item["Họ tên"] || "",
@@ -254,11 +272,10 @@
                         note: item["note"] || item["Ghi chú"] || ""
                     };
                 });
-
                 renderView();
             },
             error: function(err) {
-                document.getElementById("statLabel").innerHTML = "<span style='color:red;'>Không thể kết nối Google Sheets. Vui lòng kiểm tra lại quyền truy cập file.</span>";
+                document.getElementById("statLabel").innerHTML = "<span style='color:red;'>Không thể tải Google Sheets. Vui lòng kiểm tra liên kết chia sẻ.</span>";
             }
         });
 
@@ -291,7 +308,7 @@
 
         function renderView() {
             const filtered = getFilteredData();
-            document.getElementById("statLabel").innerHTML = `Hiển thị <strong>${filtered.length}</strong> phần mộ (Dữ liệu trực tuyến cập nhật)`;
+            document.getElementById("statLabel").innerHTML = `Hiển thị <strong>${filtered.length}</strong> phần mộ (Dữ liệu đồng bộ trực tuyến)`;
             if (currentMode === 'map') {
                 renderMap(filtered);
             } else {
@@ -307,11 +324,16 @@
             const ntItems = allMartyrs.filter(d => d.cemetery_id === activeNT);
 
             if (activeNT === 'nt_hoa_phu') {
+                // SƠ ĐỒ HÒA PHÚ
+                const wrapper = document.createElement("div");
+                wrapper.style.cssText = "display: flex; flex-direction: column; align-items: center; min-width: 900px;";
+
                 phuGroundPlan.forEach(rowInfo => {
                     const rowDiv = document.createElement("div");
                     rowDiv.className = "map-row";
                     rowDiv.innerHTML = `<span class="row-tag">${rowInfo.label}</span>`;
 
+                    // Cánh Trái
                     const leftDiv = document.createElement("div");
                     leftDiv.className = "wing-group";
                     rowInfo.left.forEach(n => {
@@ -321,11 +343,13 @@
                     });
                     rowDiv.appendChild(leftDiv);
 
+                    // Lối đi
                     const walkway = document.createElement("div");
-                    walkway.className = "walkway-axis";
+                    walkway.className = "phu-walkway";
                     walkway.textContent = "Lối đi";
                     rowDiv.appendChild(walkway);
 
+                    // Cánh Phải
                     const rightDiv = document.createElement("div");
                     rightDiv.className = "wing-group";
                     rowInfo.right.forEach(n => {
@@ -335,35 +359,67 @@
                     });
                     rowDiv.appendChild(rightDiv);
 
-                    container.appendChild(rowDiv);
+                    wrapper.appendChild(rowDiv);
                 });
+                container.appendChild(wrapper);
             } else {
-                ['Khu A', 'Khu B'].forEach(zoneName => {
-                    const title = document.createElement("div");
-                    title.style.cssText = "font-weight: bold; margin: 15px 0 10px; color: #991b1b; font-size: 1.1rem;";
-                    title.textContent = `🏛️ ${zoneName}`;
-                    container.appendChild(title);
+                // SƠ ĐỒ HÒA PHONG: SONG SONG KHU A (TRÁI) & KHU B (PHẢI)
+                const layoutWrap = document.createElement("div");
+                layoutWrap.className = "hp-dual-wings";
 
-                    const zoneItems = ntItems.filter(d => d.zone === zoneName);
-                    for (let h = 1; h <= 22; h++) {
-                        const rowItems = zoneItems.filter(d => parseInt(d.row) === h);
-                        if (rowItems.length === 0) continue;
+                const wingA = document.createElement("div");
+                wingA.className = "hp-wing";
+                wingA.innerHTML = `<div class="hp-wing-title">🏛️ KHU A (CÁNH TRÁI)</div>`;
+                
+                const road = document.createElement("div");
+                road.className = "hp-center-road";
+                road.textContent = "TRỤC ĐƯỜNG LỄ CHÍNH";
 
-                        const rowDiv = document.createElement("div");
-                        rowDiv.className = "map-row";
-                        rowDiv.style.justifyContent = "flex-start";
-                        rowDiv.innerHTML = `<span class="row-tag">Hàng ${h}</span>`;
+                const wingB = document.createElement("div");
+                wingB.className = "hp-wing";
+                wingB.innerHTML = `<div class="hp-wing-title">🏛️ KHU B (CÁNH PHẢI)</div>`;
 
-                        const cellsDiv = document.createElement("div");
-                        cellsDiv.className = "wing-group";
-                        rowItems.forEach(item => {
-                            const numStr = String(item.grave_number);
-                            cellsDiv.appendChild(createGraveBox(item, item.grave_number, matchedSet.has(numStr) && kw));
+                const itemsA = ntItems.filter(d => d.zone === 'Khu A');
+                const itemsB = ntItems.filter(d => d.zone === 'Khu B');
+
+                for (let h = 1; h <= 22; h++) {
+                    // Dãy Hàng Khu A
+                    const rowItemsA = itemsA.filter(d => parseInt(d.row) === h);
+                    if (rowItemsA.length > 0) {
+                        const rowDivA = document.createElement("div");
+                        rowDivA.className = "map-row";
+                        rowDivA.style.justifyContent = "flex-end";
+                        rowDivA.innerHTML = `<span class="row-tag">H.${h}</span>`;
+                        const cellsA = document.createElement("div");
+                        cellsA.className = "wing-group";
+                        rowItemsA.forEach(item => {
+                            cellsA.appendChild(createGraveBox(item, item.grave_number, matchedSet.has(String(item.grave_number)) && kw));
                         });
-                        rowDiv.appendChild(cellsDiv);
-                        container.appendChild(rowDiv);
+                        rowDivA.appendChild(cellsA);
+                        wingA.appendChild(rowDivA);
                     }
-                });
+
+                    // Dãy Hàng Khu B
+                    const rowItemsB = itemsB.filter(d => parseInt(d.row) === h);
+                    if (rowItemsB.length > 0) {
+                        const rowDivB = document.createElement("div");
+                        rowDivB.className = "map-row";
+                        rowDivB.style.justifyContent = "flex-start";
+                        rowDivB.innerHTML = `<span class="row-tag">H.${h}</span>`;
+                        const cellsB = document.createElement("div");
+                        cellsB.className = "wing-group";
+                        rowItemsB.forEach(item => {
+                            cellsB.appendChild(createGraveBox(item, item.grave_number, matchedSet.has(String(item.grave_number)) && kw));
+                        });
+                        rowDivB.appendChild(cellsB);
+                        wingB.appendChild(rowDivB);
+                    }
+                }
+
+                layoutWrap.appendChild(wingA);
+                layoutWrap.appendChild(road);
+                layoutWrap.appendChild(wingB);
+                container.appendChild(layoutWrap);
             }
         }
 
@@ -385,10 +441,7 @@
                 card.className = "item-card";
                 
                 let storySnippet = item.story || item.note;
-                let storyHtml = "";
-                if (storySnippet) {
-                    storyHtml = `<div class="story-badge">📜 <strong>Ghi chú / Chiến công:</strong> ${storySnippet}</div>`;
-                }
+                let storyHtml = storySnippet ? `<div class="story-badge">📜 <strong>Ký ức / Chiến công:</strong> ${storySnippet}</div>` : "";
 
                 card.innerHTML = `
                     <div class="item-card-name">${item.name}</div>
