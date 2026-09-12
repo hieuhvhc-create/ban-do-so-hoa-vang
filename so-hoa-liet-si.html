@@ -118,42 +118,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             overflow-x: auto;
         }
-        .monument-header {
-            text-align: center;
-            margin: 0 auto 20px;
-            max-width: 360px;
-            padding: 10px 16px;
-            background: #fee2e2;
-            border: 2px dashed #b91c1c;
-            color: #991b1b;
-            font-weight: bold;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-        .plaza-header {
-            text-align: center;
-            margin: 0 auto 25px;
-            max-width: 300px;
-            padding: 8px 12px;
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 0.88rem;
-            color: #475569;
-            font-weight: 600;
-        }
-        .gate-footer {
-            text-align: center;
-            margin: 25px auto 0;
-            max-width: 280px;
-            padding: 8px 16px;
-            background: #f8fafc;
-            border: 2px solid #94a3b8;
-            color: #475569;
-            font-weight: bold;
-            border-radius: 8px;
-            font-size: 0.95rem;
-        }
 
         .map-row {
             display: flex;
@@ -209,7 +173,7 @@
             transform: scale(1.2);
         }
 
-        /* Lối đi Hòa Phú */
+        /* Lối đi NTLS Hòa Phú */
         .phu-walkway {
             width: 48px;
             display: flex;
@@ -224,20 +188,51 @@
             margin: 0 4px;
             background: #fafafa;
         }
+        .phu-monument-header {
+            text-align: center;
+            margin: 0 auto 20px;
+            max-width: 360px;
+            padding: 10px 16px;
+            background: #fee2e2;
+            border: 2px dashed #b91c1c;
+            color: #991b1b;
+            font-weight: bold;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .phu-gate-footer {
+            text-align: center;
+            margin: 25px auto 0;
+            max-width: 280px;
+            padding: 8px 16px;
+            background: #f8fafc;
+            border: 2px solid #94a3b8;
+            color: #475569;
+            font-weight: bold;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
 
-        /* Hòa Phong Song Song (Khu A | Trục Lễ | Khu B) */
-        .hp-dual-wings {
+        /* Bố cục NTLS Hòa Phong chuẩn vệ tinh (H1-H10 -> Tượng đài trung tâm -> H11-H23 -> Cổng) */
+        .hp-satellite-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            min-width: 1400px;
+        }
+        .hp-section-block {
             display: flex;
             justify-content: center;
             gap: 12px;
-            min-width: 1450px;
+            width: 100%;
         }
         .hp-wing {
             flex: 1;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            padding: 12px;
+            padding: 14px;
             overflow-x: auto;
         }
         .hp-wing-title {
@@ -264,6 +259,47 @@
             writing-mode: vertical-rl;
             text-orientation: upright;
             flex-shrink: 0;
+        }
+        .hp-central-monument {
+            width: 100%;
+            max-width: 650px;
+            margin: 15px auto;
+            padding: 14px 20px;
+            background: #fef2f2;
+            border: 2px dashed #b91c1c;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(185, 28, 28, 0.08);
+        }
+        .monument-title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #991b1b;
+        }
+        .monument-sub {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+        .hp-gate-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 25px;
+            padding: 12px 20px;
+            background: #f8fafc;
+            border: 2px solid #94a3b8;
+            border-radius: 10px;
+        }
+        .stele-box {
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: #475569;
+            padding: 6px 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
         }
 
         /* Danh sách thẻ */
@@ -363,7 +399,7 @@
         </div>
     </header>
 
-    <!-- Menu 3 nút -->
+    <!-- Menu điều hướng -->
     <nav class="main-nav-bar">
         <a href="index.html" class="nav-link-btn secondary">🏛️ Di tích Lịch sử - Văn hóa</a>
         <a href="du-lich-phu-tuc.html" class="nav-link-btn secondary">🌿 Khám phá Du lịch Phú Túc</a>
@@ -379,7 +415,7 @@
             </div>
             <div class="nt-card-btn" id="card-phong" onclick="changeNT('nt_hoa_phong')">
                 <h4>🏛️ NTLS Xã Hòa Phong</h4>
-                <p>Tổng số: <strong>934</strong> phần mộ (Khu A & Khu B đối xứng)</p>
+                <p>Tổng số: <strong>934</strong> phần mộ (Đối xứng trục lễ trung tâm)</p>
             </div>
         </div>
 
@@ -402,12 +438,9 @@
             <div id="statLabel" style="font-size: 0.9rem; color: #64748b;">Đang kết nối dữ liệu Google Sheets...</div>
         </div>
 
-        <!-- BẢN ĐỒ SƠ ĐỒ LƯỚI THỰC ĐỊA -->
+        <!-- KHUNG SƠ ĐỒ LƯỚI THỰC ĐỊA -->
         <div id="mapWrapper" class="map-card-wrapper">
-            <div class="monument-header">⭐ ĐÀI TƯỞNG NIỆM TRUNG TÂM ⭐</div>
-            <div class="plaza-header">🏛️ SÂN HÀNH LỄ & NHÀ TƯỞNG NIỆM</div>
             <div id="mapContent"></div>
-            <div class="gate-footer">🚪 CỔNG NGHĨA TRANG</div>
         </div>
 
         <!-- DANH SÁCH THẺ -->
@@ -440,6 +473,7 @@
         let activeNT = 'nt_hoa_phu';
         let currentMode = 'map';
 
+        // Sơ đồ thực địa NTLS Hòa Phú (147 mộ)
         const phuGroundPlan = [
             { label: "Hàng 1", left: [1, 2, 3, 4, 5, 6, 7, 8], right: [9, 10, 11, 12, 13, 14, 15, 16] },
             { label: "Hàng 2", left: [32, 31, 30, 29, 28, 27, 26, 25], right: [24, 23, 22, 21, 20, 19, 18, 17] },
@@ -453,6 +487,7 @@
             { label: "Hàng 10", left: [139, 140, 141, 142, 143, 144], right: [145, 146, 147] }
         ];
 
+        // Tải trực tiếp dữ liệu Google Sheets
         Papa.parse(GOOGLE_SHEET_CSV_URL, {
             download: true,
             header: true,
@@ -528,8 +563,14 @@
             const ntItems = allMartyrs.filter(d => d.cemetery_id === activeNT);
 
             if (activeNT === 'nt_hoa_phu') {
+                // --- SƠ ĐỒ HÒA PHÚ ---
                 const wrapper = document.createElement("div");
                 wrapper.style.cssText = "display: flex; flex-direction: column; align-items: center; min-width: 900px;";
+
+                const monu = document.createElement("div");
+                monu.className = "phu-monument-header";
+                monu.innerHTML = "⭐ ĐÀI TƯỞNG NIỆM PHÍA TRÊN ⭐";
+                wrapper.appendChild(monu);
 
                 phuGroundPlan.forEach(rowInfo => {
                     const rowDiv = document.createElement("div");
@@ -546,7 +587,7 @@
                     });
                     rowDiv.appendChild(leftDiv);
 
-                    // Lối đi giữa
+                    // Lối đi
                     const walkway = document.createElement("div");
                     walkway.className = "phu-walkway";
                     walkway.textContent = "Lối đi";
@@ -564,65 +605,103 @@
 
                     wrapper.appendChild(rowDiv);
                 });
+
+                const gate = document.createElement("div");
+                gate.className = "phu-gate-footer";
+                gate.innerHTML = "🚪 CỔNG NGHĨA TRANG PHÍA DƯỚI";
+                wrapper.appendChild(gate);
+
                 container.appendChild(wrapper);
             } else {
-                // Sơ đồ Hòa Phong: Song song Khu A (Cánh trái) - Trục Lễ - Khu B (Cánh phải)
-                const layoutWrap = document.createElement("div");
-                layoutWrap.className = "hp-dual-wings";
-
-                const wingA = document.createElement("div");
-                wingA.className = "hp-wing";
-                wingA.innerHTML = `<div class="hp-wing-title">🏛️ KHU A (CÁNH TRÁI)</div>`;
-                
-                const road = document.createElement("div");
-                road.className = "hp-center-road";
-                road.textContent = "TRỤC ĐƯỜNG LỄ CHÍNH";
-
-                const wingB = document.createElement("div");
-                wingB.className = "hp-wing";
-                wingB.innerHTML = `<div class="hp-wing-title">🏛️ KHU B (CÁNH PHẢI)</div>`;
+                // --- SƠ ĐỒ HÒA PHONG (CHUẨN VỆ TINH GOOGLE MAPS) ---
+                const root = document.createElement("div");
+                root.className = "hp-satellite-layout";
 
                 const itemsA = ntItems.filter(d => d.zone === 'Khu A');
                 const itemsB = ntItems.filter(d => d.zone === 'Khu B');
 
-                for (let h = 1; h <= 23; h++) {
-                    // Dãy hàng Khu A (căn lề phải hướng vào trục đường lễ)
-                    const rowItemsA = itemsA.filter(d => parseInt(d.row) === h);
-                    if (rowItemsA.length > 0) {
-                        const rowDivA = document.createElement("div");
-                        rowDivA.className = "map-row";
-                        rowDivA.style.justifyContent = "flex-end";
-                        rowDivA.innerHTML = `<span class="row-tag">H.${h}</span>`;
-                        const cellsA = document.createElement("div");
-                        cellsA.className = "wing-group";
-                        rowItemsA.forEach(item => {
-                            cellsA.appendChild(createGraveBox(item, item.grave_number, matchedSet.has(String(item.grave_number)) && kw));
-                        });
-                        rowDivA.appendChild(cellsA);
-                        wingA.appendChild(rowDivA);
+                function buildSegment(startRow, endRow, labelA, labelB) {
+                    const segBlock = document.createElement("div");
+                    segBlock.className = "hp-section-block";
+
+                    const wingA = document.createElement("div");
+                    wingA.className = "hp-wing";
+                    if (labelA) wingA.innerHTML = `<div class="hp-wing-title">${labelA}</div>`;
+
+                    const road = document.createElement("div");
+                    road.className = "hp-center-road";
+                    road.textContent = "TRỤC LỄ";
+
+                    const wingB = document.createElement("div");
+                    wingB.className = "hp-wing";
+                    if (labelB) wingB.innerHTML = `<div class="hp-wing-title">${labelB}</div>`;
+
+                    for (let h = startRow; h <= endRow; h++) {
+                        // Khu A (Cánh trái - căn phải vào trục lễ)
+                        const rowItemsA = itemsA.filter(d => parseInt(d.row) === h);
+                        if (rowItemsA.length > 0) {
+                            const rowDivA = document.createElement("div");
+                            rowDivA.className = "map-row";
+                            rowDivA.style.justifyContent = "flex-end";
+                            rowDivA.innerHTML = `<span class="row-tag">H.${h}</span>`;
+                            const cellsA = document.createElement("div");
+                            cellsA.className = "wing-group";
+                            rowItemsA.forEach(item => {
+                                cellsA.appendChild(createGraveBox(item, item.grave_number, matchedSet.has(String(item.grave_number)) && kw));
+                            });
+                            rowDivA.appendChild(cellsA);
+                            wingA.appendChild(rowDivA);
+                        }
+
+                        // Khu B (Cánh phải - căn trái từ trục lễ ra)
+                        const rowItemsB = itemsB.filter(d => parseInt(d.row) === h);
+                        if (rowItemsB.length > 0) {
+                            const rowDivB = document.createElement("div");
+                            rowDivB.className = "map-row";
+                            rowDivB.style.justifyContent = "flex-start";
+                            rowDivB.innerHTML = `<span class="row-tag">H.${h}</span>`;
+                            const cellsB = document.createElement("div");
+                            cellsB.className = "wing-group";
+                            rowItemsB.forEach(item => {
+                                cellsB.appendChild(createGraveBox(item, item.grave_number, matchedSet.has(String(item.grave_number)) && kw));
+                            });
+                            rowDivB.appendChild(cellsB);
+                            wingB.appendChild(rowDivB);
+                        }
                     }
 
-                    // Dãy hàng Khu B (căn lề trái hướng từ trục đường lễ ra)
-                    const rowItemsB = itemsB.filter(d => parseInt(d.row) === h);
-                    if (rowItemsB.length > 0) {
-                        const rowDivB = document.createElement("div");
-                        rowDivB.className = "map-row";
-                        rowDivB.style.justifyContent = "flex-start";
-                        rowDivB.innerHTML = `<span class="row-tag">H.${h}</span>`;
-                        const cellsB = document.createElement("div");
-                        cellsB.className = "wing-group";
-                        rowItemsB.forEach(item => {
-                            cellsB.appendChild(createGraveBox(item, item.grave_number, matchedSet.has(String(item.grave_number)) && kw));
-                        });
-                        rowDivB.appendChild(cellsB);
-                        wingB.appendChild(rowDivB);
-                    }
+                    segBlock.appendChild(wingA);
+                    segBlock.appendChild(road);
+                    segBlock.appendChild(wingB);
+                    return segBlock;
                 }
 
-                layoutWrap.appendChild(wingA);
-                layoutWrap.appendChild(road);
-                layoutWrap.appendChild(wingB);
-                container.appendChild(layoutWrap);
+                // 1. Phân đoạn sau Đài: Hàng 1 -> Hàng 10
+                root.appendChild(buildSegment(1, 10, "🏛️ KHU A (PHÍA SAU ĐÀI)", "🏛️ KHU B (PHÍA SAU ĐÀI)"));
+
+                // 2. Trung tâm: Đài tưởng niệm & Sân hành lễ (giữa H10 và H11)
+                const centerMonument = document.createElement("div");
+                centerMonument.className = "hp-central-monument";
+                centerMonument.innerHTML = `
+                    <div class="monument-title">⭐ ĐÀI TƯỞNG NIỆM & SÂN HÀNH LỄ TRUNG TÂM ⭐</div>
+                    <div class="monument-sub">Khuôn viên nghi lễ trung tâm — Ngăn cách Cụm mộ trước và Cụm mộ sau</div>
+                `;
+                root.appendChild(centerMonument);
+
+                // 3. Phân đoạn trước Đài: Hàng 11 -> Hàng 23
+                root.appendChild(buildSegment(11, 23, "🏛️ KHU A (PHÍA TRƯỚC ĐÀI)", "🏛️ KHU B (PHÍA TRƯỚC ĐÀI)"));
+
+                // 4. Dưới cùng: Cổng chính và 2 Bia ghi danh
+                const gateWrap = document.createElement("div");
+                gateWrap.className = "hp-gate-wrapper";
+                gateWrap.innerHTML = `
+                    <div class="stele-box">📜 BIA GHI DANH (TẢ)</div>
+                    <div style="font-weight: bold; font-size: 1rem; color: #1e293b;">🚪 CỔNG VÀO NGHĨA TRANG (LỐI VÀO CHÍNH)</div>
+                    <div class="stele-box">📜 BIA GHI DANH (HỮU)</div>
+                `;
+                root.appendChild(gateWrap);
+
+                container.appendChild(root);
             }
         }
 
