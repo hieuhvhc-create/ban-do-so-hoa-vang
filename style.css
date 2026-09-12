@@ -112,7 +112,7 @@ header p {
     display: block;
 }
 
-/* 4. MENU CHUYỂN TRANG (DI TÍCH - DU LỊCH - LIỆT SĨ) */
+/* 4. MENU ĐIỀU HƯỚNG 3 MỤC (DI TÍCH - DU LỊCH - LIỆT SĨ) */
 .main-nav-bar, .main-menu {
     display: flex;
     justify-content: center;
@@ -158,6 +158,7 @@ header p {
     box-shadow: 0 2px 6px rgba(46, 125, 50, 0.35);
 }
 
+/* Kiểu dáng nút chuyên trang Liệt sĩ */
 .nav-link-btn.martyr-btn {
     color: #be123c;
     border-color: #f43f5e;
@@ -170,7 +171,7 @@ header p {
     box-shadow: 0 2px 6px rgba(190, 18, 60, 0.35);
 }
 
-/* 5. THANH TÌM KIẾM CƠ BẢN */
+/* 5. THANH TÌM KIẾM TRANG CHỦ */
 .search {
     display: flex;
     justify-content: center;
@@ -230,7 +231,7 @@ header p {
     }
 }
 
-/* 7. PHẦN TỬ DANH SÁCH & BẢN ĐỒ */
+/* 7. PHẦN TỬ DANH SÁCH & FOOTER */
 .sidebar h3 {
     margin-bottom: 12px;
     padding: 0 15px;
@@ -288,7 +289,7 @@ footer {
 }
 
 /* =========================================================
-   8. TỐI ƯU TOÀN DIỆN CHO ĐIỆN THOẠI (<= 768px)
+   8. TỐI ƯU CHO ĐIỆN THOẠI (<= 768px)
    ========================================================= */
 @media (max-width: 768px) {
     header {
